@@ -15,10 +15,10 @@ class Sidebar extends Component{
                         <ul>
                             <li><Link to={'/'}>Home</Link></li>
                             <li><Link to={'/Document'}>Document</Link></li>
-                        </ul>                                    
-                    </Router>                    
+                        </ul>
+                    </Router>
                </div>
-            </div>            
+            </div>
         );
     }
 }
@@ -29,11 +29,11 @@ class Wrapper extends Component{
             <div className="wrapper">
                 <Header />
                 <Sidebar/>
-                <Router>                                        
+                <Router>
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route exact path="/Document" component={Document} />
-                    </Switch>                                 
+                    </Switch>
                 </Router>
             </div>
             
