@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router-dom';
 
-class HomeList extends Component{
+class HomeList extends React.Component{
     render(){        
         return (
             <li><a href="/">{this.props.detail}</a></li>
@@ -9,8 +10,8 @@ class HomeList extends Component{
     }
 }
 
-class Home extends Component{ 
-    constructor(props){
+class Home extends React.Component {
+	constructor(props){
         super(props )        
         this.state = {
            title : 'Welcome to React Port',
@@ -20,7 +21,7 @@ class Home extends Component{
         }
         
         this.clearInput = this.clearInput.bind(this)
-    }  
+    }
 
     updateState(e){
         this.setState({data: e.target.value})
@@ -59,10 +60,9 @@ class Home extends Component{
         console.log('Component did update')
     }
 
-    
-    render(){
-        return(
-            <div className="content">
+	render() {
+		return (
+			<div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
@@ -124,9 +124,9 @@ class Home extends Component{
                             onClick={this.updateCount.bind(this)}>Count
                         </button>
                 </div>
-            </div>            
-        );
-    }
+            </div>
+		)
+	}
 }
 
-export default Home;
+export default withRouter(Home)

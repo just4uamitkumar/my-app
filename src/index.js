@@ -8,13 +8,13 @@ import './index.css';
 //import Stateless from './Stateless';
 //import LifeCycle from './LifeCycle';
 //import AjaxCall from './AjaxCall';
-import Wrapper from './Wrapper';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
 
 
-ReactDOM.render(<Wrapper/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
