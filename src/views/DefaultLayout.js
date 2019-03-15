@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Header, Sidebar, Home, Document } from './../components'
+import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall } from './../components'
 
 class DefaultLayout extends React.Component {
 
@@ -14,37 +14,53 @@ class DefaultLayout extends React.Component {
 
 	toggleMenu(condition) {
 		this.setState(state => ({
-      condition: !state.condition
+        condition: !state.condition
     }));
 	}
 
 	render() {
+
 		const { location, match } = this.props;
 		let pageContent = '';
+
 		switch(location.pathname) {
-			case '/':
-				pageContent = <Home />
-				break;
-			case '/document':
-				pageContent = <Document />
-				break;
-			case `/test/${match.params.id}`:
-				pageContent = <Document />
-				break;
+			case '/': pageContent = <Home />
+			break;
+
+			case '/Document': pageContent = <Document />
+			break;
+
+			//case `/test/${match.params.id}`: pageContent = <Document />
+			//break;
+
+			case '/LifeCycle': pageContent = <LifeCycle />
+			break;
+
+			case '/Stateless': pageContent = <Stateless />
+			break;
+
+			case '/AjaxCall' : pageContent = <AjaxCall />
+			break;
+
+			//case '/Login' : pageContent = <Login />
+			//break;
+
+			case `/test/${match.params.id}`: pageContent = <Stateless />
+			break;
+
 			default: break;
 		}
 
 		const { condition } = this.state;
 
 		return (
-			<div className={condition ? "wrapper toggleMenu" : "wrapper toggleMenu active"}>
+			<div className={condition ? "wrapper" : "wrapper toggleNav"}>
 				<Header
 					toggleMenu={(condition) => this.toggleMenu(condition)}
 					condition={condition}
 				/>
 				<Sidebar />
 				{pageContent}
-				{/*<Footer />*/}
 			</div>
 		)
 	}
