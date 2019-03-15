@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './../../logo.svg';
 //import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import './App.css';
+import './../../App.css';
 import Modal from 'react-modal';
+
 
 
 class Login extends Component{

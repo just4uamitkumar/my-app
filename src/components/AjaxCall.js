@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import $ from 'jquery'
-
 
 class TodoItem extends Component {
     componentWillReceiveProps(nextProps){
@@ -102,9 +100,8 @@ class AjaxCall extends Component{
                             {
                                 users.map((user) => {
                                     return <li key={user.id}>
-                                    {user.address.suite},
-                                    {user.address.city}
-                                    
+                                            {user.address.suite},
+                                            {user.address.city}                                    
                                     </li>
                                 })
                             }
@@ -127,7 +124,7 @@ class AjaxCall extends Component{
                             this.refs.addTodo.vale = "";
                         }}>
                             <input type="text" className="form-control" ref="addTodo"/>
-                            <button type="submit" className="btn btn-warning">Add Todo</button>
+                            <button type="submit" className="btn btn-warning btn-sm">Add Todo</button>
                         </form>
                         <TodoItem todos={todos}/>
                     </div>  

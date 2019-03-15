@@ -33,13 +33,14 @@ class Header extends React.Component {
                     <Link to="/"><img src={logo} className="App-logo" alt="logo" /> <span>React Port</span></Link>
                 </div>
                 <div className="headerRight">
-                    <Link to="/" onClick={this.toggleMenu}
-                        className={condition ? 'toggleMenu' : 'toggleMenu active'}><FaBars/>
+                    <Link to="/" onClick={this.toggleMenu} className='toggleMenu'>
+                        <FaBars/>
                     </Link>
 
-                    <Link to="/Login" onClick={this.logOut} className="logOut" ><FaPowerOff/></Link>
-
-                    <div className="CurrentTime"> {this.state.current_time}</div>                    
+                    <Link to="/Login" onClick={this.logOut} className="logOut">
+                        <FaPowerOff/>
+                    </Link>
+                    <div className="CurrentTime"> {this.state.current_time}</div>                   
                                         
                 </div>
             </header>            

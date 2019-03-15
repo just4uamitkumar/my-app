@@ -6,6 +6,7 @@ class LifeCycle extends Component{
         super(props);
         this.state = {        
             title : 'Life Cycle Method',
+            count:0
         }
     }
 
@@ -16,7 +17,7 @@ class LifeCycle extends Component{
     }
 
     shouldComponentUpdate(){
-        if(this.state.count > 10){
+        if(this.state.count > 9){
             return false;
         }
         return true;
@@ -28,7 +29,11 @@ class LifeCycle extends Component{
 
     componentDidMount(){
         console.log('Mounted');
-    }    
+    } 
+
+    componentWillUnmount() {
+        this.isCancelled = true;
+    }   
     
     render(){
         return(
@@ -38,16 +43,9 @@ class LifeCycle extends Component{
                 </div>
                 <div className="contentBlock">
                     <h2>Document Type</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                        irure dolor in reprehenderit in voluptate velit esse cillum 
-                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        cupidatat non proident, sunt in culpa qui officia deserunt 
-                        mollit anim id est laborum.</p>
-                        {this.state.count}
-                        <button onClick={this.incCount}>Increment</button>                                              
+                    
+                    {this.state.count} &nbsp;
+                        <button className="btn btn-primary btn-sm" onClick={this.incCount}>Increment</button>                                              
                 </div>
             </div>            
         );

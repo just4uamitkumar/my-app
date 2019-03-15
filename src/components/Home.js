@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 class HomeList extends React.Component{
     render(){        
         return (
-            <li><a href="/">{this.props.detail}</a></li>
+            <li><a href="javascript:void();">{this.props.detail}</a></li>
         )        
     }
 }
@@ -105,8 +105,8 @@ class Home extends React.Component {
                     </div>
                     
                     <div className="col-4">
-                        <button className="btn btn-primary"
-                            onClick={this.clearInput}>Clear
+                        <button className="btn btn-primary" onClick={this.clearInput}>
+                            Clear
                         </button>
                     </div>
                     <div className="col-4">
