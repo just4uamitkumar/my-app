@@ -1,13 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-//import Login from './Login';
-//import Home from './Home';
-//import Document from './Document';
-//import Stateless from './Stateless';
-//import LifeCycle from './LifeCycle';
-//import AjaxCall from './AjaxCall';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

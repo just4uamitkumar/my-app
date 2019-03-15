@@ -13,8 +13,9 @@ class App extends Component {
           <Route path="/LifeCycle" exact component={DefaultLayout} />
           <Route path="/Stateless" exact component={DefaultLayout} />
           <Route path="/AjaxCall" exact component={DefaultLayout} />
+          <Route path="/AxiosCallA" exact component={DefaultLayout} />
           // <Route path="/Login" exact component={DefaultLayout} />
-          <Route path="/test/:id" exact component={DefaultLayout} />
+          <Route path="/test/:id" exact component={DefaultLayout} />          
         </Switch>
       </BrowserRouter>
     );

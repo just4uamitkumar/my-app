@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHome, FaLeanpub, FaBullhorn, FaGlobe, FaGavel } from 'react-icons/fa';
+import { FaHome, FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaChain } from 'react-icons/fa';
 import { withRouter, Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
@@ -9,7 +9,8 @@ class Sidebar extends React.Component {
 			{path: '/Document', label: 'Document', icon:<FaLeanpub/>},
 			{path: '/LifeCycle', label: 'LifeCycle', icon:<FaBullhorn/>},
 			{path: '/Stateless', label: 'Stateless', icon:<FaGavel/>},
-			{path: '/AjaxCall', label: 'AjaxCall', icon:<FaGlobe/>}
+			{path: '/AjaxCall', label: 'AjaxCall', icon:<FaGlobe/>},
+			{path: '/AxiosCallA', label: 'AxiosCall A', icon:<FaGavel/>}
 		];
 		return (
 			<div className='sidebar'>
