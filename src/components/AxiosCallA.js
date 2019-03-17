@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-//import axios from 'axios';
 import axios from 'axios';
 
 class AxiosCallA extends Component{ 
@@ -8,36 +6,30 @@ class AxiosCallA extends Component{
         super(props);
         this.state = {        
             title : 'Axios Call',
-            posts:[]
+            persons:[]
         }       
     } 
 
     componentDidMount() {
-        axios.get(`http://www.reddit.com/r/${this.props.subreddit}.json`)
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
           .then(res => {
-            const posts = res.data.data.children.map(obj => obj.data);
-            this.setState({ posts });
+            const persons = res.data;
+            this.setState({ persons });
           });
       }     
     
-    render(){
-
-        const { users, todos } = this.state;
-        //const { users } = this.state;
-       
+    render(){       
         return(
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-3">
+                <div className="col-4">
                     <div className="contentBlock">
-                        <h2>{`/r/${this.props.subreddit}`}</h2>
-                        <ul>
-                          {this.state.posts.map(post =>
-                            <li key={post.id}>{post.title}</li>
-                          )}
+                        <h2>Get Request</h2>
+                        <ul className="DocsListA">
+                        { this.state.persons.map(person => <li key={person.id}>{person.name}</li>)}
                         </ul> 
                     </div>                                                                                                  
                 </div>

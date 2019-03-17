@@ -6,4 +6,6 @@ export { default as LifeCycle } from './LifeCycle'
 export { default as Stateless } from './Stateless'
 export { default as AjaxCall } from './AjaxCall'
 export { default as AxiosCallA } from './AxiosCallA'
+export { default as FormValid } from './FormValid'
+
 // export { default as Login } from './Login'

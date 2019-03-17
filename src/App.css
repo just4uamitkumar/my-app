@@ -16,6 +16,7 @@ a:hover, a:focus, button:focus, a{outline: 0; text-decoration: none;}
 li{list-style: none;}
 .relative{position: relative;}
 .text-center{text-align: center;}
+.text-right{text-align: right}
 .show{display: block !important;}
 .hide{display: none !important;}
 .left{float: left;}
@@ -26,13 +27,15 @@ li{list-style: none;}
 
 /*------| Form |------*/
 .form-group{margin-bottom:10px; overflow: hidden;}
+.form-group label{font-weight: 700; padding: 0 0 6px; font-size: 15px; display:block}
 .control-label{ font-size: 1.1rem; display: block; padding: 0 0 5px;}
 .form-control {background-color: #fff; border: 1px solid #ddd; width:calc(100% - 16px);
 padding: 8px 10px; margin:0 0 10px; font-size: 1rem;}
 ::placeholder{font-size: 14px;}
 button:focus, a:focus{outline: 0;}
-.btn{box-shadow: 3px 2px 4px #000; padding: 7px 20px; border-style:solid; color: #fff;
+.btn{ padding: 7px 20px; border-style:solid; color: #fff;
 border-width: 0 0 2px; font-size:1rem; cursor: pointer; border-radius: 2px;}
+.btn + .btn{margin-left:10px; }
 .btn-block{width: 100%;}
 .btn:hover{box-shadow: 3px 3px 6px #000;}
 .btn-primary{border-color: #0e6b03;  background: #00901F;}
@@ -159,4 +162,15 @@ input.form-control{border:1px solid #ddd; padding: 5px 7px;}
 .table th{text-align: left; background:#ddd; padding: 5px;}
 .table tr td{border-bottom: 1px solid #ddd; padding: 5px;}
 
+
+/*-----| Modal |-----*/
+.modalHeader{position: relative;}
+.modalHeader h4{font-size: 22px; color: #222; border-bottom:1px solid #ddd;
+padding: 0 0 10px;}
+.modalHeader .closeModal{position: absolute; border-radius: 50%; width: 30px;
+  height: 30px; color: #fff; background: #b52a00; font-size: 13px;
+  border: 0; right: -10px;  top: -10px;}
+.modalBody{padding: 10px 0;}
+.modalFooter{ border-top:1px solid #ddd; padding: 10px 0 0;}
+.ReactModal__Content {bottom: auto;}
 
