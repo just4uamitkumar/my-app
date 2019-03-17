@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, AxiosCallA } from './../components'
+import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, AxiosCallA, FormValid } from './../components'
 
 class DefaultLayout extends React.Component {
 
@@ -42,7 +42,10 @@ class DefaultLayout extends React.Component {
 			case '/AxiosCallA' : pageContent = <AxiosCallA />
 			break;
 
-			case `/test/${match.params.id}`: pageContent = <Stateless />
+			case '/FormValid' : pageContent = <FormValid />
+			break;		
+
+			case `/test/${match.params.id}`: pageContent = <Home />
 			break;
 
 			default: break;
