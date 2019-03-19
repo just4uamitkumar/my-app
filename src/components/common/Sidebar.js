@@ -11,7 +11,10 @@ class Sidebar extends React.Component {
 			{path: '/Stateless', label: 'Stateless', icon:<FaGavel/>},
 			{path: '/AjaxCall', label: 'AjaxCall', icon:<FaGlobe/>},
 			{path: '/AxiosCallA', label: 'AxiosCall A', icon:<FaUmbrella/>},
+			{path: '/AxiosCallB', label: 'AxiosCall B', icon:<FaUmbrella/>},
 			{path: '/FormValid', label: 'FormValid', icon:<FaWpforms/>}
+			
+			
 		];
 		return (
 			<div className='sidebar'>
