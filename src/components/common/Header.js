@@ -26,7 +26,7 @@ class Header extends React.Component {
       }
     
     render(){
-        const { condition } = this.props;
+        //const { condition } = this.props;
         return(
             <header>
                 <div className="logo">

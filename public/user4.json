@@ -1,4 +1,4 @@
-{"users":[
+[
 	{
 		"id":1,
 		"firstname":"Vinay",
@@ -56,4 +56,3 @@
 		"occupatoin":"Web Developer"
 	}
 ]
-}
