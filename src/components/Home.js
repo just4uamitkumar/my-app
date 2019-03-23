@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 class HomeList extends React.Component{
     render(){        
         return (
-            <li><a href="javascript:void();">{this.props.detail}</a></li>
+            <li><span>{this.props.detail}</span></li>
         )        
     }
 }
@@ -36,29 +36,29 @@ class Home extends React.Component {
         this.setState({count: this.state.count + 1})
     }
 
-    componentWillMount(){
-        console.log('will mount')
-    }
+    // componentWillMount(){
+    //     console.log('will mount')
+    // }
 
-    componentDidMount(){
-        console.log('mounted')
-    }
+    // componentDidMount(){
+    //     console.log('mounted')
+    // }
 
-    componentWillReceiveProps(){
-        console.log('Will recieve Props')
-    }
+    // componentWillReceiveProps(){
+    //     console.log('Will recieve Props')
+    // }
 
     // shouldComponentUpdate(){
     //     console.log('should component update')
     // }
 
-    componentWillUpdate(){
-        console.log('Component will update')
-    }
+    // componentWillUpdate(){
+    //     console.log('Component will update')
+    // }
 
-    componentDidUpdate(){
-        console.log('Component did update')
-    }
+    // componentDidUpdate(){
+    //     console.log('Component did update')
+    // }
 
 	render() {
 		return (
