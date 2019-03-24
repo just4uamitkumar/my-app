@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import UserData from './user4.json';
 
 class AxiosCallB extends Component{ 
@@ -7,22 +7,26 @@ class AxiosCallB extends Component{
         super(props);
         this.state = {        
             title : 'Axios Call Local JSON',
-            datas:[],
-            UserData:[]
+            datas: UserData.users,
+            UserData: []
         }       
     } 
 
-    componentDidMount() {
-        axios.get('user4.json')
-          .then(res => {
-            const datas = res.data;
-            this.setState({ datas });
-        });
+    UNSAFE_componentDidMount() {
+        // TODO
+    }
 
-        console.log(this.state.datas)
-    }   
+    componentDidMount () {
+        let { datas } = this.state
+        setTimeout(() => {
+            datas[0].firstname = 'Amit'
+            datas[0].lastname = 'P2'
+            this.setState({datas})
+        }, 5000)
+    }
     
-    render(){       
+    render(){
+        const { datas } = this.state
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -31,10 +35,37 @@ class AxiosCallB extends Component{
 
                 <div className="col-3">
                     <div className="contentBlock">
-                        <h2>Name</h2>                        
-                        {/* <ul>
-                            { this.state.persons.map(person => <li>{person.firstname}</li>)}
-                        </ul> */}
+                        <h2>First Name</h2>                        
+                        <ul>
+                            { datas.map(e => <li key={e.id}>{e.firstname}</li>)}
+                        </ul>
+                    </div>                                                                                                  
+                </div>
+
+                <div className="col-3">
+                    <div className="contentBlock">
+                        <h2>Last Name</h2>                        
+                        <ul>
+                            { datas.map(e => <li key={e.id}>{e.lastname}</li>)}
+                        </ul>
+                    </div>                                                                                                  
+                </div>
+
+                <div className="col-3">
+                    <div className="contentBlock">
+                        <h2>Experience</h2>                        
+                        <ul>
+                            { datas.map(e => <li key={e.id}>{e.experience}</li>)}
+                        </ul>
+                    </div>                                                                                                  
+                </div>
+
+                <div className="col-3">
+                    <div className="contentBlock">
+                        <h2>Occupation</h2>                        
+                        <ul>
+                            { datas.map(e => <li key={e.id}>{e.occupatoin}</li>)}
+                        </ul>
                     </div>                                                                                                  
                 </div>
 
@@ -53,15 +84,20 @@ class AxiosCallB extends Component{
                                         <th>Date of Birth</th>
                                         <th>Experience</th>
                                         <th>Occupation</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.UserData.map(row =>
-                                            <tr>
-                                                <td>row.id</td>
-                                                <td>row.firstname</td>
-                                                <td>row.lastname</td>
+                                        datas.map(row =>
+                                            <tr key={row.id}>
+                                                <td>{row.id}</td>
+                                                <td>{row.firstname}</td>
+                                                <td>{row.lastname}</td>
+                                                <td>{row.dob}</td>
+                                                <td>{row.experience}</td>
+                                                <td>{row.occupatoin}</td>
+                                                <td></td>
                                             </tr>
                                         )
                                     }
