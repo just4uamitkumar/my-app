@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class AxiosCallB extends Component{ 
+class AxiosCallD extends Component{ 
     constructor(props){
         super(props);
         this.state = {        
@@ -53,4 +53,4 @@ class AxiosCallB extends Component{
     }
 }
 
-export default AxiosCallB;
+export default AxiosCallD;
