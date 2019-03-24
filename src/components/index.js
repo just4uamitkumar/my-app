@@ -7,6 +7,9 @@ export { default as Stateless } from './Stateless'
 export { default as AjaxCall } from './AjaxCall'
 export { default as AxiosCallA } from './AxiosCallA'
 export { default as AxiosCallB } from './AxiosCallB'
+export { default as AxiosCallC } from './AxiosCallC'
+export { default as AxiosCallD } from './AxiosCallD'
+export { default as UseJson } from './UseJson'
 export { default as FormValid } from './FormValid'
 
 
