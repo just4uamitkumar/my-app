@@ -174,3 +174,9 @@ padding: 0 0 10px;}
 .modalFooter{ border-top:1px solid #ddd; padding: 10px 0 0;}
 .ReactModal__Content {bottom: auto;}
 
+
+/**/
+.formHorizontal{margin:0 -5px;}
+.formHorizontal input{ display:inline-block; width: 12%; margin:5px 5px;}
+
+

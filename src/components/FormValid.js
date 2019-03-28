@@ -92,7 +92,7 @@ class FormValid extends Component{
                                 }} className="form-control"/>
                             </div>
                             <div className="form-group text-right">
-                                <button type="reset"  onClick={this.toggleModal}  className="btn btn-warning">
+                                <button type="reset" onClick={this.toggleModal}  className="btn btn-warning">
                                     Reset
                                 </button>
                                 <button type="submit"className="btn btn-primary">
@@ -108,7 +108,7 @@ class FormValid extends Component{
                <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
                     <div className="modalHeader">
                        <h4>Save Entry</h4>
-                       <button type="submit" onClick={this.toggleModal}            className="closeModal">X</button>                 
+                       <button type="submit" onClick={this.toggleModal}  className="closeModal">X</button>                 
                     </div>
                     
                     <div className="modalBody">
@@ -116,7 +116,7 @@ class FormValid extends Component{
                     </div>
 
                     <div className="modalFooter">
-                    <button type="submit" onClick={this.toggleModal}            className="btn btn-danger right">Close</button>
+                    <button type="submit" onClick={this.toggleModal} className="btn btn-danger right">Close</button>
                     </div>
                </Modal>                                                        
             </div>        
