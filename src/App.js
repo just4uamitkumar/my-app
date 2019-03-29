@@ -17,7 +17,8 @@ class App extends Component {
           <Route path="/AxiosCallC" exact component={DefaultLayout} />
           <Route path="/AxiosCallD" exact component={DefaultLayout} />
           <Route path="/UseJson" exact component={DefaultLayout} />          
-          <Route path="/FormValid" exact component={DefaultLayout} />          
+          <Route path="/FormValid" exact component={DefaultLayout} />
+          <Route path="/FormValidation" exact component={DefaultLayout} />           
           <Route path="/test/:id" exact component={DefaultLayout} />          
         </Switch>
       </BrowserRouter>
