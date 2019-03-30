@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserData from './user4.json';
-import { FaPencil, FaTrash, FaPrint, FaPlus, FaPlane } from 'react-icons/fa';
+import { FaTrash, FaPrint, FaPlus, FaPlane } from 'react-icons/fa';
 import Modal from 'react-modal';
 
 const addModal = {
@@ -60,17 +60,17 @@ class UseJson extends Component{
         })
     }
 
-    handleSubmit = event => {
-        event.preventDefault(event);
+    // handleSubmit = event => {
+    //     event.preventDefault(event);
 
-        const user = {
-            firstname: this.state.firstname,
-            lastname:this.state.lastname,
-            dob: this.state.dob,
-            experience:this.state.experience,
-            occupatoin: this.state.occupatoin
-        };       
-    }
+    //     const user = {
+    //         firstname: this.state.firstname,
+    //         lastname:this.state.lastname,
+    //         dob: this.state.dob,
+    //         experience:this.state.experience,
+    //         occupatoin: this.state.occupatoin
+    //     };       
+    // }
     
     render(){
         const { datas } = this.state
