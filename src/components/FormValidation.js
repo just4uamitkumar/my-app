@@ -79,13 +79,7 @@ class FormValidation extends Component{
         formIsValid = false;
         errors["design"] = "Please provide your designation";
     }
-
-    if(typeof fields["design"] !== "undefined"){
-        if(!fields["design"].match(/^[a-zA-Z]+$/)){
-            formIsValid = false;
-            errors["design"] = "Enter Only letters in the Designation";
-        }
-    }          
+ 
 
       this.setState({errors: errors});
       return formIsValid;
@@ -98,7 +92,7 @@ class FormValidation extends Component{
         if(this.handleValidation()){
            
 
-            axios.post('TeamData', { datas })
+            axios.post('./team.json', { datas })
             .then((result) => {
               const datas = result.datas;
                 this.setState({ datas });
@@ -129,6 +123,9 @@ class FormValidation extends Component{
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
+                </div>
+                <div>
+                    {JSON.stringify(this.state.datas)}
                 </div>
                 <div className="col-12">
                     <div className="contentBlock">
