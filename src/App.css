@@ -30,7 +30,7 @@ li{list-style: none;}
 .form-group label{font-weight: 700; padding: 0 0 6px; font-size: 15px; display:block}
 .control-label{ font-size: 1.1rem; display: block; padding: 0 0 5px;}
 .form-control {background-color: #fff; border: 1px solid #ddd; width:calc(100% - 16px);
-padding: 8px 10px; margin:0 0 10px; font-size: 1rem;}
+padding: 8px 10px; font-size: 1rem;}
 ::placeholder{font-size: 14px;}
 button:focus, a:focus{outline: 0;}
 .btn{ padding: 7px 20px; border-style:solid; color: #fff;
@@ -144,11 +144,11 @@ margin: 2px 0px 2px 18px; border-radius: 2px; box-shadow:0 1px 2px #4e4e4e; floa
 .DocsList li.completed{background: #024c71;}
 
 /*-----| Column |-----*/
-.col-6{width: calc(50% - 20px); float: left; padding: 10px;}
-.col-3{width: calc(25% - 20px); float: left; padding: 10px;}
-.col-4{width: calc(33.33% - 20px); float: left; padding: 10px;}
-.col-8{width: calc(67.66% - 20px); float: left; padding: 10px;}
-.col-9{width: calc(75% - 20px); float: left; padding: 10px;}
+.col-6{width: calc(50% - 20px); float: left; padding:0 10px;}
+.col-3{width: calc(25% - 20px); float: left; padding:0 10px;}
+.col-4{width: calc(33.33% - 20px); float: left; padding:0 10px;}
+.col-8{width: calc(67.66% - 20px); float: left; padding:0 10px;}
+.col-9{width: calc(75% - 20px); float: left; padding:0 10px;}
 
 /*-----| Ajax Call |-----*/
 .DocsListA{width: auto;}
