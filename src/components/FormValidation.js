@@ -14,7 +14,7 @@ class FormValidation extends Component{
            errors: {},
            datas: TeamData
        }      
-    }
+    }    
 
     handleValidation(){
         let fields = this.state.fields;
@@ -63,22 +63,28 @@ class FormValidation extends Component{
             }
             
             if(fields["phone"].length !== 10){
+                formIsValid = false;
+                errors["phone"] = "Enter 10 digit mobile number";
+            }
+        }      
+
+        //Date of Birth
+        if(!fields["dob"]){
             formIsValid = false;
-            errors["phone"] = "Enter 10 digit mobile number";
+            errors["dob"] = "Please provide your date of birth";
         }
-    }      
 
-    //Date of Birth
-    if(!fields["dob"]){
-        formIsValid = false;
-        errors["dob"] = "Please provide your date of birth";
-    }
+        //Designation
+        if(!fields["design"]){
+            formIsValid = false;
+            errors["design"] = "Please provide your designation";
+        }
 
-    //Designation
-    if(!fields["design"]){
-        formIsValid = false;
-        errors["design"] = "Please provide your designation";
-    }
+        //Date of Birth
+        if(!fields["city"]){
+            formIsValid = false;
+            errors["city"] = "Please provide your city";
+        }
  
 
       this.setState({errors: errors});
@@ -90,9 +96,7 @@ class FormValidation extends Component{
         const { datas } = this.state;
 
         if(this.handleValidation()){
-           
-
-            axios.post('./team.json', { datas })
+            axios.post('TeamData', { datas })
             .then((result) => {
               const datas = result.datas;
                 this.setState({ datas });
@@ -106,8 +110,7 @@ class FormValidation extends Component{
     handleChange(field, e){         
         let fields = this.state.fields;
         fields[field] = e.target.value;        
-        this.setState({fields});
-       // this.setState({ [e.target.name]: e.target.value });
+        this.setState({fields});       
     }    
 
     deleteEvent= (index, e) => {
@@ -124,12 +127,11 @@ class FormValidation extends Component{
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
-                <div>
-                    {JSON.stringify(this.state.datas)}
-                </div>
+                
                 <div className="col-12">
                     <div className="contentBlock">
                         <h2>Form Element</h2>
+                        {/* <div>{JSON.stringify(this.state.datas)}</div> */}
                         <form name="contactform" onSubmit= {this.contactSubmit.bind(this)}>
                             
                             <div className="form-group" >
@@ -191,14 +193,29 @@ class FormValidation extends Component{
                                         className="form-control"
                                     />
                                     <span style={{color: "red"}}>{this.state.errors["design"]}</span>
-                                </div>                                
+                                </div>
+
+                                <div className="col-6">
+                                    <label>City</label>                                    
+                                    <select onChange={this.handleChange.bind(this, 'city')}
+                                        value={this.state.fields['city'] || ''}
+                                        className="form-control"
+                                    >
+                                        <option value="-1">Select your city</option>
+                                        <option value="dl">Delhi</option>
+                                        <option value="jai">Jaipur</option>
+                                        <option value="mn">Manali</option>
+                                        <option value="mt">Mathura</option>
+                                    </select>
+                                    <span style={{color: "red"}}>{this.state.errors["city"]}</span>
+                                </div>                                 
                             </div>
 
                             <div className="clearfix"></div>
 
                             <div className="form-group text-right">
                                 <div className="col-12">
-                                    <button type="reset"  className="btn btn-warning">
+                                    <button type="reset" className="btn btn-warning">
                                         Reset
                                     </button>
                                     <button type="submit" className="btn btn-primary">
@@ -223,6 +240,7 @@ class FormValidation extends Component{
                                         <th>Phone</th>
                                         <th>Date of Birth</th>
                                         <th>Designation</th>
+                                        <th>City</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -236,6 +254,7 @@ class FormValidation extends Component{
                                                 <td>{row.phone}</td>
                                                 <td>{row.dob}</td>
                                                 <td>{row.designation}</td>
+                                                <td>{row.city}</td>
                                                 <td>
                                                     <button type="button" className="btn btn-danger btn-sm"  onClick={this.deleteEvent}>
                                                     <FaTrash/> Delete

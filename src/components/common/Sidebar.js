@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaHome, FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaUmbrella, FaWpforms } from 'react-icons/fa';
+import {FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaUmbrella, FaWpforms } from 'react-icons/fa';
 import { withRouter, Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
 	render() {
 		const sidemenu = [
-			{path: '/', label: 'Home', icon:<FaHome/>},
+			//{path: '/', label: 'Home', icon:<FaHome/>},
 			{path: '/Document', label: 'Document', icon:<FaLeanpub/>},
 			{path: '/LifeCycle', label: 'LifeCycle', icon:<FaBullhorn/>},
 			{path: '/Stateless', label: 'Stateless', icon:<FaGavel/>},
@@ -16,8 +16,7 @@ class Sidebar extends React.Component {
 			{path: '/AxiosCallD', label: 'AxiosCall D', icon:<FaUmbrella/>},
 			{path: '/UseJson', label: 'UseJson', icon:<FaUmbrella/>},			
 			{path: '/FormValid', label: 'FormValid', icon:<FaWpforms/>},
-			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>}
-			
+			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>}			
 						
 		];
 		return (

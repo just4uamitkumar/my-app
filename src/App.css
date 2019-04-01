@@ -31,6 +31,7 @@ li{list-style: none;}
 .control-label{ font-size: 1.1rem; display: block; padding: 0 0 5px;}
 .form-control {background-color: #fff; border: 1px solid #ddd; width:calc(100% - 16px);
 padding: 8px 10px; font-size: 1rem;}
+
 ::placeholder{font-size: 14px;}
 button:focus, a:focus{outline: 0;}
 .btn{ padding: 7px 20px; border-style:solid; color: #fff;
@@ -46,6 +47,11 @@ border-width: 0 0 2px; font-size:1rem; cursor: pointer; border-radius: 2px;}
 .btn-danger:hover{background: #BB4610;}
 .btn.btn-sm{padding:4px 10px; font-size:0.8rem;}
 .btn.btn-xs{padding:3px 7px; font-size:0.6rem;}
+
+select option:first-child{
+  
+  color:#ddd;
+}
 
 /*------| Heading |------*/
 h1{font-size: 32px;}
@@ -158,9 +164,13 @@ margin: 2px 0px 2px 18px; border-radius: 2px; box-shadow:0 1px 2px #4e4e4e; floa
 input.form-control{border:1px solid #ddd; padding: 5px 7px;}
 
 /*-----| Table |-----*/
-.table{width:100%;}
-.table th{text-align: left; background:#ddd; padding: 5px;}
-.table tr td{border-bottom: 1px solid #ddd; padding: 5px;}
+.table-responsive{width: 100%; overflow-x: auto;}
+.table{width:100%; border-collapse: collapse;}
+.table th{text-align: left; background:#339c12; padding: 5px; color: #fff;}
+.table tr td{border-bottom: 1px solid #ddd; padding: 5px; margin:0;}
+.table-striped tr:nth-child(even) {
+  background-color: #f2f2f2
+}
 
 
 /*-----| Modal |-----*/

@@ -61,41 +61,38 @@ class AxiosCallA extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-3">
+                <div className="col-12">
                     <div className="contentBlock">
-                        <h2>Get Name</h2>
-                        <ul className="DocsListA">
-                        { this.state.persons.map(person => <li key={person.id}>{person.name}</li>)}
-                        </ul> 
+                        <h2>Get Request</h2>                       
+                        <div className="table-responsive">
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>User name</th>
+                                        <th>Email</th>
+                                        <th>Adress</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {this.state.persons.map(person =>
+
+                                    <tr key={person.id}>
+                                        <td>{person.id}</td>
+                                        <td>{person.name}</td>
+                                        <td>{person.username}</td>
+                                        <td>{person.email}</td>
+                                        <td>{person.address.street}, {person.address.city}</td>                                        
+                                    </tr>
+                                )}                                    
+                                </tbody>
+                            </table>
+                        </div>
                     </div>                                                                                                  
                 </div>
 
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Get UserName</h2>
-                        <ul className="DocsListA">
-                        { this.state.persons.map(person => <li key={person.id}>{person.username}</li>)}
-                        </ul> 
-                    </div>                                                                                                  
-                </div>
-
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Get Email</h2>
-                        <ul className="DocsListA">
-                        { this.state.persons.map(person => <li key={person.id}>{person.email}</li>)}
-                        </ul> 
-                    </div>                                                                                                  
-                </div>
-
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Get Address</h2>
-                        <ul className="DocsListA">
-                        { this.state.persons.map(person => <li key={person.id}>{person.address.street}, {person.address.city}</li>)}
-                        </ul> 
-                    </div>                                                                                                  
-                </div>
+               
                 <div className="clearfix"></div>
 
                 <div className="col-6">
