@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery'
 
 class TodoItem extends Component {
+
     componentWillReceiveProps(nextProps){
         console.log(nextProps.todos);
         console.log(this.props.todos);
@@ -27,8 +28,7 @@ class AjaxCall extends Component{
             title : 'Life Cycle Method & Ajax Call',
             users:[],
             todos:['I am Learning ReactJS', 'I am Learning Rails']
-        }
-        console.log('Constructor');
+        }        
     }   
 
     componentDidMount(){
@@ -44,9 +44,7 @@ class AjaxCall extends Component{
    
     
     render(){
-
-        const { users, todos } = this.state;
-        //const { users } = this.state;
+        const { users, todos } = this.state;    
        
         return(
             <div className="content">
@@ -54,81 +52,55 @@ class AjaxCall extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-3">
+                <div className="col-12">
                     <div className="contentBlock">
                         <h2>Name</h2>
-                        <ul className="DocsListA">
-                            {
-                                users.map((user) => {
-                                    return <li key={user.id}>{user.name}</li>
-                                })
-                            }
-                        </ul> 
+                        <div className="table-responsive">
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>User name</th>
+                                        <th>Email</th>
+                                        <th>Adress</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {users.map(user =>
+
+                                    <tr key={user.id}>
+                                        <td>{user.id}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.username}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.address.street}, {user.address.city}</td>                                        
+                                    </tr>
+                                )}                                    
+                                </tbody>
+                            </table>
+                        </div> 
                     </div>                                                                                                  
                 </div>
 
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Email</h2>
-                        <ul className="DocsListA">
-                            {
-                                users.map((user) => {
-                                    return <li key={user.id}>{user.email}</li>
-                                })
-                            }
-                        </ul> 
-                    </div>                                                                                                  
-                </div>
-
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>UserName</h2>
-                        <ul className="DocsListA">
-                            {
-                                users.map((user) => {
-                                    return <li key={user.id}>{user.username}</li>
-                                })
-                            }
-                        </ul> 
-                    </div>                                                                                                  
-                </div>
-
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Address</h2>
-                        <ul className="DocsListA">
-                            {
-                                users.map((user) => {
-                                    return <li key={user.id}>
-                                            {user.address.suite},
-                                            {user.address.city}                                    
-                                    </li>
-                                })
-                            }
-                        </ul> 
-                    </div>                                                                                                  
-                </div>
-            
                 <div className="clearfix"></div>
 
                 <div className="col-6">
                     <div className="contentBlock">
                         <h2>Component Will Mount </h2>
                         <form onSubmit ={(e) => {
-                            const { todos } = this.state;
                             todos.push(this.refs.addTodo.value);
                             e.preventDefault();
                             this.setState({
                                 todos
                             })
-                            this.refs.addTodo.vale = "";
+                            this.refs.addTodo.value = "";
                         }}>
                             <input type="text" className="form-control" ref="addTodo"/>
                             <button type="submit" className="btn btn-warning btn-sm">Add Todo</button>
                         </form>
                         <TodoItem todos={todos}/>
-                    </div>  
-                    
+                    </div>
                 </div>
             </div>            
         );

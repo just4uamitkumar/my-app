@@ -6,7 +6,8 @@ class LifeCycle extends Component{
         super(props);
         this.state = {        
             title : 'Life Cycle Method',
-            count:0
+            count:0,
+            colorNames :['Color A', 'Color B', 'Color C', 'Color D', 'Color E', 'Color F', 'Color G', 'Color H', 'Color I']
         }
     }
 
@@ -21,15 +22,8 @@ class LifeCycle extends Component{
             return false;
         }
         return true;
-    }
+    }  
     
-    componentWillMount(){
-        console.log('Will Mount');
-    }
-
-    componentDidMount(){
-        console.log('Mounted');
-    } 
 
     componentWillUnmount() {
         this.isCancelled = true;
@@ -47,6 +41,40 @@ class LifeCycle extends Component{
                     {this.state.count} &nbsp;
                         <button className="btn btn-primary btn-sm" onClick={this.incCount}>Increment</button>                                              
                 </div>
+
+                <div className="contentBlock">
+                    <h2>Closure Example <button class="btn btn-sm btn-warning right disable">Clear All</button></h2>
+
+                    <div class="colorTable">                        
+                        <div class="table-responsive">
+                            <table className="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th>Color</th>
+                                  <th>Color Name</th>
+                                  <th>Color</th>
+                                  <th>Color Name</th>
+                                  <th>Color</th>
+                                  <th>Color Name</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="color"></div>
+                                    <button class="btn pickColorBtn"></button>
+                                  </td>                      
+                                  <td>Color A</td>
+                                </tr>                                 
+                              </tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="btn btn-primary disable">
+                            Finish
+                        </button>
+                    </div>                                  
+                </div>
+
             </div>            
         );
     }
