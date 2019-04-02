@@ -165,12 +165,10 @@ input.form-control{border:1px solid #ddd; padding: 5px 7px;}
 
 /*-----| Table |-----*/
 .table-responsive{width: 100%; overflow-x: auto;}
-.table{width:100%; border-collapse: collapse;}
+.table{width:100%; border-collapse: collapse; margin:0 0 10px;}
 .table th{text-align: left; background:#339c12; padding: 5px; color: #fff;}
 .table tr td{border-bottom: 1px solid #ddd; padding: 5px; margin:0;}
-.table-striped tr:nth-child(even) {
-  background-color: #f2f2f2
-}
+.table-striped tr:nth-child(even) {background-color: #f2f2f2}
 
 
 /*-----| Modal |-----*/
@@ -179,14 +177,50 @@ input.form-control{border:1px solid #ddd; padding: 5px 7px;}
 padding: 0 0 10px;}
 .modalHeader .closeModal{position: absolute; border-radius: 50%; width: 30px;
   height: 30px; color: #fff; background: #b52a00; font-size: 13px;
-  border: 0; right: -10px;  top: -10px;}
+  border: 0; right: -4px;  top: -4px;}
 .modalBody{padding: 10px 0;}
 .modalFooter{ border-top:1px solid #ddd; padding: 10px 0 0;}
 .ReactModal__Content {bottom: auto;}
 
 
-/**/
+/*------| Horizontal form|-----*/
 .formHorizontal{margin:0 -5px;}
 .formHorizontal input{ display:inline-block; width: 12%; margin:5px 5px;}
+
+/*------| Color Table |-----*/
+.table .color{background: #dddddd; width: 104px; height: 28px; display: inline-block;
+vertical-align: middle; border: 1px solid #a09f9f; margin: 0 4px 0 0px;}
+.colorList{text-align: center; background: #ececec; width: 70%; padding: 5% 15% 4%;
+    margin: 0 auto;}
+.colorList li{display: inline-block; width: 31.6%; margin: 1% 0;}
+.colorList li a{display: block; border: 2px solid #40301B; width: 48px;
+    height: 48px;  box-shadow: 2px 4px 4px #000; transition: transform ease 0.5s;}
+.colorList li a.disable{opacity: 0.4; pointer-events: none;}
+.table .pickColorBtn {background: #278ea5;  border-color: #166c80;
+   padding: 4px 9px 7px;  color: #f4e7ff;}
+
+.colorList{text-align: center; background: #ececec; width: 90%; padding: 5% 5% 4%;
+    margin: 0 auto;}
+.colorList li{display: inline-block; width: 60px; margin: 2% 2%;}
+.colorList li span{display: block; border: 2px solid #40301B; width: 48px;
+    height: 48px;  box-shadow: 2px 4px 4px #000; transition: transform ease 0.5s;
+    margin:0 auto; cursor: pointer;}
+.colorList li span:hover{border: 2px solid #a27a46;}
+.colorList li span.disable{opacity: 0.4; pointer-events: none;}
+
+/*------| Modal |-----*/
+.modalHeader h4{color: #26940c;}
+
+/*------| Color Theme |-----*/
+[data-color="green"]{background-color: rgb(140, 197, 63) !important} 
+[data-color="red"]{background-color: rgb(236, 28, 36) !important}
+[data-color="dodgerBlue"]{background-color: rgb(30, 144, 255) !important}
+[data-color="pink"]{background-color: rgb(188, 30, 142) !important}
+[data-color="yellow"]{background-color: rgb(244, 237, 49) !important}
+[data-color="orange"]{background-color:rgb(251, 175, 64) !important}
+[data-color="slateBlue"]{background-color:rgb(106, 90, 205) !important}
+[data-color="violet"]{background-color:rgb(238, 130, 238) !important}
+[data-color="DarkBlue"]{background-color:rgb(0, 0, 139) !important}
+
 
 
