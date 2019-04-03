@@ -1,4 +1,19 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
+
+const colorModal = {
+    content : {
+      top                   : '50%',
+      padding: '10px',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)',
+      width                 : '270px'
+    }
+  };
+
 
 
 class LifeCycle extends Component{ 
@@ -22,12 +37,42 @@ class LifeCycle extends Component{
             return false;
         }
         return true;
-    }  
-    
+    }    
 
     componentWillUnmount() {
         this.isCancelled = true;
-    }   
+    }
+
+    pickColor(){
+        alert('test')
+    } 
+
+    componentWillMount(){
+        Modal.setAppElement('body');
+    }
+
+    colorModal = (e) =>{
+        e.preventDefault()
+        this.setState({
+            isActive:!this.state.isActive
+        });       
+    }
+
+
+
+    pickModal = (e) =>{
+        e.preventDefault()
+        this.setState({
+            isActive:!this.state.isActive
+        });       
+    }
+
+    closeModal = (e) =>{
+        e.preventDefault()
+        this.setState({
+            isActive:!this.state.isActive
+        })
+    }  
     
     render(){
         return(
@@ -43,37 +88,104 @@ class LifeCycle extends Component{
                 </div>
 
                 <div className="contentBlock">
-                    <h2>Closure Example <button class="btn btn-sm btn-warning right disable">Clear All</button></h2>
+                    <h2>Closure Example <button className="btn btn-sm btn-warning right disable">Clear All</button></h2>
 
-                    <div class="colorTable">                        
-                        <div class="table-responsive">
+                    <div className="colorTable clearfix">                        
+                        <div className="table-responsive">
                             <table className="table table-striped">
                               <thead>
                                 <tr>
-                                  <th>Color</th>
-                                  <th>Color Name</th>
-                                  <th>Color</th>
-                                  <th>Color Name</th>
-                                  <th>Color</th>
-                                  <th>Color Name</th>
+                                  <th width="16%">Color</th>
+                                  <th width="17%">Color Name</th>
+                                  <th width="16%">Color</th>
+                                  <th width="17%">Color Name</th>
+                                  <th width="16%">Color</th>
+                                  <th width="17%">Color Name</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
                                   <td>
-                                    <div class="color"></div>
-                                    <button class="btn pickColorBtn"></button>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
                                   </td>                      
                                   <td>Color A</td>
-                                </tr>                                 
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color B</td>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color C</td>
+                                </tr>
+
+                                <tr>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color D</td>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color E</td>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color F</td>
+                                </tr> 
+                                <tr>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color G</td>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color H</td>
+                                  <td>
+                                    <div className="color"></div>
+                                    <button className="btn pickColorBtn" onClick={this.pickModal}>&lt; &gt;</button>
+                                  </td>                      
+                                  <td>Color I</td>
+                                </tr>                                  
                               </tbody>
                             </table>
                         </div>
-                        <button type="button" class="btn btn-primary disable">
+                        <button type="button" className="btn btn-primary right disable">
                             Finish
                         </button>
                     </div>                                  
                 </div>
+
+                <Modal isOpen={this.state.isActive} onRequestClose={this.closeModal}
+                  style={colorModal} >
+                    <div className="modalHeader">
+                       <h4>Add Color</h4>
+                       <button type="submit" onClick={this.closeModal}  className="closeModal">X</button>                 
+                    </div>
+                    
+                    <div className="modalBody">
+                       <ul className="colorList">
+                          <li><span data-color="green"></span></li>
+                          <li><span data-color="red"></span></li>
+                          <li><span data-color="dodgerBlue"></span></li>
+                          <li><span data-color="pink"></span></li>
+                          <li><span data-color="yellow"></span></li>
+                          <li><span data-color="orange"></span></li>
+                          <li><span data-color="slateBlue"></span></li>
+                          <li><span data-color="violet"></span></li>
+                          <li><span data-color="DarkBlue"></span></li>
+                        </ul>
+                    </div>                    
+               </Modal>
 
             </div>            
         );

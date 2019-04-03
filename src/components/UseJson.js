@@ -23,11 +23,8 @@ class UseJson extends Component{
             title : 'Call Local JSON',
             datas: UserData.users,
             //UserData: []
-        }      
-        
+        }
     }
-    
-    
 
     UNSAFE_componentDidMount() {
         // TODO
