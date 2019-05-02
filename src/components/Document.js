@@ -21,41 +21,16 @@ class Document extends Component{
         this.state = {
             count: 0,        
            title : 'Our Documents',
-           
-           Docs : [
-               {
-                    name: 'Document 1',
-                    completed:false
-               },
-
-               {
-                    name: 'Document 2',
-                    completed:false
-                },
-
-                {
-                    name: 'Document 3',
-                    completed:false
-                },
-
-                {
-                    name: 'Document 4',
-                    completed:false
-                },
-
-                {
-                    name: 'Document 5',
-                    completed:false
-                }
-           ],
-
-           emps:[
-               {id:101, firstname:'Paul', lastname:'Singh', salary:5000},
+           emps:[{id:101, firstname:'Paul', lastname:'Singh', salary:5000},
                {id:102, firstname:'Sam', lastname:'Kr',  salary:2000},
                {id:103, firstname:'Sid', lastname:'Loco',  salary:2500},
                {id:104, firstname:'John', lastname:'Dingo',  salary:5000},
-               {id:105, firstname:'Alice', lastname:'Kim',  salary:4000}
-           ]
+               {id:105, firstname:'Alice', lastname:'Kim',  salary:4000}],           
+           Docs:[{name: 'Document 1', completed:false},
+                {name: 'Document 2', completed:false},
+                {name: 'Document 3', completed:false},
+                {name: 'Document 4', completed:false},
+                {name: 'Document 5', completed:false}]           
         }
         this.incrementCount = this.incrementCount.bind(this);
     }
@@ -67,12 +42,6 @@ class Document extends Component{
     }
     
     incrementCount(){
-        // this.setState({
-        //     count:this.state.count + 1
-        // }, () => {
-        //     console.log(this.state.count)
-        // });
-
         this.setState((preveState) => {
             return{
                 count:preveState.count + 1
@@ -80,8 +49,7 @@ class Document extends Component{
         })
     }
 
-    changeStatus(index){
-        //event.preventDefault();
+    changeStatus(index){       
         console.log(this.state.Docs[index]);
         var Docs = this.state.Docs;
         var Doc = Docs[index];
@@ -100,9 +68,7 @@ class Document extends Component{
                 </div>
 
                 <div className="contentBlock">
-                    <h2>Import Data</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                       </p>
+                    <h2>Import Data</h2>                    
                     <table className="table table-spriped">
                         <thead>
                             <tr>
@@ -130,7 +96,6 @@ class Document extends Component{
                             }
                         </tbody>
                     </table>
-
                 </div>
 
                 <div className="contentBlock">
@@ -139,7 +104,7 @@ class Document extends Component{
 
                 <div className="contentBlock">
                     <ul className="DocsList">
-                            {
+                        {
                             this.state.Docs.map((Doc, index) => {
                                 return <DocsList details={Doc} key={Doc.name}
                                 clickHandler={this.changeStatus} index={index} />

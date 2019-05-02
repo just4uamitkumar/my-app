@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DocQue from './DocQue';
 import DocForm from './DocForm';
 
-
 class Stateless extends Component{ 
     constructor(){
         super();
@@ -13,66 +12,33 @@ class Stateless extends Component{
         this.deleteTask = this.deleteTask.bind(this);
         this.editTask = this.editTask.bind(this);
 
-        this.state = {
-        
-           title : 'Stateless Function',
-           
-           Docs : [
-               {
-                    name: 'StateLess 1',
-                    completed:false
-               },
-
-               {
-                    name: 'StateLess 2',
-                    completed:false
-                },
-
-                {
-                    name: 'StateLess 3',
-                    completed:false
-                },
-
-                {
-                    name: 'StateLess 4',
-                    completed:false
-                }
-           ],
+        this.state = {        
+           title : 'Stateless Function',           
+           Docs : [{name: 'StateLess 1', completed:false},
+                    {name: 'StateLess 2', completed:false},
+                    {name: 'StateLess 3', completed:false},
+                    {name: 'StateLess 4', completed:false}],
            currentTask:''
         }
-
     }
 
     deleteTask(index){
         console.log(index)
         let Docs = this.state.Docs;
         Docs.splice(index,1);
-
-        this.setState({
-            Docs
-        });
+        this.setState({ Docs});
     }
 
     addTask(evt){
         evt.preventDefault();
         let Docs = this.state.Docs;
         let currentTask = this.currentTask;
-        Docs.push({
-            name:currentTask,
-            completed:false
-        });
-
-        this.setState({
-            Docs,
-            currentTask:''
-        })
+        Docs.push({name:currentTask, completed:false });
+        this.setState({ Docs, currentTask:''})
     }
 
-
     updateTask(newValue){
-        this.setState({
-            currentTask:newValue.target.value
-        })        
+        this.setState({currentTask:newValue.target.value})        
     }
 
     editTask(index, newValue){
@@ -80,19 +46,14 @@ class Stateless extends Component{
         var Docs = this.state.Docs;
         var Doc = Docs[index];
         Doc['name']=newValue;
-
-        this.setState({
-            Docs
-        })
+        this.setState({ Docs})
     }
 
     changeStatus(index){
         var Docs = this.state.Docs;
         var Doc = Docs[index];
         Doc.completed = !Doc.completed;
-        this.setState({
-            Docs:Docs
-        })
+        this.setState({ Docs:Docs })
     }
     
     render(){
@@ -103,23 +64,14 @@ class Stateless extends Component{
                 </div>
 
                 <div className="contentBlock">
-                    <h2>Document Type</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                        irure dolor in reprehenderit in voluptate velit esse cillum 
-                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        cupidatat non proident, sunt in culpa qui officia deserunt 
-                        mollit anim id est laborum.</p>
-
+                    <h2>Use of Stateless Component</h2>
                         <DocForm 
                             currentTask={this.state.currentTask}
                             updateTask={this.updateTask}
                             addTask={this.addTask}
                         />
-                        <ul className="DocsList">
-                        {
+
+                        <ul className="DocsList">{
                             this.state.Docs.map((Doc, index) => {
                                 return <DocQue 
                                 details={Doc} 
@@ -129,10 +81,8 @@ class Stateless extends Component{
                                 deleteTask={this.deleteTask}
                                 editTask={this.editTask} />
                             })
-                        }                            
-                        </ul>                          
-                </div>
-                
+                        }</ul>                          
+                </div>                
             </div>            
         );
     }

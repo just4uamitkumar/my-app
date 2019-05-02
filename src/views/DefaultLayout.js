@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallB, AxiosCallC, AxiosCallD, UseJson, FormValid, 
-	FormValidation } from './../components'
+	FormValidation, Hook, Tabs } from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -16,8 +16,9 @@ class DefaultLayout extends React.Component {
 
 	toggleMenu(condition) {
 		this.setState(state => ({
-        condition: !state.condition
-    }));
+	        condition: !state.condition
+	    })
+	   );
 	}
 
 	render() {
@@ -60,7 +61,13 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/FormValidation' : pageContent = <FormValidation />
-			break;		
+			break;
+
+			case '/Hook' : pageContent = <Hook />
+			break;
+
+			case '/Tabs' : pageContent = <Tabs />
+			break;
 
 			case `/test/${match.params.id}`: pageContent = <Home />
 			break;

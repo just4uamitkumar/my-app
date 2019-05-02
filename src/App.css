@@ -48,10 +48,7 @@ border-width: 0 0 2px; font-size:1rem; cursor: pointer; border-radius: 2px;}
 .btn.btn-sm{padding:4px 10px; font-size:0.8rem;}
 .btn.btn-xs{padding:3px 7px; font-size:0.6rem;}
 
-select option:first-child{
-  
-  color:#ddd;
-}
+select option:first-child{color:#ddd;}
 
 /*------| Heading |------*/
 h1{font-size: 32px;}
@@ -117,11 +114,12 @@ background: rgba(27, 140, 197, 0.1);}
 .toggleNav .sidebar{left: -250px;}
 .sidebar{position: fixed; left: 0; bottom: 0; width: 250px; background: #212121;
 top:51px;}
-.sideNav{margin: 0 0 20px;}
-.sideNav ul li a{padding:12px 15px; display: block; color: #f0f0f0; font-size: 16px;
+.sideNav{margin: 0 0 20px; max-height: 100%; overflow-y: auto;}
+.sideNav ul{padding-bottom: 20px;}
+.sideNav ul li a{padding:8px 15px; display: block; color: #f0f0f0; font-size: 16px;
 border-bottom: 1px solid #3e3e3e}
 .sideNav ul li a:hover{background: #020202;}
-.sideNav ul li a svg{padding: 0 10px 0 0;}
+.sideNav ul li a svg{padding: 0 7px 0 0;}
 
 .nav li a{display: block; padding:15px 16px; font-size: 17px; background:#ddd;
 color: #000; margin:0 3px;}
@@ -162,6 +160,7 @@ margin: 2px 0px 2px 18px; border-radius: 2px; box-shadow:0 1px 2px #4e4e4e; floa
 
 /*-----| Form |-----*/
 input.form-control{border:1px solid #ddd; padding: 5px 7px;}
+input.form-control + p{margin-top: 10px;}
 
 /*-----| Table |-----*/
 .table-responsive{width: 100%; overflow-x: auto;}
@@ -223,4 +222,9 @@ vertical-align: middle; border: 1px solid #a09f9f; margin: 0 4px 0 0px;}
 [data-color="DarkBlue"]{background-color:rgb(0, 0, 139) !important}
 
 
-
+/*------| Tabs |-----*/
+.tab-list {border-bottom: 1px solid #ccc;padding-left: 0;}
+.tab-list-item {display: inline-block;list-style: none; margin-bottom: -1px;
+padding: 0.5rem 0.85rem; font-size: 16px; cursor: pointer;}
+.tab-list-active {background: #FFF; border: solid #ccc; border-width: 1px 1px 0 1px;}
+.tab-content{padding: 10px 0;}
