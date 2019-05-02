@@ -4,16 +4,10 @@ import { FaTrash, FaPrint, FaPlus, FaPlane } from 'react-icons/fa';
 import Modal from 'react-modal';
 
 const addModal = {
-    content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)',
-      width                 : '300px'
+    content : { top : '50%', left : '50%', right  : 'auto', bottom  : 'auto',
+      marginRight : '-50%', transform : 'translate(-50%, -50%)', width  : '300px'
     }
-  };
+};
 
 
 class UseJson extends Component{ 
@@ -56,18 +50,7 @@ class UseJson extends Component{
             isActive:!this.state.isActive
         })
     }
-
-    // handleSubmit = event => {
-    //     event.preventDefault(event);
-
-    //     const user = {
-    //         firstname: this.state.firstname,
-    //         lastname:this.state.lastname,
-    //         dob: this.state.dob,
-    //         experience:this.state.experience,
-    //         occupatoin: this.state.occupatoin
-    //     };       
-    // }
+   
     
     render(){
         const { datas } = this.state
@@ -126,8 +109,7 @@ class UseJson extends Component{
                                     <input type="text" className="form-control"/>
                                     <input type="text" className="form-control"/> 
                                     <input type="text" className="form-control"/>
-                                    <button type="reset" className="btn btn-warning btn-sm"
-                                        >
+                                    <button type="reset" className="btn btn-warning btn-sm">
                                         <FaPlane/> Reset
                                     </button>
                                     <button type="submit" className="btn btn-primary btn-sm">

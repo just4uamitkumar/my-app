@@ -35,13 +35,10 @@ class AjaxCall extends Component{
         $.ajax({
             url:'https://jsonplaceholder.typicode.com/users',
             success:(data) => {
-                this.setState({
-                    users:data
-                })
+                this.setState({ users:data })
             }
         })
-    }
-   
+    }   
     
     render(){
         const { users, todos } = this.state;    
@@ -68,7 +65,6 @@ class AjaxCall extends Component{
                                 </thead>
                                 <tbody>
                                 {users.map(user =>
-
                                     <tr key={user.id}>
                                         <td>{user.id}</td>
                                         <td>{user.name}</td>
@@ -91,9 +87,7 @@ class AjaxCall extends Component{
                         <form onSubmit ={(e) => {
                             todos.push(this.refs.addTodo.value);
                             e.preventDefault();
-                            this.setState({
-                                todos
-                            })
+                            this.setState({ todos })
                             this.refs.addTodo.value = "";
                         }}>
                             <input type="text" className="form-control" ref="addTodo"/>

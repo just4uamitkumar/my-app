@@ -10,9 +10,7 @@ class AxiosCallA extends Component{
             name:'',
             id:''
         }       
-    }
-
-      
+    }      
 
     componentDidMount() {
         axios.get(`https://jsonplaceholder.typicode.com/users`)
@@ -28,22 +26,16 @@ class AxiosCallA extends Component{
 
     handleSubmitA = event => {
         event.preventDefault();
-
-        const user = {
-            name : this.state.name
-        }
+        const user = { name : this.state.name }
 
         axios.post('https://jsonplaceholder.typicode.com/users', { user })
         .then(res => {
             console.log(res);
             console.log(res.data);
-
         })
     }
 
-    handleChangeB = event => {
-        this.setState({id:event.target.value});
-    }
+    handleChangeB = event => { this.setState({id:event.target.value});}
 
     handleSubmitB = event => {
         event.preventDefault();       
@@ -91,7 +83,6 @@ class AxiosCallA extends Component{
                         </div>
                     </div>                                                                                                  
                 </div>
-
                
                 <div className="clearfix"></div>
 
@@ -102,7 +93,6 @@ class AxiosCallA extends Component{
                             <label>Person Name:</label>
                             <input type="text" className="form-control" onChange={this.handleChangeA}/>
                             <button type="submit" className="btn btn-primary">Submit</button>
-
                         </form>                       
                     </div>                                                                                                  
                 </div>
@@ -114,7 +104,6 @@ class AxiosCallA extends Component{
                             <label>Person ID:</label>
                             <input type="text" className="form-control" onChange={this.handleChangeB}/>
                             <button type="submit" className="btn btn-primary">Submit</button>
-
                         </form>                       
                     </div>                                                                                                  
                 </div>

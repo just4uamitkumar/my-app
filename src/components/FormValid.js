@@ -16,16 +16,6 @@ class FormValid extends Component{
     handleChange = event => {
         this.setState({name:event.target.value});
     }
-
-    // handleSubmit = event => {
-    //     event.preventDefault();
-
-    //     const user = {
-    //         name: this.state.name
-    //     };
-    // }
-   
-
     
     render(){
       

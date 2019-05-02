@@ -9,7 +9,7 @@ const DocForm = (props) => {
                 onChange={props.updateTaks}
                 value={props.currentTask}                               
             />
-            <button type="submit">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
         </form>
     )
 }

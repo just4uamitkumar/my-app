@@ -13,9 +13,10 @@ class FormValidation extends Component{
            fields: {},
            errors: {},
            datas: TeamData
-       }      
-    }    
+       }       
+    }
 
+   
     handleValidation(){
         let fields = this.state.fields;
         let errors = {};
@@ -119,9 +120,11 @@ class FormValidation extends Component{
         this.setState({datas:teamDel});
     }
 
+
     
     render(){
-        const { datas } = this.state     
+        const { datas } = this.state 
+
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -223,7 +226,9 @@ class FormValidation extends Component{
                                     </button>
                                 </div>                                                               
                             </div>
-                        </form>                        
+                        </form> 
+                        <p>{this.state.fields["name"]}</p> 
+                                                 
                     </div>
                </div>                                             
             
