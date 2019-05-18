@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import Autocomplete from "./Autocomplete";
 
 class AxiosCallB extends Component{

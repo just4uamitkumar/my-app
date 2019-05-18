@@ -16,9 +16,7 @@ class Sidebar extends React.Component {
 			{path: '/AxiosCallD', label: 'AxiosCall D', icon:<FaUmbrella/>},
 			{path: '/UseJson', label: 'UseJson', icon:<FaUmbrella/>},			
 			{path: '/FormValid', label: 'FormValid', icon:<FaWpforms/>},
-			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>},
-			{path: '/Hook', label: 'Hook', icon:<FaWpforms/>},
-			{path: '/Tabs', label: 'Tabs', icon:<FaWpforms/>}
+			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>}
 						
 		];
 		return (

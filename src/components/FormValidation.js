@@ -2,7 +2,21 @@ import React, { Component } from 'react';
 import TeamData from './team.json';
 import { FaTrash, FaPrint } from 'react-icons/fa';
 import axios from 'axios';
+import Modal from 'react-modal';
 
+const submitModal = {
+    content : {
+      top  : '50%', padding: '10px', left : '50%', right : 'auto',
+      bottom : 'auto', marginRight : '-50%',  transform : 'translate(-50%, -50%)',
+      width : '470px'}
+  };
+
+const deleteRow = {
+    content : {
+        top  : '50%', padding: '10px', left : '50%', right : 'auto',
+        bottom : 'auto', marginRight : '-50%',  transform : 'translate(-50%, -50%)',
+        width : '470px'}   
+}
 //https://stackoverflow.com/questions/41296668/reactjs-form-input-validation
 
 class FormValidation extends Component{ 
@@ -12,11 +26,14 @@ class FormValidation extends Component{
           title:'Form Validation 2',
            fields: {},
            errors: {},
-           datas: TeamData
-       }       
+           datas: TeamData,
+          // birthDate: new Date()
+       }  
+       
+       //this.handleChange = this.handleChange.bind(this);
     }
 
-   
+          
     handleValidation(){
         let fields = this.state.fields;
         let errors = {};
@@ -85,46 +102,87 @@ class FormValidation extends Component{
         if(!fields["city"]){
             formIsValid = false;
             errors["city"] = "Please provide your city";
-        }
- 
+        } 
 
       this.setState({errors: errors});
       return formIsValid;
    }
 
-    contactSubmit(e){
-        e.preventDefault();
-        const { datas } = this.state;
+   componentWillMount(){
+        Modal.setAppElement('body');
+    }
 
+    submitModal = (e) =>{
+        //e.preventDefault()
+        this.setState({
+            isActive:!this.state.isActive
+        });       
+    }
+
+    closeModal = (e) =>{
+        e.preventDefault()
+        this.setState({
+            isActive:!this.state.isActive
+        })
+    }
+
+    formFilled(e){
+        e.preventDefault();
         if(this.handleValidation()){
-            axios.post('TeamData', { datas })
-            .then((result) => {
-              const datas = result.datas;
-                this.setState({ datas });
-            });
-           //alert("Form submitted successfully");
-        }else{
+            this.submitModal();            
+        }
+        else{
            alert("Please fill the required fields.")
         }
+    }
+
+    AddTeam(e){
+        e.preventDefault();
+        const {datas} = this.state;
+
+        this.setState({
+            isActive:!this.state.isActive
+        });
+
+        axios.post('/TeamData', { datas })
+        .then((result) => {
+            const datas = result.datas;
+            this.setState({ datas });
+        });
     }
 
     handleChange(field, e){         
         let fields = this.state.fields;
         fields[field] = e.target.value;        
         this.setState({fields});       
-    }    
+    }
+    
+    
+    deleteRowModal = (e) =>{
+        //e.preventDefault()
+        this.setState({
+            isActiveA:!this.state.isActiveA
+        });  
+    }
 
-    deleteEvent= (index, e) => {
+    closeModalA = (e) =>{
+        e.preventDefault()
+        this.setState({
+            isActiveA:!this.state.isActiveA
+        })
+    }
+
+    deleteRow= (index, e) => {
+        this.setState({
+            isActiveA:!this.state.isActiveA
+        });
         const teamDel = Object.assign([], this.state.datas);
         teamDel.splice(index, 1);
         this.setState({datas:teamDel});
     }
-
-
     
     render(){
         const { datas } = this.state 
-
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -133,9 +191,8 @@ class FormValidation extends Component{
                 
                 <div className="col-12">
                     <div className="contentBlock">
-                        <h2>Form Element</h2>
-                        {/* <div>{JSON.stringify(this.state.datas)}</div> */}
-                        <form name="contactform" onSubmit= {this.contactSubmit.bind(this)}>
+                        <h2>Form Element</h2>                       
+                        <form name="contactform" onSubmit= {this.formFilled.bind(this)}>
                             
                             <div className="form-group" >
                                 <div className="col-6">
@@ -181,6 +238,7 @@ class FormValidation extends Component{
                                         value={this.state.fields['dob'] || ''}
                                         className="form-control"
                                     />
+                                   
                                     <span style={{color: "red"}}>{this.state.errors["dob"]}</span>
                                 </div>
                             </div>
@@ -261,7 +319,7 @@ class FormValidation extends Component{
                                                 <td>{row.designation}</td>
                                                 <td>{row.city}</td>
                                                 <td>
-                                                    <button type="button" className="btn btn-danger btn-sm"  onClick={this.deleteEvent}>
+                                                    <button type="button" className="btn btn-danger btn-sm" onClick={this.deleteRowModal}>
                                                     <FaTrash/> Delete
                                                     </button>
                                                     <button type="button" className="btn btn-warning btn-sm">
@@ -276,6 +334,83 @@ class FormValidation extends Component{
                         </div>
                     </div>
                 </div>
+
+                <div className="col-12">
+                    <div className="contentBlock">
+                        <h2>Data 2</h2>
+                        <div className="table-responsive">
+                         <div>{JSON.stringify(this.state.datas)}</div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <Modal isOpen={this.state.isActive} onRequestClose={this.closeModal}
+                style={submitModal} >
+                    <div className="modalHeader">
+                        <h4>Form Filled successfully</h4>
+                        <button type="submit" onClick={this.closeModal} className="closeModal">X</button>                 
+                    </div>                    
+                    <div className="modalBody">
+                        <h5>You have filled following details :</h5>         
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <th>Name :</th>
+                                    <td>{this.state.fields["name"]}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email :</th>
+                                    <td>{this.state.fields["email"]}</td>
+                                </tr>
+                                <tr>
+                                    <th>Contact No.:</th>
+                                    <td>{this.state.fields["phone"]}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date of Birth :</th>
+                                    <td>{this.state.fields["dob"]}</td>
+                                </tr>
+                                <tr>
+                                    <th>Designation :</th>
+                                    <td>{this.state.fields["design"]}</td>
+                                </tr>
+                                <tr>
+                                    <th>City :</th>
+                                    <td>{this.state.fields["city"]}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Do you want to add these details in the table below ? </h5>
+                    </div>
+                    <div className="modalFooter text-right">
+                        <button type="button" className="btn btn-danger" onClick={this.closeModal}>
+                            <FaTrash/> No
+                        </button>
+                       <button type="button" className="btn btn-primary" onClick={this.AddTeam}>
+                                <FaPrint/> Yes
+                        </button>
+                    </div>
+                </Modal>
+
+                <Modal isOpen={this.state.isActiveA} onRequestClose={this.closeModal}
+                style={deleteRow} >
+                    <div className="modalHeader">
+                        <h4>Delete Row</h4>
+                        <button type="submit" onClick={this.closeModalA} className="closeModal">X</button>                 
+                    </div>                    
+                    <div className="modalBody">
+                        <h5>Are you sure want to remove this row?</h5>
+                    </div>
+                    <div className="modalFooter text-right">
+                        <button type="button" className="btn btn-danger" onClick={this.closeModalA}>
+                            <FaTrash/> No
+                        </button>
+                       <button type="button" className="btn btn-primary" onClick={this.deleteRow}>
+                                <FaPrint/> Yes
+                        </button>
+                    </div>
+                </Modal>
             </div>        
         );
     }

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render } from "react-dom";
 import { withRouter } from 'react-router-dom';
 import Tabs from './Tabs';
 
@@ -51,19 +50,20 @@ class Home extends React.Component {
                         this.state.HomeLinks.map(function(HomeLink){
                             return <HomeList detail={HomeLink} key={HomeLink} />
                         })
-                    }</ul>
+                    }
+                    </ul>
                 </div>
 
                 <div className="clearfix col-4">
                     <div className="contentBlock">
                         <h2>Using Forms</h2>
                         <div className="form-group">
-                        <input className="form-control" type="text" value={this.state.data}
-                        onChange={this.updateState.bind(this)} ref='myText'/>
-                        <button className="btn btn-primary btn-sm" onClick={this.clearInput}>
-                            Clear
-                        </button>
-                        <p>{this.state.data}</p>
+                            <input className="form-control" type="text" value={this.state.data}
+                            onChange={this.updateState.bind(this)} ref='myText'/>
+                            <button className="btn btn-primary btn-sm" onClick={this.clearInput}>
+                                Clear
+                            </button>
+                            <p>{this.state.data}</p>
                         </div>
                         <input className="form-control" type="text" value={this.state.data}
                         readOnly/>                       
@@ -102,9 +102,7 @@ class Home extends React.Component {
                           </div>
                         </Tabs>
                     </div>
-
-                </div>
-               
+                </div>               
             </div>
 		)
 	}
