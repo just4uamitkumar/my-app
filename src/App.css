@@ -53,6 +53,7 @@ select option:first-child{color:#ddd;}
 /*------| Heading |------*/
 h1{font-size: 32px;}
 h2{font-size: 24px;}
+h5{font-size: 17px; margin:5px 0;}
 
 
 /*-----| Login |-----*/
@@ -77,13 +78,13 @@ h2{font-size: 24px;}
 }
 
 .loginWrapper h1{color: #fff; margin: 0 0 10px; font-size: 2rem;}
-.loginWrapper .form-group{position: relative;}
+.loginWrapper .form-group{position: relative; margin: 0 0 15px;}
 .loginWrapper label{ color: #b9b9b9; font-size: 1.2rem;}
-.loginWrapper input{box-shadow: 0 0px 1px 2px #3e3d3d inset;
-   width: calc(100% - 25px);}
+.loginWrapper input.form-control{box-shadow: 0 0px 1px 2px #3e3d3d inset;
+   width: calc(100% - 25px); padding:8px 10px;}
 .loginWrapper h4 {color: #fff; font-size: 24px; margin:10px 0 20px; text-align: center;}
 
-.loginWrapper span{position: absolute; right: 0px; top: 28px; display: block;
+.loginWrapper span{position: absolute; right: 4px; top: 32px; display: block;
   padding:6px 12px 3px; text-align: center; cursor: pointer; font-size: 1.1rem;}
 .loginWrapper span:hover{color:#00901f; }
 .loginWrapper .btn{border-color: #0e6b03; background: #00901F; padding: 9px 10px;
@@ -148,6 +149,7 @@ margin: 2px 0px 2px 18px; border-radius: 2px; box-shadow:0 1px 2px #4e4e4e; floa
 .DocsList li.completed{background: #024c71;}
 
 /*-----| Column |-----*/
+.row{margin:0 -10px;}
 .col-6{width: calc(50% - 20px); float: left; padding:0 10px;}
 .col-3{width: calc(25% - 20px); float: left; padding:0 10px;}
 .col-4{width: calc(33.33% - 20px); float: left; padding:0 10px;}
@@ -165,8 +167,9 @@ input.form-control + p{margin-top: 10px;}
 /*-----| Table |-----*/
 .table-responsive{width: 100%; overflow-x: auto;}
 .table{width:100%; border-collapse: collapse; margin:0 0 10px;}
-.table th{text-align: left; background:#339c12; padding: 5px; color: #fff;}
-.table tr td{border-bottom: 1px solid #ddd; padding: 5px; margin:0;}
+.table thead th{text-align: left; background:#339c12; padding: 5px; color: #fff;}
+.table tbody tr{border-bottom: 1px solid #ddd;}
+.table tbody tr td{padding: 5px; margin:0;}
 .table-striped tr:nth-child(even) {background-color: #f2f2f2}
 
 
@@ -187,16 +190,17 @@ padding: 0 0 10px;}
 .formHorizontal input{ display:inline-block; width: 12%; margin:5px 5px;}
 
 /*------| Color Table |-----*/
-.table .color{background: #dddddd; width: 104px; height: 28px; display: inline-block;
-vertical-align: middle; border: 1px solid #a09f9f; margin: 0 4px 0 0px;}
+.table .color{background: #dddddd; width: 280px; height: 33px; display: inline-block;
+vertical-align: middle; border: 1px solid #a09f9f; margin: 0 5px 0 0px;}
 .colorList{text-align: center; background: #ececec; width: 70%; padding: 5% 15% 4%;
     margin: 0 auto;}
 .colorList li{display: inline-block; width: 31.6%; margin: 1% 0;}
 .colorList li a{display: block; border: 2px solid #40301B; width: 48px;
     height: 48px;  box-shadow: 2px 4px 4px #000; transition: transform ease 0.5s;}
 .colorList li a.disable{opacity: 0.4; pointer-events: none;}
-.table .pickColorBtn {background: #278ea5;  border-color: #166c80;
-   padding: 4px 9px 7px;  color: #f4e7ff;}
+.table .pickColorBtn { background: #7e5408;border-color: #513502; padding: 11px 14px 4px;
+  color: #ffe5bf;display: inline-block;  vertical-align: middle;}
+.table .pickColorBtn:hover{box-shadow:1px 1px 3px #000}
 
 .colorList{text-align: center; background: #ececec; width: 90%; padding: 5% 5% 4%;
     margin: 0 auto;}

@@ -21,8 +21,7 @@ class App extends Component {
             <Route path="/UseJson" exact component={DefaultLayout} />
             <Route path="/FormValid" exact component={DefaultLayout} />
             <Route path="/FormValidation" exact component={DefaultLayout} />
-            <Route path="/Hook" exact component={DefaultLayout} />
-            <Route path="/Tabs" exact component={DefaultLayout} />
+            <Route path="/Login" exact component={DefaultLayout} />
             <Route path="/test/:id" exact component={DefaultLayout} />          
           </Switch>
         </BrowserRouter>

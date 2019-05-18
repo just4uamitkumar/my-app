@@ -2,7 +2,7 @@ import React from 'react';
 
 const emp = (props) => {
     return (
-        <tr>
+        <tr id={props.id}>
             <td>{props.id}</td>
             <td>{props.firstname}</td>
             <td>{props.lastname}</td>
