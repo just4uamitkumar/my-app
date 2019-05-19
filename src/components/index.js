@@ -12,8 +12,6 @@ export { default as AxiosCallD } from './AxiosCallD'
 export { default as UseJson } from './UseJson'
 export { default as FormValid } from './FormValid'
 export { default as FormValidation } from './FormValidation'
-export { default as Hook } from './Hook'
-export { default as Tabs } from './Tabs'
 
 
 
