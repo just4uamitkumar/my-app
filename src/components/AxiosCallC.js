@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Accordion from './Accordion';
+
 
 class AxiosCallC extends Component{ 
     constructor(props){
