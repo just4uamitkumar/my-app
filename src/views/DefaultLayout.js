@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallB, AxiosCallC, AxiosCallD, UseJson, FormValid, 
-	FormValidation } from './../components';
+	FormValidation, Login } from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -19,6 +19,10 @@ class DefaultLayout extends React.Component {
 	        condition: !state.condition
 	    })
 	   );
+	}
+
+	componentWillUnmount(){
+		
 	}
 
 	render() {
@@ -62,7 +66,10 @@ class DefaultLayout extends React.Component {
 
 			case '/FormValidation' : pageContent = <FormValidation />
 			break;
-		
+
+			case '/Login' : pageContent = <Login />
+			break;
+
 			case `/test/${match.params.id}`: pageContent = <Home />
 			break;
 
