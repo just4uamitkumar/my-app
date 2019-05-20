@@ -36,9 +36,9 @@ class Document extends Component{
     }
 
     delEmp = (index, e) => {
-        const copyemps = Object.assign([], this.state.emps);
-        copyemps.splice(index, 1);
+        const copyemps = this.state.emps.filter(emp => emp.id !== index );        
         this.setState({emps:copyemps});
+        console.log(copyemps)
     }
     
     incrementCount(){
@@ -88,7 +88,7 @@ class Document extends Component{
                                         salary={emp.salary}
                                         firstname={emp.firstname}
                                         lastname={emp.lastname}
-                                        deleteEvent={this.delEmp.bind(this, this.id)}
+                                        deleteEvent={this.delEmp.bind(this, emp.id)}
                                     >
                                     </Emp>
                                     )
