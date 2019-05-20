@@ -38,10 +38,13 @@ class LifeCycle extends Component{
     Modal.setAppElement('body');
   }  
 
-  pickModal = () =>{
-    this.setState({
-      isActive:!this.state.isActive
-    });       
+  pickModal = (index) =>{
+    this.setState(prevState => {
+      return {
+        isActive:!prevState.isActive,
+        index
+      }
+    });      
   }
 
   closeModal = (e) =>{
@@ -51,15 +54,10 @@ class LifeCycle extends Component{
     })
   }
   
-  getColor = (index) => {
-    var dataColors = this.state.dataColors;
-    var dataColor = dataColors[index];
-    //alert(dataColor);
-    console.log(dataColor)
-
+  getColor = (dataColor) => {
     this.setState({
       isActive:!this.state.isActive,
-      colorvalue: dataColor
+      ['colorvalue' + this.state.index]: dataColor
     })
   }  
     
@@ -77,7 +75,7 @@ class LifeCycle extends Component{
           <button className="btn btn-primary btn-sm" onClick={this.incCount}>Increment</button>                                              
         </div>
 
-        <div className="col-4">
+        <div className="col-6">
           <div className="contentBlock clearfix">        
             <h2>Closure Example <button className="btn btn-sm btn-warning right disable">Clear All</button></h2>
 
@@ -95,7 +93,7 @@ class LifeCycle extends Component{
                       this.state.colorNames.map((colorName, index) => {
                         return <tr key={colorName}>
                           <td>
-                              <div className="color" data-color={this.state.colorvalue}></div>
+                              <div className="color" data-color={this.state['colorvalue' + index]}></div>
                               <button type="button" className="btn pickColorBtn" onClick={() => this.pickModal(index)}><FaEyeDropper/></button>                             
                             </td>                      
                             <td>{colorName}</td>
@@ -123,8 +121,8 @@ class LifeCycle extends Component{
             <div className="modalBody">
                <ul className="colorList">
                   {
-                    this.state.dataColors.map((dataColor, index) => {
-                      return <li key={dataColor}  onClick={() => this.getColor(index)} >
+                    this.state.dataColors.map((dataColor) => {
+                      return <li key={dataColor}  onClick={() => this.getColor(dataColor)} >
                         <span data-color={dataColor}></span>
                       </li>
                     })

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Accordion from './Accordion';
-
 
 class AxiosCallC extends Component{ 
     constructor(props){
@@ -23,8 +21,8 @@ class AxiosCallC extends Component{
 
                 <div className="col-6">
                     <div className="contentBlock">
-                        <h2>Axios Call C</h2>                        
-                       
+                        <h2>Accordion</h2>                        
+                        
                     </div>                                                                                                  
                 </div>
 
