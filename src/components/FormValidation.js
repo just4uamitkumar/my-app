@@ -176,13 +176,17 @@ class FormValidation extends Component{
         this.setState({
             isActiveA:!this.state.isActiveA
         });
-        const teamDel = Object.assign([], this.state.datas);
-        teamDel.splice(index, 1);
+        //const teamDel = Object.assign([], this.state.datas);
+        //teamDel.splice(index, 1);
+        //this.setState({datas:teamDel});
+
+        const teamDel = this.state.datas.filter(data => data.id !== index );        
         this.setState({datas:teamDel});
+        //console.log(copyemps)
     }
     
     render(){
-        const { datas } = this.state 
+        //const { datas } = this.state 
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -308,8 +312,8 @@ class FormValidation extends Component{
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
-                                        datas.map(row =>
+                                    {/* {
+                                        this.state.datas.map(row =>
                                             <tr key={row.id} id={row.id}>
                                                 <td>{row.id}</td>
                                                 <td>{row.name}</td>
@@ -328,7 +332,7 @@ class FormValidation extends Component{
                                                 </td>
                                             </tr>
                                         )
-                                    }
+                                    } */}
                                 </tbody>
                             </table>
                         </div>
@@ -407,7 +411,7 @@ class FormValidation extends Component{
                             <FaTrash/> No
                         </button>
                        <button type="button" className="btn btn-primary" onClick={this.deleteRow}>
-                                <FaPrint/> Yes
+                            <FaPrint/> Yes
                         </button>
                     </div>
                 </Modal>

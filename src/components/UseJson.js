@@ -50,8 +50,8 @@ class UseJson extends Component{
             isActive:!this.state.isActive
         })
     }
-   
-    
+
+        
     render(){
         const { datas } = this.state
         return(
@@ -143,7 +143,8 @@ class UseJson extends Component{
                                                 <td>{row.experience}</td>
                                                 <td>{row.occupatoin}</td>
                                                 <td>
-                                                    <button type="button" className="btn btn-danger btn-sm">
+                                                    <button type="button" className="btn btn-danger btn-sm"
+                                                   >
                                                     <FaTrash/> Delete
                                                     </button>
                                                     <button type="button" className="btn btn-warning btn-sm">

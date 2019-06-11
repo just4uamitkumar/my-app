@@ -25,9 +25,6 @@ class App extends Component {
             <Route path="/test/:id" exact component={DefaultLayout} />          
           </Switch>
         </BrowserRouter>
-
-        
-
       </div>
     );
   }
