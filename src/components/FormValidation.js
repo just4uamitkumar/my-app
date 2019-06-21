@@ -32,7 +32,6 @@ class FormValidation extends Component{
        
        //this.handleChange = this.handleChange.bind(this);
     }
-
           
     handleValidation(){
         let fields = this.state.fields;
@@ -176,13 +175,17 @@ class FormValidation extends Component{
         this.setState({
             isActiveA:!this.state.isActiveA
         });
-        const teamDel = Object.assign([], this.state.datas);
-        teamDel.splice(index, 1);
+        //const teamDel = Object.assign([], this.state.datas);
+        //teamDel.splice(index, 1);
+        //this.setState({datas:teamDel});
+
+        const teamDel = this.state.datas.filter(data => data.id !== index );        
         this.setState({datas:teamDel});
+        //console.log(copyemps)
     }
     
     render(){
-        const { datas } = this.state 
+       const { datas } = this.state 
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -309,7 +312,7 @@ class FormValidation extends Component{
                                 </thead>
                                 <tbody>
                                     {
-                                        datas.map(row =>
+                                        datas.map((row, index) => 
                                             <tr key={row.id} id={row.id}>
                                                 <td>{row.id}</td>
                                                 <td>{row.name}</td>
@@ -331,16 +334,6 @@ class FormValidation extends Component{
                                     }
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-12">
-                    <div className="contentBlock">
-                        <h2>Data 2</h2>
-                        <div className="table-responsive">
-                         <div>{JSON.stringify(this.state.datas)}</div>
-                            
                         </div>
                     </div>
                 </div>
@@ -407,7 +400,7 @@ class FormValidation extends Component{
                             <FaTrash/> No
                         </button>
                        <button type="button" className="btn btn-primary" onClick={this.deleteRow}>
-                                <FaPrint/> Yes
+                            <FaPrint/> Yes
                         </button>
                     </div>
                 </Modal>

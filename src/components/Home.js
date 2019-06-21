@@ -6,7 +6,7 @@ import Tabs from './Tabs';
 class HomeList extends React.Component{
     render(){        
         return (
-            <li><span>{this.props.detail}</span></li>
+            <li><span>{this.props.index + 1} {this.props.detail}</span></li>
         )        
     }
 }
@@ -47,8 +47,8 @@ class Home extends React.Component {
                     <h2>Map Array </h2>
                     <p>We have an array values in a list.</p>
                     <ul className="HomeLink">{
-                        this.state.HomeLinks.map(function(HomeLink){
-                            return <HomeList detail={HomeLink} key={HomeLink} />
+                        this.state.HomeLinks.map(function(HomeLink, index){
+                            return <HomeList detail={HomeLink} key={HomeLink} index={index} />
                         })
                     }
                     </ul>

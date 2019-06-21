@@ -49,9 +49,15 @@ class UseJson extends Component{
         this.setState({
             isActive:!this.state.isActive
         })
+    }  
+
+    deleteThis = (index) => {
+        const filtered = this.state.datas.filter(row => row.id !== index );        
+        this.setState({datas:filtered});
+        console.log(filtered)
     }
-   
-    
+
+           
     render(){
         const { datas } = this.state
         return(
@@ -64,7 +70,7 @@ class UseJson extends Component{
                     <div className="contentBlock">
                         <h2>First Name</h2>                        
                         <ul className="DocsListA">
-                            { datas.map(e => <li key={e.id}>{e.id} : {e.firstname}</li>)}
+                            { datas.map((e, index) => <li key={index + 1}> {(index) + 1} : {e.firstname}</li>)}
                         </ul>
                     </div>                                                                                                  
                 </div>
@@ -73,7 +79,7 @@ class UseJson extends Component{
                     <div className="contentBlock">
                         <h2>Last Name</h2>                        
                         <ul className="DocsListA">
-                            { datas.map(e => <li key={e.id}>{e.lastname}</li>)}
+                            { datas.map((e, index) => <li key={index}>{e.lastname}</li>)}
                         </ul>
                     </div>                                                                                                  
                 </div>
@@ -82,7 +88,7 @@ class UseJson extends Component{
                     <div className="contentBlock">
                         <h2>Experience</h2>                        
                         <ul className="DocsListA">
-                            { datas.map(e => <li key={e.id}>{e.experience}</li>)}
+                            { datas.map((e, index) => <li key={index}>{e.experience}</li>)}
                         </ul>
                     </div>                                                                                                  
                 </div>
@@ -91,7 +97,7 @@ class UseJson extends Component{
                     <div className="contentBlock">
                         <h2>Occupation</h2>                        
                         <ul className="DocsListA">
-                            { datas.map(e => <li key={e.id}>{e.occupatoin}</li>)}
+                            { datas.map((e, index) => <li key={index}>{e.occupatoin}</li>)}
                         </ul>
                     </div>                                                                                                  
                 </div>
@@ -134,8 +140,8 @@ class UseJson extends Component{
                                 </thead>
                                 <tbody>
                                     {
-                                        datas.map(row =>
-                                            <tr key={row.id}>
+                                        datas.map((row, index) =>
+                                            <tr key={row.id} id={row.id}>
                                                 <td>{row.id}</td>
                                                 <td>{row.firstname}</td>
                                                 <td>{row.lastname}</td>
@@ -143,11 +149,13 @@ class UseJson extends Component{
                                                 <td>{row.experience}</td>
                                                 <td>{row.occupatoin}</td>
                                                 <td>
-                                                    <button type="button" className="btn btn-danger btn-sm">
-                                                    <FaTrash/> Delete
+                                                    <button type="button" className="btn btn-danger btn-sm"
+                                                    onClick={this.deleteThis.bind(this, row.id)} >
+                                                   
+                                                        <FaTrash/> Delete
                                                     </button>
                                                     <button type="button" className="btn btn-warning btn-sm">
-                                                     <FaPrint/> Edit
+                                                        <FaPrint/> Edit
                                                     </button>
                                                 </td>
                                             </tr>

@@ -40,8 +40,7 @@ class Header extends React.Component {
                     <Link to="/Login" onClick={this.logOut} className="logOut">
                         <FaPowerOff/>
                     </Link>
-                    <div className="CurrentTime"> {this.state.current_time}</div>                   
-                                        
+                    <div className="CurrentTime"> {this.state.current_time}</div>
                 </div>
             </header>            
         );

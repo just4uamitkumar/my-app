@@ -17,7 +17,8 @@ class LifeCycle extends Component{
       title : 'Life Cycle Method',
       count:0,
       colorNames :['Color A', 'Color B', 'Color C', 'Color D', 'Color E', 'Color F', 'Color G', 'Color H', 'Color I'],
-      dataColors : ['green', 'red', 'dodgerBlue', 'pink', 'yellow', 'orange', 'slateBlue', 'violet', 'DarkBlue'],
+      dataColors : ['green', 'red', 'dodgerBlue', 'pink', 'yellow', 'orange', 'slateBlue', 'violet', 'DarkBlue']
+      //isColorVis : false
      }    
   }
 
@@ -58,10 +59,12 @@ class LifeCycle extends Component{
     this.setState({
       isActive:!this.state.isActive,
       ['colorvalue' + this.state.index]: dataColor
-    })
+    });  
   }  
     
   render(){
+
+   
        
     return(
       <div className="content">
@@ -75,9 +78,9 @@ class LifeCycle extends Component{
           <button className="btn btn-primary btn-sm" onClick={this.incCount}>Increment</button>                                              
         </div>
 
-        <div className="col-6">
+        <div className="col-4">
           <div className="contentBlock clearfix">        
-            <h2>Closure Example <button className="btn btn-sm btn-warning right disable">Clear All</button></h2>
+            <h2>Closure Example <button className="btn btn-sm btn-warning right" disabled>Clear All</button></h2>
 
             <div className="colorTable clearfix">                        
               <div className="table-responsive">
@@ -94,7 +97,8 @@ class LifeCycle extends Component{
                         return <tr key={colorName}>
                           <td>
                               <div className="color" data-color={this.state['colorvalue' + index]}></div>
-                              <button type="button" className="btn pickColorBtn" onClick={() => this.pickModal(index)}><FaEyeDropper/></button>                             
+                              <button type="button" className="btn pickColorBtn"
+                               onClick={() => this.pickModal(index)}><FaEyeDropper/></button>                             
                             </td>                      
                             <td>{colorName}</td>
                         </tr>;
@@ -103,7 +107,7 @@ class LifeCycle extends Component{
                   </tbody>
                 </table>
               </div>
-              <button type="button" className="btn btn-primary right disable">
+              <button type="button" className="btn btn-primary right" disabled>
                 Finish
               </button>
             </div>  
@@ -116,14 +120,15 @@ class LifeCycle extends Component{
             <div className="modalHeader">
               <h4>Add Color</h4>
               <button type="submit" onClick={this.closeModal} className="closeModal">X</button>                 
-            </div>
-            
+            </div>            
             <div className="modalBody">
                <ul className="colorList">
                   {
                     this.state.dataColors.map((dataColor) => {
-                      return <li key={dataColor}  onClick={() => this.getColor(dataColor)} >
-                        <span data-color={dataColor}></span>
+                      return <li key={dataColor} onClick={() => this.getColor(dataColor)} >
+                        <span data-color={dataColor} 
+                          className={['colorvalue' + this.state.index] ? '' : 'disable'} >
+                        </span>
                       </li>
                     })
                   }
