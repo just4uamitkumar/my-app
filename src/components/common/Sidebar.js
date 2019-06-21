@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaUmbrella, FaWpforms } from 'react-icons/fa';
+import {FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaUmbrella, FaWpforms, FaBitcoin } from 'react-icons/fa';
 import { withRouter, Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
@@ -16,8 +16,8 @@ class Sidebar extends React.Component {
 			{path: '/AxiosCallD', label: 'AxiosCall D', icon:<FaUmbrella/>},
 			{path: '/UseJson', label: 'UseJson', icon:<FaUmbrella/>},			
 			{path: '/FormValid', label: 'FormValid', icon:<FaWpforms/>},
-			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>}
-						
+			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>},
+			{path: '/CashDispatch', label: 'CashDispatch', icon:<FaBitcoin/>}								
 		];
 		return (
 			<div className='sidebar'>

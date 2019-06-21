@@ -32,7 +32,6 @@ class FormValidation extends Component{
        
        //this.handleChange = this.handleChange.bind(this);
     }
-
           
     handleValidation(){
         let fields = this.state.fields;
@@ -186,7 +185,7 @@ class FormValidation extends Component{
     }
     
     render(){
-        //const { datas } = this.state 
+       const { datas } = this.state 
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -312,8 +311,8 @@ class FormValidation extends Component{
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {
-                                        this.state.datas.map(row =>
+                                    {
+                                        datas.map((row, index) => 
                                             <tr key={row.id} id={row.id}>
                                                 <td>{row.id}</td>
                                                 <td>{row.name}</td>
@@ -332,19 +331,9 @@ class FormValidation extends Component{
                                                 </td>
                                             </tr>
                                         )
-                                    } */}
+                                    }
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-12">
-                    <div className="contentBlock">
-                        <h2>Data 2</h2>
-                        <div className="table-responsive">
-                         <div>{JSON.stringify(this.state.datas)}</div>
-                            
                         </div>
                     </div>
                 </div>
