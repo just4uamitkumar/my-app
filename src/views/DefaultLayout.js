@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallB, AxiosCallC, AxiosCallD, UseJson, FormValid, 
-	FormValidation, Login, CashDispatch } from './../components';
+	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent } from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -71,6 +71,15 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/CashDispatch' : pageContent = <CashDispatch />
+			break;
+			
+			case '/ImageGalleryA' : pageContent = <ImageGalleryA />
+			break;
+			
+			case '/JokeContent' : pageContent = <JokeContent />
+			break;
+
+			case '/ExternalContent' : pageContent = <ExternalContent />
 			break;			
 
 			case `/test/${match.params.id}`: pageContent = <Home />

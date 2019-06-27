@@ -23,6 +23,9 @@ class App extends Component {
             <Route path="/FormValidation" exact component={DefaultLayout} />
             <Route path="/Login" exact component={DefaultLayout} />
             <Route path="/CashDispatch" exact component={DefaultLayout} /> 
+            <Route path="/ImageGalleryA" exact component={DefaultLayout} />
+            <Route path="/JokeContent" exact component={DefaultLayout} />
+            <Route path="/ExternalContent" exact component={DefaultLayout} />           
             <Route path="/test/:id" exact component={DefaultLayout} />
           </Switch>
         </BrowserRouter>
