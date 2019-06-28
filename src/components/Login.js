@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './../logo.svg';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Modal from 'react-modal';
-import axios from 'axios';
 
 class Login extends Component{
     constructor(props) {

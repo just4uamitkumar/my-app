@@ -17,7 +17,12 @@ class Sidebar extends React.Component {
 			{path: '/UseJson', label: 'UseJson', icon:<FaUmbrella/>},			
 			{path: '/FormValid', label: 'FormValid', icon:<FaWpforms/>},
 			{path: '/FormValidation', label: 'FormValidation', icon:<FaWpforms/>},
-			{path: '/CashDispatch', label: 'CashDispatch', icon:<FaBitcoin/>}								
+			{path: '/CashDispatch', label: 'CashDispatch', icon:<FaBitcoin/>},
+			{path: '/ImageGalleryA', label: 'ImageGalleryA', icon:<FaBitcoin/>},
+			{path: '/JokeContent', label: 'JokeContent', icon:<FaBitcoin/>}	,
+			{path: '/ExternalContent', label: 'ExternalContent', icon:<FaBitcoin/>}
+			
+			
 		];
 		return (
 			<div className='sidebar'>
