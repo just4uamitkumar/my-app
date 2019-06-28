@@ -15,9 +15,6 @@ const productComponent = productsData.map(item => <Product key={item.id} product
 const todoItems = todosData.map(item => <TodoItem key={item.id} item={item} />)
 
 
-
-
-
 class ExternalContent extends Component{
 
     constructor(props){

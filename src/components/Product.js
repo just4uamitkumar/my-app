@@ -1,7 +1,6 @@
 import React from "react"
 
 function Product(props) {
-    console.log(props)
     return (        
         <div className="product">
             <h3 className="text-center">{props.product.id} : {props.product.name} </h3>           

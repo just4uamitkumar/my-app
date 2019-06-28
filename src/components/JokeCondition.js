@@ -1,7 +1,6 @@
 import React from "react"
 
 function JokeCondition(props) {
-    console.log(props)
     return (        
         <div className="item Jokes">
             <h3 style={{display: !props.question && "none"}}>Question : {props.question}</h3>

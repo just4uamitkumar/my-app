@@ -42,7 +42,7 @@ class Document extends Component{
     }
     
     incrementCount(){
-        this.setState((preveState) => {
+        this.setState(preveState => {
             return{
                 count:preveState.count + 1
             }
