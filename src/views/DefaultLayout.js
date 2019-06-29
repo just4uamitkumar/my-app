@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom';
 
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallB, AxiosCallC, AxiosCallD, UseJson, FormValid, 
-	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent } from './../components';
+	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent,
+	ConditionalRender} from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -80,8 +81,11 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/ExternalContent' : pageContent = <ExternalContent />
-			break;			
+			break;
 
+			case '/ConditionalRender' : pageContent = <ConditionalRender />
+			break;
+			
 			case `/test/${match.params.id}`: pageContent = <Home />
 			break;
 

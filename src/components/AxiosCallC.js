@@ -5,12 +5,14 @@ import axios from 'axios';
 class AxiosCallC extends Component{ 
     constructor(props){
         super(props);
-        this.state = {        
+        this.state = {
+            loading:true,      
             title : 'Axios Call',
-            persons:[]
+            persons:[],
+            character:{}
         }
 
-        this.deleteEvent = this.deleteEvent.bind(this);
+        //this.deleteEvent = this.deleteEvent.bind(this);
     }
 
     componentDidMount() {
@@ -20,30 +22,21 @@ class AxiosCallC extends Component{
             this.setState({ persons });
             console.log(persons)
           });
-          
+
+          fetch('https://swapi.co/api/people/1')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    loading:false,
+                    character:data
+                })
+            })         
     }
 
-    
-
-    deleteEvent = event => {
-       alert(this);
-        
-        //const delPerson = this.state.persons.filter(person => person.id !== index );
-        //this.setState({persons:delPerson});
-        //console.log(delPerson);
-
-        event.preventDefault();
-
-        // axios.delete(`./team.json/${this.state.id}`)
-        // .then(res => {
-        //     const persons = res.data;
-        //     this.setState({ persons });
-        //     console.log(persons)
-        // })
-    }
     
     
     render(){
+        const text = this.state.loading ? 'Loading...' : this.state.character.name;
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -91,7 +84,19 @@ class AxiosCallC extends Component{
                             </table>
                         </div>
                     </div>
+
+                     <div className="contentBlock">
+                        <h2>Data</h2>
+                        <div>{text}</div>
+                    </div>
+
+
                 </div>
+
+
+
+                
+                   
             </div>            
         );
     }

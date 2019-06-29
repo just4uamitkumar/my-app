@@ -25,6 +25,7 @@ li{list-style: none;}
 .m-20{margin-top: 20px; margin-bottom: 20px;}
 .form-control.w100px{width: 200px;}
 .imgFull{width:100%;}
+.text-White{color:#fff;}
 
 /*------| Form |------*/
 .form-group{margin-bottom:10px; overflow: hidden;}
