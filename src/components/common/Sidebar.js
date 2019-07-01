@@ -20,7 +20,8 @@ class Sidebar extends React.Component {
 			{path: '/CashDispatch', label: 'CashDispatch', icon:<FaBitcoin/>},
 			{path: '/ImageGalleryA', label: 'ImageGalleryA', icon:<FaBitcoin/>},
 			{path: '/JokeContent', label: 'JokeContent', icon:<FaBitcoin/>}	,
-			{path: '/ExternalContent', label: 'ExternalContent', icon:<FaBitcoin/>}
+			{path: '/ExternalContent', label: 'ExternalContent', icon:<FaBitcoin/>},
+			{path: '/ConditionalRender', label: 'ConditionalRender', icon:<FaBitcoin/>}
 			
 			
 		];

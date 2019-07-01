@@ -14,6 +14,8 @@ class Login extends Component{
             username:'',
             password:''
         }
+
+        this.showPass = this.showPass.bind(this);
     }
     
     showPass() {
@@ -39,27 +41,17 @@ class Login extends Component{
         
     }
 
-    updateState(e){
-        //this.setState({username: e.target.value, password: e.target.value})
-
+    handleChange(event){
+        const {name, value }= event.target
         this.setState({
-            username: e.target.value,
-            password: e.target.value
+            [name]: value
         });
     }
 
     handleSubmit(e){
-        e.preventDefault();
-        if( this.state.username === 'admin' && this.state.password === 'admin'){
-           // this.submitModal(); 
-            alert("Logged In successfully.");          
-        }
-        else{
-           alert("Enter valid credentials");          
-        }
+        e.preventDefault();       
+        this.state.username === 'admin' && this.state.password === 'admin'? alert("Logged In successfully.") : alert("Enter valid credentials")              
     }
-
-    
     
     render(){
         return(
@@ -74,21 +66,25 @@ class Login extends Component{
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label className="control-label">User Name</label>                        
-                        <input type="text" className="form-control"                         
+                        <input type="text" className="form-control" name="username"                        
                             placeholder="Enter username"  value={this.state.username}
-                            onChange={this.updateState.bind(this)}
+                            onChange={this.handleChange.bind(this)}
                         />                         
                     </div>
                 
                     <div className="form-group">
                         <label className="control-label">Password</label>
                         <input type={this.state.isToggleOn ? 'password' : 'text'} className="form-control"
-                             value={this.state.password}  
-                             onChange={this.updateState.bind(this)}                       
+                             name="password"  value={this.state.password}  
+                             onChange={this.handleChange.bind(this)}                       
                             placeholder="Enter Password" />
                         <span onMouseDown={this.showPass} onMouseUp={this.showPass}>
                             {this.state.isToggleOn ? <FaEye/> : <FaEyeSlash/>}                       
                         </span>                                           
+                    </div>
+
+                    <div className="text-center">
+                        <p class="text-White">{this.state.username} {this.state.password}</p>
                     </div>
 
                     <div className='form-group'>
