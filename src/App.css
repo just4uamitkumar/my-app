@@ -26,9 +26,10 @@ li{list-style: none;}
 .form-control.w100px{width: 200px;}
 .imgFull{width:100%;}
 .text-White{color:#fff;}
+p{padding: 0 0 10px;}
 
 /*------| Form |------*/
-.form-group{margin-bottom:10px; overflow: hidden;}
+.form-group{margin-bottom:15px; overflow: hidden;}
 .form-group label{font-weight: 700; padding: 0 0 6px; font-size: 15px; display:block}
 .control-label{ font-size: 1.1rem; display: block; padding: 0 0 5px;}
 .form-control {background-color: #fff; border: 1px solid #ddd; width:calc(100% - 16px);
@@ -249,4 +250,16 @@ padding: 0.5rem 0.85rem; font-size: 16px; cursor: pointer;}
 .todo-item{padding: 0 0 15px;}
 .todo-item label{display: inline-block; vertical-align: middle; margin:0 0 0 5px;}
 .todo-item input{display: inline-block; vertical-align: middle;}
+
+/*------| Meme APP |-----*/
+.meme {position: relative;}
+.meme > h2 { position: absolute; margin: 15px 5px; font-family: impact, sans-serif;
+  font-size: 2em;  text-transform: uppercase; color: #FFF; letter-spacing: 1px;
+  text-shadow:   2px 2px 0 #000,  -2px -2px 0 #000,   2px -2px 0 #000,
+      -2px 2px 0 #000,  0 2px 0 #000,  2px 0 0 #000,  0 -2px 0 #000,
+      -2px 0 0 #000,  2px 2px 5px #000; width: 100%; border:0;}
+.meme > .bottom {bottom: 0;}
+.meme > .top {top: 0;}
+
+
 

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallB, AxiosCallC, AxiosCallD, UseJson, FormValid, 
 	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent,
-	ConditionalRender} from './../components';
+	ConditionalRender, FormElement, MemeGenerator} from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -65,6 +65,9 @@ class DefaultLayout extends React.Component {
 			case '/FormValid' : pageContent = <FormValid />
 			break;
 
+			case '/FormElement' : pageContent = <FormElement />
+			break;
+
 			case '/FormValidation' : pageContent = <FormValidation />
 			break;
 
@@ -84,6 +87,9 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/ConditionalRender' : pageContent = <ConditionalRender />
+			break;
+
+			case '/MemeGenerator' : pageContent = <MemeGenerator />
 			break;
 			
 			case `/test/${match.params.id}`: pageContent = <Home />

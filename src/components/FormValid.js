@@ -104,7 +104,7 @@ class FormValid extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-6">
+                <div className="col-4">
                     <div className="contentBlock">
                         <h2>Form Element</h2>
                         <form onSubmit={this.handleSubmit.bind(this)}>
