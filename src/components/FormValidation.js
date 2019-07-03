@@ -26,7 +26,7 @@ class FormValidation extends Component{
           title:'Form Validation 2',
            fields: {},
            errors: {},
-           datas: TeamData,
+           datas: 'TeamData',
           // birthDate: new Date()
        }  
        
@@ -175,9 +175,9 @@ class FormValidation extends Component{
         this.setState({
             isActiveA:!this.state.isActiveA
         });
-        //const teamDel = Object.assign([], this.state.datas);
-        //teamDel.splice(index, 1);
-        //this.setState({datas:teamDel});
+        // const teamDel = Object.assign([], this.state.datas);
+        // teamDel.splice(index, 1);
+        // this.setState({datas:teamDel});
 
         const teamDel = this.state.datas.filter(data => data.id !== index );        
         this.setState({datas:teamDel});
@@ -185,7 +185,7 @@ class FormValidation extends Component{
     }
     
     render(){
-       const { datas } = this.state 
+        const { datas } = this.state 
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -311,8 +311,7 @@ class FormValidation extends Component{
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
-                                        datas.map((row, index) => 
+                                    {datas.map(row => 
                                             <tr key={row.id} id={row.id}>
                                                 <td>{row.id}</td>
                                                 <td>{row.name}</td>
@@ -331,8 +330,8 @@ class FormValidation extends Component{
                                                 </td>
                                             </tr>
                                         )
-                                    }
-                                </tbody>
+                                 }
+                                 </tbody>
                             </table>
                         </div>
                     </div>
