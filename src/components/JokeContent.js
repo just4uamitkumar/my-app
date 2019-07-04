@@ -9,9 +9,7 @@ class JokeContent extends Component{
         this.state = {
            title : 'Joke Content' ,
            titleA : 'Joke Contant without condition',
-           titleB : 'Joke Content with condition',
-           titleC : 'Joke Content from external file',
-           titleD : 'Product Component'
+           titleB : 'Joke Content with condition'
         }
     }
 
@@ -68,11 +66,7 @@ class JokeContent extends Component{
                         <JokeCondition question="Did you hear about the claustrophobic astronaut?"
                             punchLine="He just needed a little space."/>
                     </div>
-                </div>
-
-               
-
-               
+                </div>               
             </div>
         )
     }

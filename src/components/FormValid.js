@@ -36,9 +36,7 @@ class FormValid extends Component{
                 formIsValid = false;
                 errors["name"] = "Enter a Valid name";
             }
-        }
-
-        
+        }        
 
         //Phone
         if(!fields["phone"]){
@@ -159,7 +157,7 @@ class FormValid extends Component{
                                 <button type="reset" className="btn btn-warning">
                                     Reset
                                 </button>
-                                <button type="submit"className="btn btn-primary">
+                                <button type="submit" className="btn btn-primary">
                                     Submit
                                 </button>                               
                             </div>

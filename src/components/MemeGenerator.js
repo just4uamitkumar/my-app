@@ -35,12 +35,11 @@ class MemeGenerator extends Component{
         const randMemeImg = this.state.allMemeImgs[randNum].url
         this.setState({ randomImg: randMemeImg })
         console.log(randMemeImg)
+        console.log(this.state.allMemeImgs.length)
     }
     
-    render(){
-      
+    render(){      
         return(
-
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
@@ -52,12 +51,12 @@ class MemeGenerator extends Component{
 
                         <form className="meme-form" onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <input  type="text" name="topText"  placeholder="Top Text"
+                                <input  type="text" name="topText" placeholder="Top Text"
                                     value={this.state.topText} onChange={this.handleChange}
                                     className="form-control" />
                             </div>
                             <div className="form-group">
-                                <input  type="text" name="bottomText"  placeholder="Bottom Text"
+                                <input  type="text" name="bottomText" placeholder="Bottom Text"
                                     value={this.state.bottomText} onChange={this.handleChange}
                                     className="form-control" />
                             </div>

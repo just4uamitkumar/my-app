@@ -15,24 +15,10 @@ class LifeCycle extends Component{
     super(props);
     this.state = {        
       title : 'Life Cycle Method',
-      count:0,
       colorNames :['Color A', 'Color B', 'Color C', 'Color D', 'Color E', 'Color F', 'Color G', 'Color H', 'Color I'],
       dataColors : ['green', 'red', 'dodgerBlue', 'pink', 'yellow', 'orange', 'slateBlue', 'violet', 'DarkBlue']
       //isColorVis : false
      }    
-  }
-
-  incCount = () => {
-    this.setState({
-      count:this.state.count + 1
-    })
-  }
-
-  shouldComponentUpdate(){
-    if(this.state.count > 9){
-      return false;
-    }
-    return true;
   }
 
   componentWillMount(){
@@ -72,13 +58,7 @@ class LifeCycle extends Component{
           <h1>{this.state.title} </h1>
         </div>
 
-        <div className="contentBlock">
-          <h2>Set State</h2>                  
-          {this.state.count} &nbsp;
-          <button className="btn btn-primary btn-sm" onClick={this.incCount}>Increment</button>                                              
-        </div>
-
-        <div className="col-4">
+        <div className="col-3">
           <div className="contentBlock clearfix">        
             <h2>Closure Example <button className="btn btn-sm btn-warning right" disabled>Clear All</button></h2>
 

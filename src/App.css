@@ -159,8 +159,9 @@ margin: 2px 0px 2px 18px; border-radius: 2px; box-shadow:0 1px 2px #4e4e4e;}
 .row{margin:0 -10px;}
 .col-6{width: calc(50% - 20px); float: left; padding:0 10px;}
 .col-3{width: calc(25% - 20px); float: left; padding:0 10px;}
+.col-5{width: calc(42% - 20px); float: left; padding:0 10px;}
 .col-4{width: calc(33.33% - 20px); float: left; padding:0 10px;}
-.col-8{width: calc(67.66% - 20px); float: left; padding:0 10px;}
+.col-8{width: calc(66% - 20px); float: left; padding:0 10px;}
 .col-9{width: calc(75% - 20px); float: left; padding:0 10px;}
 
 /*-----| Ajax Call |-----*/

@@ -12,9 +12,6 @@ const jokeComponents = jokesData.map(joke => <JokeCondition key={joke.id} questi
 
 const productComponent = productsData.map(item => <Product key={item.id} product={item} />)
 
-
-
-
 class ExternalContent extends Component{
 
     constructor(props){
@@ -37,15 +34,11 @@ class ExternalContent extends Component{
                 }
                 return todo
             })
-            return {
-                todos: updatedTodos
-            }
+            return { todos: updatedTodos }
         })
     }
-    
 
     render(){
-
         const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} 
             handleChange={this.handleChange} />)
         return(
@@ -68,17 +61,12 @@ class ExternalContent extends Component{
                     </div>
                 </div>
 
-
                 <div className="col-4">
                     <div className="contentBlock clearfix">
                         <h2>{this.state.titleC} </h2>
                         {todoItems}
                     </div>
-                </div>
-
-
-                
-               
+                </div>               
             </div>
         )
     }
