@@ -10,15 +10,15 @@ class AxiosCallA extends Component{
             name:'',
             id:''
         }       
-    }      
+    }   
 
     componentDidMount() {
         axios.get(`https://jsonplaceholder.typicode.com/users`)
           .then(res => {
             const persons = res.data;
             this.setState({ persons });
-          });
-    } 
+        });
+    }
     
     handleChangeA = event => {
         this.setState({ name: event.target.value })
@@ -53,7 +53,7 @@ class AxiosCallA extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-12">
+                <div className="col-6">
                     <div className="contentBlock">
                         <h2>Get Request</h2>                       
                         <div className="table-responsive">
@@ -65,6 +65,7 @@ class AxiosCallA extends Component{
                                         <th>User name</th>
                                         <th>Email</th>
                                         <th>Adress</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,6 +77,7 @@ class AxiosCallA extends Component{
                                         <td>{person.username}</td>
                                         <td>{person.email}</td>
                                         <td>{person.address.street}, {person.address.city}</td>                                        
+                                        <td><button className="btn btn-sm btn-danger" >Delete</button></td>
                                     </tr>
                                 )}                                    
                                 </tbody>
@@ -83,26 +85,28 @@ class AxiosCallA extends Component{
                         </div>
                     </div>                                                                                                  
                 </div>
-               
-                <div className="clearfix"></div>
 
-                <div className="col-6">
+                <div className="col-3">
                     <div className="contentBlock">
                         <h2>Post Name</h2>
                         <form onSubmit={this.handleSubmitA}>
-                            <label>Person Name:</label>
-                            <input type="text" className="form-control" onChange={this.handleChangeA}/>
+                            <div className="form-group">
+                                <label>Person Name:</label>
+                                <input type="text" className="form-control" onChange={this.handleChangeA}/>                                
+                            </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </form>                       
                     </div>                                                                                                  
                 </div>
 
-                <div className="col-6">
+                <div className="col-3">
                     <div className="contentBlock">
                         <h2>Delete ID</h2>
                         <form onSubmit={this.handleSubmitB}>
-                            <label>Person ID:</label>
-                            <input type="text" className="form-control" onChange={this.handleChangeB}/>
+                            <div className="form-group">
+                                <label>Person ID:</label>
+                                <input type="text" className="form-control" onChange={this.handleChangeB}/>
+                            </div>
                             <button type="submit" className="btn btn-primary">Submit</button>
                         </form>                       
                     </div>                                                                                                  

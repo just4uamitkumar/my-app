@@ -18,8 +18,7 @@ class Document extends Component{
     constructor(){
         super();
         this.changeStatus = this.changeStatus.bind(this);
-        this.state = {
-            count: 0,        
+        this.state = {    
            title : 'Our Documents',
            emps:[{id:101, firstname:'Paul', lastname:'Singh', salary:5000},
                {id:102, firstname:'Sam', lastname:'Kr',  salary:2000},
@@ -31,23 +30,15 @@ class Document extends Component{
                 {name: 'Document 3', completed:false},
                 {name: 'Document 4', completed:false},
                 {name: 'Document 5', completed:false}]           
-        }
-        this.incrementCount = this.incrementCount.bind(this);
+        }       
     }
 
-    delEmp = (index, e) => {
+    delEmp = (index) => {
         const copyemps = this.state.emps.filter(emp => emp.id !== index );        
         this.setState({emps:copyemps});
         console.log(copyemps)
     }
     
-    incrementCount(){
-        this.setState(preveState => {
-            return{
-                count:preveState.count + 1
-            }
-        })
-    }
 
     changeStatus(index){       
         console.log(this.state.Docs[index]);
@@ -59,59 +50,58 @@ class Document extends Component{
         })
     }
     
-    render(){
-        const {count} = this.state;
+    render(){      
         return(
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
-
-                <div className="contentBlock">
-                    <h2>Import Data</h2>                    
-                    <table className="table table-spriped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Salary</th>
-                                <th>Action</th>
-                            </tr>                            
-                        </thead>
-                        <tbody>
+                
+                <div className="col-4 clearfix">
+                    <div className="contentBlock">
+                        <h2>Import Data</h2>                    
+                        <table className="table table-spriped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Salary</th>
+                                    <th>Action</th>
+                                </tr>                            
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.emps.map((emp) => {
+                                        return (
+                                        <Emp key={emp.id}
+                                            id={emp.id}
+                                            salary={emp.salary}
+                                            firstname={emp.firstname}
+                                            lastname={emp.lastname}
+                                            deleteEvent={this.delEmp.bind(this, emp.id)}
+                                        >
+                                        </Emp>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div className="col-3 clearfix">
+                    <div className="contentBlock">
+                        <ul className="DocsList">
                             {
-                                this.state.emps.map((emp) => {
-                                    return (
-                                    <Emp key={emp.id}
-                                        id={emp.id}
-                                        salary={emp.salary}
-                                        firstname={emp.firstname}
-                                        lastname={emp.lastname}
-                                        deleteEvent={this.delEmp.bind(this, emp.id)}
-                                    >
-                                    </Emp>
-                                    )
+                                this.state.Docs.map((Doc, index) => {
+                                    return <DocsList details={Doc} key={Doc.name}
+                                    clickHandler={this.changeStatus} index={index} />
                                 })
-                            }
-                        </tbody>
-                    </table>
+                            }                            
+                        </ul>  
+                    </div>
                 </div>
-
-                <div className="contentBlock">
-                    {count} <button onClick={this.incrementCount}> Add Number</button>
-                </div>
-
-                <div className="contentBlock">
-                    <ul className="DocsList">
-                        {
-                            this.state.Docs.map((Doc, index) => {
-                                return <DocsList details={Doc} key={Doc.name}
-                                clickHandler={this.changeStatus} index={index} />
-                            })
-                        }                            
-                    </ul>  
-                </div> 
                 
             </div>            
         );

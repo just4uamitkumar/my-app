@@ -15,7 +15,7 @@ const DocForm = (props) => {
 }
 
 DocForm.propTypes = {    
-    currentTask: t.string.isRequired,
+    //currentTask: t.string.isRequired,
     updateTask: t.func.isRequired,
     addTask: t.func.isRequired,
 }

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Conditional from './Conditional';
 import ConditionalB from './ConditionalB';
 
-
-
 class ConditionalRender extends Component{
 
     constructor(props){
@@ -12,7 +10,6 @@ class ConditionalRender extends Component{
            title : 'Conditional Render' ,
            titleA : 'If else statement',
            titleB : 'Conditional Rendering',
-           titleC : 'ToDo Data from External File',
            isLoading: true
         }
     }
@@ -23,12 +20,9 @@ class ConditionalRender extends Component{
                 isLoading: false
             })
         }, 1500)
-    }
-   
+    }   
 
-    render(){
-
-       
+    render(){       
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -52,20 +46,6 @@ class ConditionalRender extends Component{
                         </div>
                     </div>
                 </div>
-
-
-                <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <h2>{this.state.titleC} </h2>
-                        <div>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-
-
-                
                
             </div>
         )

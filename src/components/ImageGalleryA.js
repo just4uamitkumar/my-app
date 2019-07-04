@@ -8,10 +8,9 @@ class ImageGalleryA extends Component{
         super(props )        
         this.state = {
            title : 'First Gallery' ,
-           titleA : 'Animal Gallery'              ,
+           titleA : 'Animal Gallery',
            titleB : 'Nature Gallery'
-        }        
-       
+        }       
     }
 
     render(){

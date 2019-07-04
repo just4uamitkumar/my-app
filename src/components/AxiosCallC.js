@@ -11,8 +11,6 @@ class AxiosCallC extends Component{
             persons:[],
             character:{}
         }
-
-        //this.deleteEvent = this.deleteEvent.bind(this);
     }
 
     componentDidMount() {
@@ -20,7 +18,6 @@ class AxiosCallC extends Component{
           .then(res => {
             const persons = res.data;
             this.setState({ persons });
-            console.log(persons)
           });
 
           fetch('https://swapi.co/api/people/1')
@@ -43,7 +40,7 @@ class AxiosCallC extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-               <div className="col-12">
+               <div className="col-8">
                     <div className="contentBlock">
                         <h2>Data</h2>
                         <div className="table-responsive">
@@ -84,19 +81,14 @@ class AxiosCallC extends Component{
                             </table>
                         </div>
                     </div>
-
-                     <div className="contentBlock">
+                </div>
+                    
+                <div className="col-4">
+                    <div className="contentBlock">
                         <h2>Data</h2>
                         <div>{text}</div>
                     </div>
-
-
-                </div>
-
-
-
-                
-                   
+                </div>                   
             </div>            
         );
     }

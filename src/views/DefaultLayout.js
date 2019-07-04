@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
-	AxiosCallA, AxiosCallB, AxiosCallC, AxiosCallD, UseJson, FormValid, 
+	AxiosCallA, AxiosCallC, UseJson, FormValid, 
 	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent,
 	ConditionalRender, FormElement, MemeGenerator} from './../components';
 
@@ -50,13 +50,7 @@ class DefaultLayout extends React.Component {
 			case '/AxiosCallA' : pageContent = <AxiosCallA />
 			break;
 
-			case '/AxiosCallB' : pageContent = <AxiosCallB />
-			break;
-
 			case '/AxiosCallC' : pageContent = <AxiosCallC />
-			break;
-
-			case '/AxiosCallD' : pageContent = <AxiosCallD />
 			break;
 			
 			case '/UseJson' : pageContent = <UseJson />

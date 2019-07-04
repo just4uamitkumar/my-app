@@ -1,22 +1,4 @@
 import React, { Component } from 'react';
-import TeamData from './team.json';
-import { FaTrash, FaPrint } from 'react-icons/fa';
-import axios from 'axios';
-import Modal from 'react-modal';
-
-const submitModal = {
-    content : {
-      top  : '50%', padding: '10px', left : '50%', right : 'auto',
-      bottom : 'auto', marginRight : '-50%',  transform : 'translate(-50%, -50%)',
-      width : '470px'}
-  };
-
-const deleteRow = {
-    content : {
-        top  : '50%', padding: '10px', left : '50%', right : 'auto',
-        bottom : 'auto', marginRight : '-50%',  transform : 'translate(-50%, -50%)',
-        width : '470px'}   
-}
 //https://stackoverflow.com/questions/41296668/reactjs-form-input-validation
 
 class FormValidation extends Component{ 
@@ -25,12 +7,8 @@ class FormValidation extends Component{
          this.state = {
           title:'Form Validation 2',
            fields: {},
-           errors: {},
-           datas: 'TeamData',
-          // birthDate: new Date()
-       }  
-       
-       //this.handleChange = this.handleChange.bind(this);
+           errors: {}
+       }
     }
           
     handleValidation(){
@@ -106,24 +84,7 @@ class FormValidation extends Component{
       this.setState({errors: errors});
       return formIsValid;
    }
-
-   componentWillMount(){
-        Modal.setAppElement('body');
-    }
-
-    submitModal = (e) =>{
-        //e.preventDefault()
-        this.setState({
-            isActive:!this.state.isActive
-        });       
-    }
-
-    closeModal = (e) =>{
-        e.preventDefault()
-        this.setState({
-            isActive:!this.state.isActive
-        })
-    }
+   
 
     formFilled(e){
         e.preventDefault();
@@ -134,65 +95,22 @@ class FormValidation extends Component{
            alert("Please fill the required fields.")
         }
     }
-
-    AddTeam(e){
-        e.preventDefault();
-        const {datas} = this.state;
-
-        this.setState({
-            isActive:!this.state.isActive
-        });
-
-        axios.post('/TeamData', { datas })
-        .then((result) => {
-            const datas = result.datas;
-            this.setState({ datas });
-        });
-    }
-
+   
     handleChange(field, e){         
         let fields = this.state.fields;
         fields[field] = e.target.value;        
         this.setState({fields});       
     }
+  
     
-    
-    deleteRowModal = (e) =>{
-        //e.preventDefault()
-        this.setState({
-            isActiveA:!this.state.isActiveA
-        });  
-    }
-
-    closeModalA = (e) =>{
-        e.preventDefault()
-        this.setState({
-            isActiveA:!this.state.isActiveA
-        })
-    }
-
-    deleteRow= (index, e) => {
-        this.setState({
-            isActiveA:!this.state.isActiveA
-        });
-        // const teamDel = Object.assign([], this.state.datas);
-        // teamDel.splice(index, 1);
-        // this.setState({datas:teamDel});
-
-        const teamDel = this.state.datas.filter(data => data.id !== index );        
-        this.setState({datas:teamDel});
-        //console.log(copyemps)
-    }
-    
-    render(){
-        const { datas } = this.state 
+    render(){      
         return(
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
                 
-                <div className="col-12">
+                <div className="col-8">
                     <div className="contentBlock">
                         <h2>Form Element</h2>                       
                         <form name="contactform" onSubmit= {this.formFilled.bind(this)}>
@@ -291,118 +209,8 @@ class FormValidation extends Component{
                         <p>{this.state.fields["name"]}</p> 
                                                  
                     </div>
-               </div>                                             
-            
-                <div className="col-12">
-                    <div className="contentBlock">
-                        <h2>Data</h2>
-                        <div className="table-responsive">
-                            <table className="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Date of Birth</th>
-                                        <th>Designation</th>
-                                        <th>City</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {datas.map(row => 
-                                            <tr key={row.id} id={row.id}>
-                                                <td>{row.id}</td>
-                                                <td>{row.name}</td>
-                                                <td>{row.email}</td>
-                                                <td>{row.phone}</td>
-                                                <td>{row.dob}</td>
-                                                <td>{row.designation}</td>
-                                                <td>{row.city}</td>
-                                                <td>
-                                                    <button type="button" className="btn btn-danger btn-sm" onClick={this.deleteRowModal}>
-                                                    <FaTrash/> Delete
-                                                    </button>
-                                                    <button type="button" className="btn btn-warning btn-sm">
-                                                     <FaPrint/> Edit
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        )
-                                 }
-                                 </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <Modal isOpen={this.state.isActive} onRequestClose={this.closeModal}
-                style={submitModal} >
-                    <div className="modalHeader">
-                        <h4>Form Filled successfully</h4>
-                        <button type="submit" onClick={this.closeModal} className="closeModal">X</button>                 
-                    </div>                    
-                    <div className="modalBody">
-                        <h5>You have filled following details :</h5>         
-                        <table className="table">
-                            <tbody>
-                                <tr>
-                                    <th>Name :</th>
-                                    <td>{this.state.fields["name"]}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email :</th>
-                                    <td>{this.state.fields["email"]}</td>
-                                </tr>
-                                <tr>
-                                    <th>Contact No.:</th>
-                                    <td>{this.state.fields["phone"]}</td>
-                                </tr>
-                                <tr>
-                                    <th>Date of Birth :</th>
-                                    <td>{this.state.fields["dob"]}</td>
-                                </tr>
-                                <tr>
-                                    <th>Designation :</th>
-                                    <td>{this.state.fields["design"]}</td>
-                                </tr>
-                                <tr>
-                                    <th>City :</th>
-                                    <td>{this.state.fields["city"]}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h5>Do you want to add these details in the table below ? </h5>
-                    </div>
-                    <div className="modalFooter text-right">
-                        <button type="button" className="btn btn-danger" onClick={this.closeModal}>
-                            <FaTrash/> No
-                        </button>
-                       <button type="button" className="btn btn-primary" onClick={this.AddTeam}>
-                                <FaPrint/> Yes
-                        </button>
-                    </div>
-                </Modal>
-
-                <Modal isOpen={this.state.isActiveA} onRequestClose={this.closeModal}
-                style={deleteRow} >
-                    <div className="modalHeader">
-                        <h4>Delete Row</h4>
-                        <button type="submit" onClick={this.closeModalA} className="closeModal">X</button>                 
-                    </div>                    
-                    <div className="modalBody">
-                        <h5>Are you sure want to remove this row?</h5>
-                    </div>
-                    <div className="modalFooter text-right">
-                        <button type="button" className="btn btn-danger" onClick={this.closeModalA}>
-                            <FaTrash/> No
-                        </button>
-                       <button type="button" className="btn btn-primary" onClick={this.deleteRow}>
-                            <FaPrint/> Yes
-                        </button>
-                    </div>
-                </Modal>
+               </div>
+                
             </div>        
         );
     }

@@ -66,7 +66,7 @@ class Stateless extends Component{
                 <div className="contentBlock">
                     <h2>Use of Stateless Component</h2>
                         <DocForm 
-                            currentTask={this.state.currentTask}
+                            currentTask={this.props.currentTask}
                             updateTask={this.updateTask}
                             addTask={this.addTask}
                         />
