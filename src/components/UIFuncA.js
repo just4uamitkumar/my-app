@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FaAngleDown, FaAngleUp, FaAngleLeft,FaAngleDoubleLeft, FaAngleRight, FaAngleDoubleRight } from 'react-icons/fa';
+import {FaAngleDown, FaAngleUp, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 class UIFuncA extends Component{ 
     constructor(){
@@ -17,16 +17,15 @@ class UIFuncA extends Component{
         this.moveLeftA = this.moveLeftA.bind(this)  
         this.moveRightA = this.moveRightA.bind(this)
         this.moveLeftB = this.moveLeftB.bind(this)  
-        this.moveRightB = this.moveRightB.bind(this)
-        this.getDistance = this.getDistance.bind(this)      
+        this.moveRightB = this.moveRightB.bind(this)     
     }
 
-    stateUp(){
+    stateUp(){     
        this.setState(prevState => {
            return{
             count:prevState.count + 1
            }           
-       })       
+       })
     }
 
     stateDown(){
@@ -77,17 +76,6 @@ class UIFuncA extends Component{
             }
         })
     }
-
-    getDistance(){
-        const {posXA, posXB} = this.state
-        this.setState({
-            posXA:this.state.posXA,
-            posXB:this.state.posXB
-           
-        })
-        console.log(posXB - posXA);      
-    }
-   
 
     render(){        
         const {count, posXA, posXB} = this.state
@@ -152,7 +140,7 @@ class UIFuncA extends Component{
                             <div className="col-12 spaceAround">
                                 <button className="btn btn-primary" onClick={this.moveLeftA}><FaAngleLeft/></button>
                                 <button className="btn btn-primary" onClick={this.moveRightA}><FaAngleRight/></button>
-                                <button className="btn btn-primary" onClick={this.getDistance}>Get Distance</button>
+                                <p>Click Left or Right arrow to move circle points</p>
                                 <button className="btn btn-primary" onClick={this.moveLeftB}><FaAngleLeft/></button>
                                 <button className="btn btn-primary" onClick={this.moveRightB}><FaAngleRight/></button>                                    
                             </div>
