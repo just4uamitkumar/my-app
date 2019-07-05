@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallC, UseJson, FormValid, 
 	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent,
-	ConditionalRender, FormElement, MemeGenerator} from './../components';
+	ConditionalRender, FormElement, MemeGenerator, UIFuncA} from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -84,6 +84,9 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/MemeGenerator' : pageContent = <MemeGenerator />
+			break;
+
+			case '/UIFuncA' : pageContent = <UIFuncA />
 			break;
 			
 			case `/test/${match.params.id}`: pageContent = <Home />

@@ -18,8 +18,4 @@ export { default as JokeContent } from './JokeContent'
 export { default as ExternalContent } from './ExternalContent'
 export { default as ConditionalRender } from './ConditionalRender'
 export { default as MemeGenerator } from './MemeGenerator'
-
-
-
-
-
+export { default as UIFuncA } from './UIFuncA'
