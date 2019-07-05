@@ -21,8 +21,8 @@ class Sidebar extends React.Component {
 			{path: '/JokeContent', label: 'JokeContent', icon:<FaBitcoin/>}	,
 			{path: '/ExternalContent', label: 'ExternalContent', icon:<FaBitcoin/>},
 			{path: '/ConditionalRender', label: 'ConditionalRender', icon:<FaBitcoin/>},
-			{path: '/MemeGenerator', label: 'MemeGenerator', icon:<FaBitcoin/>}
-			
+			{path: '/MemeGenerator', label: 'MemeGenerator', icon:<FaBitcoin/>},
+			{path: '/UIFuncA', label: 'UIFuncA', icon:<FaBitcoin/>}			
 			
 		];
 		return (
