@@ -22,15 +22,19 @@ class Sidebar extends React.Component {
 			{path: '/ExternalContent', label: 'ExternalContent', icon:<FaBitcoin/>},
 			{path: '/ConditionalRender', label: 'ConditionalRender', icon:<FaBitcoin/>},
 			{path: '/MemeGenerator', label: 'MemeGenerator', icon:<FaBitcoin/>},
-			{path: '/UIFuncA', label: 'UIFuncA', icon:<FaBitcoin/>}			
-			
+			{path: '/UIFuncA', label: 'UIFuncA', icon:<FaBitcoin/>},
+			{path: '/ToolTip', label: 'ToolTip', icon:<FaBitcoin/>},
+			{path: '/Calculator', label: 'Calculator', icon:<FaBitcoin/>}			
 		];
+		
 		return (
 			<div className='sidebar'>
                <div className="sideNav">
 	                <ul>
 	                	{sidemenu.map(e => <li key={e.path}><Link to={e.path}>{e.icon} {e.label}</Link></li>)}
 	                </ul>
+
+									
                </div>
             </div>
 		)

@@ -27,7 +27,9 @@ class App extends Component {
             <Route path="/ExternalContent" exact component={DefaultLayout} />
             <Route path="/ConditionalRender" exact component={DefaultLayout} />
             <Route path="/MemeGenerator" exact component={DefaultLayout} />
-            <Route path="/UIFuncA" exact component={DefaultLayout} />                           
+            <Route path="/UIFuncA" exact component={DefaultLayout} />
+            <Route path="/ToolTip" exact component={DefaultLayout} />
+            <Route path="/Calculator" exact component={DefaultLayout} />
             <Route path="/test/:id" exact component={DefaultLayout} />
           </Switch>
         </BrowserRouter>

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Header, Sidebar, Home, Document, LifeCycle, Stateless, AjaxCall, 
 	AxiosCallA, AxiosCallC, UseJson, FormValid, 
 	FormValidation, Login, CashDispatch, ImageGalleryA, JokeContent, ExternalContent,
-	ConditionalRender, FormElement, MemeGenerator, UIFuncA} from './../components';
+	ConditionalRender, FormElement, MemeGenerator, UIFuncA, ToolTip, Calculator} from './../components';
 
 class DefaultLayout extends React.Component {
 
@@ -87,6 +87,12 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/UIFuncA' : pageContent = <UIFuncA />
+			break;
+
+			case '/ToolTip' : pageContent = <ToolTip />
+			break;
+
+			case '/Calculator' : pageContent = <Calculator />
 			break;
 			
 			case `/test/${match.params.id}`: pageContent = <Home />
