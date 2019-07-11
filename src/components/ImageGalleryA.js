@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AnimalCard from './AnimalCard';
-import NatureCard from './NatureCard';
+import AnimalCard from './subComp/AnimalCard';
+import NatureCard from './subComp/NatureCard';
 
 class ImageGalleryA extends Component{
 

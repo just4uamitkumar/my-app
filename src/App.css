@@ -23,6 +23,7 @@ li{list-style: none;}
 .right{float: right;}
 .clearfix::after {content: ""; clear: both; display: table;}
 .m-20{margin-top: 20px; margin-bottom: 20px;}
+.m-b-20{margin-bottom: 20px;}
 .form-control.w100px{width: 200px;}
 .imgFull{width:100%;}
 .text-White{color:#fff;}

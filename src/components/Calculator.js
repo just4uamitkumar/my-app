@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ResultComp from './ResultComp';
-import KeyPad from './KeyPad';
+import ResultComp from './subComp/ResultComp';
+import KeyPad from './subComp/KeyPad';
 
 class Calculator extends Component{
     constructor(){

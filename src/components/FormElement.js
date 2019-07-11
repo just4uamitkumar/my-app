@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormComp from './FormComp';
+import FormComp from './subComp/FormComp';
 
 class FormElement extends Component{ 
     constructor(){
