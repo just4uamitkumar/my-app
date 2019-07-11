@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Conditional from './Conditional';
-import ConditionalB from './ConditionalB';
+import Conditional from './subComp/Conditional';
+import ConditionalB from './subComp/ConditionalB';
 
 class ConditionalRender extends Component{
 

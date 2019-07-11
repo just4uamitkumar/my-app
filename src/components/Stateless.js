@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DocQue from './DocQue';
-import DocForm from './DocForm';
+import DocQue from './subComp/DocQue';
+import DocForm from './subComp/DocForm';
 
 class Stateless extends Component{ 
     constructor(){

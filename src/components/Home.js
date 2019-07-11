@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
-import Tabs from './Tabs';
 
-class HomeList extends React.Component{
+class HomeListA extends React.Component{
     render(){        
         return (
             <li><span>{this.props.index + 1} {this.props.detail}</span></li>
         )        
+    }
+}
+
+class HomelistB extends React.Component{
+    render(){
+        return(
+            <li onClick={this.props.ChangeEvent}><span>{this.props.index + 1} : {this.props.detail}</span></li>
+        )
     }
 }
 
@@ -18,7 +25,10 @@ class Home extends React.Component {
            title : 'Welcome to React Port',
            data : '',
            count:0,
-           HomeLinks : ['Home List 1', 'Home List 2', 'Home List 3', 'Home List 4', 'Home List 5']         
+           HomeLinksA : ['Home List 1', 'Home List 2', 'Home List 3', 'Home List 4', 'Home List 5'],
+           HomeLinksB : [{city:'Ajmer', stateName:'Rajasthan'}, {city:'Dehradun', stateName:'Uttrakhand'},
+           {city:'Agra', stateName:'Uttar Pradesh'}, {city:'Mumbai', stateName:'Maharashtra'},]
+           
         }        
         this.clearInput = this.clearInput.bind(this)
     }
@@ -47,6 +57,17 @@ class Home extends React.Component {
         }
         return true;
     }
+
+    // delEmp = (index) => {
+    //     const copyemps = this.state.emps.filter(emp => emp.id !== index );        
+    //     this.setState({emps:copyemps});
+    //     console.log(copyemps)
+    // }
+
+    changeVal() {
+        //const city = this.state.HomeLinksB.city;
+        //alert(this.props.detail[city]);
+    }
     
 	render() {
 		return (
@@ -54,39 +75,35 @@ class Home extends React.Component {
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
-                
-
                 <div className="clearfix col-6">
                     <div className="contentBlock clearfix">
                         <h2>Map Array </h2>
                         <p>We have an array values in a list.</p>
-                        <ul className="HomeLink">{
-                            this.state.HomeLinks.map(function(HomeLink, index){
-                                return <HomeList detail={HomeLink} key={HomeLink} index={index} />
-                            })
-                        }
-                        </ul>
+                        <div className="m-b-20">
+                            <ul className="HomeLink">{
+                                this.state.HomeLinksA.map(function(HomeLink, index){
+                                    return <HomeListA detail={HomeLink} key={HomeLink} index={index} />
+                                })
+                            }
+                            </ul>
+                        </div>
+                        <div>
+                            <ul className="HomeLink">{
+                                this.state.HomeLinksB.map((Homelink, index) => {
+                                    return <HomelistB 
+                                        detail={Homelink.city} 
+                                        key={Homelink.city} 
+                                        index={index} 
+                                        ChangeEvent={this.changeVal.bind(this, Homelink.index)}
+                                    />
+                                })
+                            }                            
+                            </ul>
+                        </div>
                     </div>                                        
                 </div>
 
-                <div className="col-6">
-                    <div className="contentBlock clearfix">
-                        <h2>Tab</h2>
-                        <Tabs>
-                          <div label="Tab 1">
-                            See ya later, <em>Alligator</em>!
-                          </div>
-                          <div label="Tab 2">
-                            After 'while, <em>Crocodile</em>!
-                          </div>
-                          <div label="Tab 3">
-                            Nothing to see here, this tab is <em>extinct</em>!
-                          </div>
-                        </Tabs>
-                    </div>
-                </div>
-
-                <div className="clearfix col-4">
+                <div className="clearfix col-3">
                     <div className="contentBlock">
                             <h2>Using Forms</h2>
                             <div className="form-group">
@@ -106,7 +123,7 @@ class Home extends React.Component {
                         </div>
                 </div>
 
-                <div className="col-4">
+                <div className="col-3">
                     <div className="contentBlock clearfix">
                         <h2>Set State</h2>
                         <p className="m-10">Value : {this.state.count}</p>

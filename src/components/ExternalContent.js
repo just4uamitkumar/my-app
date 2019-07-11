@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import jokesData from './jokesData';
-import JokeCondition from './JokeCondition';
-import productsData from './SchoolProduct';
-import Product from './Product';
-import todosData from './todosData';
-import TodoItem from './TodoItem';
+import jokesData from './data/jokesData';
+import JokeCondition from './subComp/JokeCondition';
+import productsData from './data/SchoolProduct';
+import Product from './subComp/Product';
+import todosData from './data/todosData';
+import TodoItem from './subComp/TodoItem';
 
 
 const jokeComponents = jokesData.map(joke => <JokeCondition key={joke.id} question={joke.question} 

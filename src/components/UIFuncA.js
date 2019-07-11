@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {FaAngleDown, FaAngleUp, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import UseArray from './subComp/UseArray';
 
 class UIFuncA extends Component{ 
     constructor(){
@@ -7,6 +8,10 @@ class UIFuncA extends Component{
         this.state = {        
             title : 'Scroll Elements',
             techs:['Angular', 'ReactJS', 'Veu JS', 'Ember JS', 'Electron JS'],
+            tech:'',
+            teams:[],
+            selectedTeam: "",
+            validationError: "",
             count:0,
             posXA:0,
             posXB:660
@@ -77,6 +82,21 @@ class UIFuncA extends Component{
         })
     }
 
+    
+componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users/")
+      .then((response) => {
+        return response.json();
+      })
+      .then(data => {
+        let teamsFromApi = data.map(team => { return {value: team.name, display: team.name} })
+        this.setState({ teams: [{value: '', display: '(Select your favourite team)'}].concat(teamsFromApi) });
+      }).catch(error => {
+        console.log(error);
+      });
+  }
+ 
+
     render(){        
         const {count, posXA, posXB} = this.state
         return(
@@ -109,24 +129,41 @@ class UIFuncA extends Component{
 
                     <div className="col-3">
                         <div className="contentBlock clearfix">
-                            <h2>Using Array</h2>
-                            <div className="input-group">
-                                <div className="input-group-prepend">
-                                    <button className="btn btn-primary" onClick={this.stateDownA}>
-                                        <FaAngleDown/>
-                                    </button>
-                                </div>
-                                <input type="text" className="form-control" 
-                                    onChange={this.handleChange}
-                                    value={this.state.techs[count]} placeholder="Username" />
-                                <div className="input-group-append">
-                                    <button className="btn btn-primary" onClick={this.stateUpA}>
-                                        <FaAngleUp/>
-                                    </button>
-                                </div>                                                 
+                            <h2>Using Array into Select Dropdown</h2>
+                            <select className="form-control"
+                                value={this.state.selectedTeam}
+                                onChange={(e) => this.setState({selectedTeam:e.target.value, 
+                                validationError:e.target.value === '' ? 'You must select your faviourite team' : ''})}
+                            >
+                                {this.state.teams.map((x) => 
+                                    <option key={x.value} value={x.value}>{x.display}</option>
+                                )}
+                            </select>
+
+                             <div className="text-center">
+                                <h3>{this.state.validationError} {this.state.selectedTeam}</h3>
                             </div>
                             
                         </div>
+                       
+                    </div>
+
+                    <div className="col-3">
+                        <div className="contentBlock clearfix">
+                            <h2>Using Array into Select Dropdown</h2>
+                            <select className="form-control"
+                                value={this.state.tech}
+                                onChange={(e) => this.setState({tech:e.target.value})}
+                            >
+                                {this.state.techs.map((x) => 
+                                    <option key={x} value={x}>{x}</option>
+                                )}
+                            </select>
+
+                             <div className="text-center">
+                                <h3>{this.state.tech}</h3>
+                            </div>                            
+                        </div>                      
                     </div>
 
                     <div className="col-6">
@@ -143,12 +180,9 @@ class UIFuncA extends Component{
                                 <p>Click Left or Right arrow to move circle points</p>
                                 <button className="btn btn-primary" onClick={this.moveLeftB}><FaAngleLeft/></button>
                                 <button className="btn btn-primary" onClick={this.moveRightB}><FaAngleRight/></button>                                    
-                            </div>
-                            
+                            </div>                            
                         </div>
                     </div>
-
-
                 </div>
                 {/*End row div */}
             </div>

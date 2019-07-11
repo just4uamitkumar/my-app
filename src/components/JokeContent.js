@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Joke from './Joke';
-import JokeCondition from './JokeCondition';
+import Joke from './subComp/Joke';
+import JokeCondition from './subComp/JokeCondition';
 
 class JokeContent extends Component{
 

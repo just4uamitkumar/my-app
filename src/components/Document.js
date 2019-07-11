@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Emp from './emp';
+import Emp from './subComp/emp';
 
 class DocsList extends Component{
     render(){        
