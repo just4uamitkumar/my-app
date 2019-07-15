@@ -23,7 +23,6 @@ class UseJson extends Component{
         //     this.setState({datas})
         // }, 5000)
     }
-
            
     render(){
         const { datas } = this.state

@@ -110,7 +110,7 @@ class FormValidation extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
                 
-                <div className="col-8">
+                <div className="col-6">
                     <div className="contentBlock">
                         <h2>Form Element</h2>                       
                         <form name="contactform" onSubmit= {this.formFilled.bind(this)}>

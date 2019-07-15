@@ -41,7 +41,7 @@ class Document extends Component{
     
 
     changeStatus(index){       
-        console.log(this.state.Docs[index]);
+        //console.log(this.state.Docs[index]);
         var Docs = this.state.Docs;
         var Doc = Docs[index];
         Doc.completed = !Doc.completed;

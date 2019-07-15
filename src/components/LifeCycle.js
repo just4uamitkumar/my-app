@@ -17,13 +17,19 @@ class LifeCycle extends Component{
       title : 'Life Cycle Method',
       colorNames :['Color A', 'Color B', 'Color C', 'Color D', 'Color E', 'Color F', 'Color G', 'Color H', 'Color I'],
       dataColors : ['green', 'red', 'dodgerBlue', 'pink', 'yellow', 'orange', 'slateBlue', 'violet', 'DarkBlue']
-      //isColorVis : false
-     }    
+    }    
   }
 
   componentWillMount(){
     Modal.setAppElement('body');
-  }  
+  } 
+
+  closeModal = (e) =>{
+    e.preventDefault()
+    this.setState({
+      isActive:!this.state.isActive
+    })
+  }
 
   pickModal = (index) =>{
     this.setState(prevState => {
@@ -33,13 +39,6 @@ class LifeCycle extends Component{
       }
     });      
   }
-
-  closeModal = (e) =>{
-    e.preventDefault()
-    this.setState({
-      isActive:!this.state.isActive
-    })
-  }
   
   getColor = (dataColor) => {
     this.setState({
@@ -48,10 +47,7 @@ class LifeCycle extends Component{
     });  
   }  
     
-  render(){
-
-   
-       
+  render(){       
     return(
       <div className="content">
         <div className="pageHeader">
@@ -106,16 +102,13 @@ class LifeCycle extends Component{
                   {
                     this.state.dataColors.map((dataColor) => {
                       return <li key={dataColor} onClick={() => this.getColor(dataColor)} >
-                        <span data-color={dataColor} 
-                          className={['colorvalue' + this.state.index] ? '' : 'disable'} >
-                        </span>
+                        <span data-color={dataColor}></span>
                       </li>
                     })
                   }
                 </ul>
             </div>                    
         </Modal>
-
       </div>            
     );
   }

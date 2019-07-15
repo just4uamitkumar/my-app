@@ -13,7 +13,7 @@ class HomeListA extends React.Component{
 class HomelistB extends React.Component{
     render(){
         return(
-            <li onClick={this.props.ChangeEvent}><span>{this.props.index + 1} : {this.props.detail}</span></li>
+            <li><span>{this.props.index + 1} : {this.props.city}  {this.props.stateName}</span></li>           
         )
     }
 }
@@ -30,7 +30,7 @@ class Home extends React.Component {
            {city:'Agra', stateName:'Uttar Pradesh'}, {city:'Mumbai', stateName:'Maharashtra'},]
            
         }        
-        this.clearInput = this.clearInput.bind(this)
+        this.clearInput = this.clearInput.bind(this);       
     }
 
     updateState(e){
@@ -58,16 +58,6 @@ class Home extends React.Component {
         return true;
     }
 
-    // delEmp = (index) => {
-    //     const copyemps = this.state.emps.filter(emp => emp.id !== index );        
-    //     this.setState({emps:copyemps});
-    //     console.log(copyemps)
-    // }
-
-    changeVal() {
-        //const city = this.state.HomeLinksB.city;
-        //alert(this.props.detail[city]);
-    }
     
 	render() {
 		return (
@@ -90,11 +80,9 @@ class Home extends React.Component {
                         <div>
                             <ul className="HomeLink">{
                                 this.state.HomeLinksB.map((Homelink, index) => {
-                                    return <HomelistB 
-                                        detail={Homelink.city} 
-                                        key={Homelink.city} 
-                                        index={index} 
-                                        ChangeEvent={this.changeVal.bind(this, Homelink.index)}
+                                    return <HomelistB key={Homelink.city}  index={index}
+                                        id={Homelink.index}
+                                        city={Homelink.city} stateName={Homelink.stateName}                                        
                                     />
                                 })
                             }                            
@@ -131,11 +119,7 @@ class Home extends React.Component {
                             onClick={this.incrementCount.bind(this)}>Count
                         </button>
                     </div>
-                </div>
-
-                <div className="clearfix"></div>
-
-                               
+                </div>                               
             </div>
 		)
 	}
