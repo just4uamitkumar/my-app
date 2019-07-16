@@ -92,7 +92,7 @@ function FormComp(props){
                          <p>Name : {props.data.firstName} {props.data.lastName}</p>
                          <p>Age : {props.data.age}</p>
                          <p>Gender : {props.data.gender}</p>
-                         <p>Destination : {props.data.destination}</p>
+                         <p>Destination : {props.data.destination.option}</p>
                          <p>Your Dietry Restriction : 
                             {props.data.isVegan ? "Yes " : "No "} 
                             {props.data.isKosher ? "Yes " : "No "}

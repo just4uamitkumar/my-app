@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Prompt} from 'react-router-dom';
-//https://alligator.io/react/axios-react/
-//import DatePicker from "react-datepicker"; 
-//import "react-datepicker/dist/react-datepicker.css";
 
 class FormValid extends Component{ 
     constructor(){
@@ -11,7 +8,8 @@ class FormValid extends Component{
             title : 'Form Validation',
             isActive:false,
             fields: {},
-            errors: {}
+            errors: {},
+            startDate: new Date()
         }       
     }
 
@@ -67,6 +65,7 @@ class FormValid extends Component{
             formIsValid = false;
             errors['design'] = 'Please Enter designation'
         }
+      
 
         this.setState({errors: errors});
         return formIsValid;        
@@ -76,7 +75,8 @@ class FormValid extends Component{
         e.preventDefault();
         if(this.handleValidation()){
            // this.submitModal(); 
-            alert("Form Filled successfully.");          
+            alert("Form Filled successfully."); 
+            //alert(this.state.fields['birthdate'])         
         }
         else{
            alert("Please fill the required fields.");          
@@ -116,8 +116,7 @@ class FormValid extends Component{
                                     placeholder="Enter Name" 
                                     onChange={this.handleChange.bind(this, "name")}
                                     value={this.state.fields["name"] || ''}
-                                    className="form-control"
-                                />
+                                    className="form-control" />
                                 <span style={{color: "red"}}>{this.state.errors["name"]}</span>
                             </div>
                             <div className="form-group" >
@@ -126,18 +125,17 @@ class FormValid extends Component{
                                     placeholder="Enter Contact No." 
                                     onChange={this.handleChange.bind(this, "phone")}
                                     value={this.state.fields["phone"] || ''}
-                                    className="form-control"
-                                />
+                                    className="form-control" />
                                 <span style={{color: "red"}}>{this.state.errors["phone"]}</span>
                             </div>
+
                             <div className="form-group" >
                                 <label>Date Of Birth</label>
                                 <input type="text" ref="birthdate" 
                                     placeholder="Enter Date of Birth" 
                                     onChange={this.handleChange.bind(this, "birthdate")}
                                     value={this.state.fields["birthdate"] || ''}
-                                    className="form-control"
-                                />
+                                    className="form-control"    />
                                 <span style={{color: "red"}}>{this.state.errors["birthdate"]}</span>
                             </div>
                             <div className="form-group" >
@@ -153,13 +151,10 @@ class FormValid extends Component{
                                 </select>                              
                                 <span style={{color: "red"}}>{this.state.errors["design"]}</span>
                             </div>
+                            
                             <div className="form-group text-right">
-                                <button type="reset" className="btn btn-warning">
-                                    Reset
-                                </button>
-                                <button type="submit" className="btn btn-primary">
-                                    Submit
-                                </button>                               
+                                <button type="reset" className="btn btn-warning"> Reset</button>
+                                <button type="submit" className="btn btn-primary">Submit</button>                               
                             </div>
                         </form>                        
                     </div>

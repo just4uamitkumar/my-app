@@ -20,18 +20,22 @@ class AxiosCallC extends Component{
             this.setState({ persons });
           });
 
-          fetch('https://swapi.co/api/people/1')
+        fetch('https://swapi.co/api/people/1')
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     loading:false,
                     character:data
                 })
-            })         
+        })         
     }
 
-    
-    
+    deleteEvent () {
+        
+    }
+
+   
+
     render(){
         const text = this.state.loading ? 'Loading...' : this.state.character.name;
         return(
@@ -68,12 +72,10 @@ class AxiosCallC extends Component{
                                                 <td>{person.designation}</td>                                               
                                                 <td>
                                                     <button type="button" className="btn btn-danger btn-sm" 
-                                                    onClick={this.state.deleteEvent}>
-                                                    <FaTrash/> Delete
-                                                    </button>
+                                                    onClick={this.deleteEvent.bind(this, person.id)}>
+                                                    <FaTrash/> Delete </button>
                                                     <button type="button" className="btn btn-warning btn-sm">
-                                                     <FaPrint/> Edit
-                                                    </button>
+                                                     <FaPrint/> Edit </button>
                                                 </td>
                                             </tr>
                                         )}

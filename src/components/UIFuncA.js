@@ -39,8 +39,7 @@ class UIFuncA extends Component{
                 count:prevState.count - 1
             }
         })
-     }
-     
+     }     
 
     handleChange(event) {
         this.setState({value: event.target.value});        

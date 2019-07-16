@@ -35,6 +35,9 @@ class DefaultLayout extends React.Component {
 			case '/': pageContent = <Home />
 			break;
 
+			case '/Login': pageContent = <Login />
+			break;
+
 			case '/Document': pageContent = <Document />
 			break;
 
@@ -63,10 +66,7 @@ class DefaultLayout extends React.Component {
 			break;
 
 			case '/FormValidation' : pageContent = <FormValidation />
-			break;
-
-			case '/Login' : pageContent = <Login />
-			break;
+			break;			
 
 			case '/CashDispatch' : pageContent = <CashDispatch />
 			break;

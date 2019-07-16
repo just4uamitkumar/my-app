@@ -1,7 +1,7 @@
 import React from "react"
 
 function NatureCard(props) {
-    console.log(props)
+    //console.log(props)
     return (
         <div className="col-3">
             <div className="item">

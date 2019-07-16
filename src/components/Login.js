@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import logo from './../logo.svg';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Modal from 'react-modal';
+import { withRouter } from 'react-router-dom';
+
+const smModal = {
+    content : {
+      top  : '50%', padding: '10px', left : '50%', right : 'auto',
+      bottom : 'auto', marginRight : '-50%',  transform : 'translate(-50%, -50%)',
+      width : '360px', boxShadow: '0 0 4px #444'}
+  };
 
 class Login extends Component{
     constructor(props) {
         super(props);       
         this.showPass = this.showPass.bind(this);
         this.state = {
-            isActive:false,
+            isActiveA:false,
+            isActiveB:false,
             isToggleOn: true,
             current_time: new Date().toLocaleTimeString(),
             username:'',
@@ -16,6 +25,7 @@ class Login extends Component{
         }
 
         this.showPass = this.showPass.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     showPass() {
@@ -32,13 +42,19 @@ class Login extends Component{
 
         Modal.setAppElement('body')
     }
-
-    toggleModal =(e) =>{
-        e.preventDefault();
+    
+    closeModalA = (e) =>{
+        e.preventDefault()
         this.setState({
-            isActive:!this.state.isActive
+          isActiveA:!this.state.isActiveA
         })
-        
+    }
+
+    closeModalB = (e) =>{
+        e.preventDefault()
+        this.setState({
+          isActiveB:!this.state.isActiveB
+        })
     }
 
     handleChange(event){
@@ -49,9 +65,19 @@ class Login extends Component{
     }
 
     handleSubmit(e){
-        e.preventDefault();       
-        this.state.username === 'admin' && this.state.password === 'admin'? alert("Logged In successfully.") : alert("Enter valid credentials")              
+        e.preventDefault();
+        const {username, password } = this.state 
+        let path = `/`; 
+        username === 'admin' && password === 'admin' ? this.props.history.push(path)
+        :
+        this.setState(prevState => {
+        return {
+            isActiveB:!prevState.isActiveB     
+        }
+        });
     }
+
+    
     
     render(){
         return(
@@ -84,7 +110,7 @@ class Login extends Component{
                     </div>
 
                     <div className="text-center">
-                        <p class="text-White">{this.state.username} {this.state.password}</p>
+                        <p className="text-White">{this.state.username} {this.state.password}</p>
                     </div>
 
                     <div className='form-group'>
@@ -93,16 +119,40 @@ class Login extends Component{
                 </form>
 
                 <div className="form-group text-center">
-                    <a href="/" onClick={this.toggleModal}>Forgot Password ?</a>
+                    <a href="/" onClick={this.closeModalA}>Forgot Password ?</a>
                 </div>                                    
             </div>
-            <Modal isOpen={this.state.isActive} onRequestclose={this.toggleModal}>
-                <button onClick={this.toggleModal}>Hide Modal </button>
-                <h2>Forgot Password </h2>                        
-            </Modal>         
+            <Modal isOpen={this.state.isActiveA} onRequestclose={this.closeModalA} style={smModal}>
+                <div className="modalHeader">
+                    <h4>Forgot Password ?</h4>
+                    <button type="submit" onClick={this.closeModalA} className="closeModal">X</button>                 
+                </div>
+
+                <div className="modalBody">
+                    <h2>Did you forgot your password ? </h2>                    
+                </div>
+                <div className="modalFooter text-right">
+                    <button className="btn btn-danger btn-sm" onClick={this.closeModalA}>No </button>
+                    <button className="btn btn-primary btn-sm">Retrieve Password </button>
+                </div>
+            </Modal>
+
+            <Modal isOpen={this.state.isActiveB} onRequestclose={this.closeModalB} style={smModal}>
+                <div className="modalHeader">
+                    <h4>Wrong Credentials</h4>
+                    <button type="submit" onClick={this.closeModalB} className="closeModal">X</button>                 
+                </div>
+
+                <div className="modalBody">
+                    <h2>You Entered wrong username/password to login </h2>                    
+                </div>
+                <div className="modalFooter text-right">
+                    <button className="btn btn-danger btn-sm" onClick={this.closeModalB}>No </button>
+                </div>
+            </Modal>
         </div>
         );
     }
 }
 
-export default Login;
+export default withRouter(Login);

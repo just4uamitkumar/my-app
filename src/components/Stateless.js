@@ -15,9 +15,9 @@ class Stateless extends Component{
         this.state = {        
            title : 'Stateless Function',           
            Docs : [{name: 'StateLess 1', completed:false},
-                    {name: 'StateLess 2', completed:false},
-                    {name: 'StateLess 3', completed:false},
-                    {name: 'StateLess 4', completed:false}],
+                   {name: 'StateLess 2', completed:false},
+                   {name: 'StateLess 3', completed:false},
+                   {name: 'StateLess 4', completed:false}],
            currentTask:''
         }
     }
@@ -29,12 +29,12 @@ class Stateless extends Component{
         this.setState({ Docs});
     }
 
-    addTask(evt){
+    addTask(evt, newValue){
         evt.preventDefault();
         let Docs = this.state.Docs;
         let currentTask = this.currentTask;
         Docs.push({name:currentTask, completed:false });
-        this.setState({ Docs, currentTask:''})
+        this.setState({ Docs, currentTask:newValue})
     }
 
     updateTask(newValue){

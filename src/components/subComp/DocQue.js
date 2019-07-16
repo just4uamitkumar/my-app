@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import * as t from 'prop-types'
-
+import * as t from 'prop-types';
 
 class DocQue extends Component{
 
@@ -32,11 +31,8 @@ class DocQue extends Component{
 
     renderItem(){
         return(
-            <li onClick={ () => {
-                this.props.clickHandler(this.props.index);
-            }} className={this.props.details.completed ? 'completed clearfix' : 'clearfix'}
-
-            >
+            <li onClick={ () => {this.props.clickHandler(this.props.index);}} 
+            className={this.props.details.completed ? 'completed clearfix' : 'clearfix'}>
                 {this.props.details.name}
 
                 <button onClick={(evt) => {
@@ -87,7 +83,5 @@ DocQue.propTypes = {
     editTask: t.func.isRequired,
     details: t.object.isRequired
 }
-
-
 
 export default DocQue;
