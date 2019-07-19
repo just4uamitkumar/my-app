@@ -49,10 +49,13 @@ border-width: 0 0 2px; font-size:1rem; cursor: pointer; border-radius: 2px;}
 .btn-warning:hover{background: #837201;}
 .btn-danger{border-color: #B63B00;  background: #b52a00;}
 .btn-danger:hover{background: #BB4610;}
+.btn-default{background:none; border:0;}
+.btn-default:hover{box-shadow:none;}
 .btn.btn-sm{padding:4px 10px; font-size:0.8rem;}
 .btn.btn-xs{padding:3px 7px; font-size:0.6rem;}
 .btnBlock{width:100%;}
 .btn[disabled]{opacity: 0.7; pointer-events: none;}
+th .btn{display: inline-block; vertical-align: middle}
 
 select option:first-child{color:#ddd;}
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Emp from './subComp/emp';
+import { FaAngleDown, FaAngleUP } from 'react-icons/fa';
 
 class DocsList extends Component{
     render(){        
@@ -23,14 +24,16 @@ class Document extends Component{
            emps:[{id:101, firstname:'Paul', lastname:'Singh', salary:5000},
                {id:102, firstname:'Sam', lastname:'Kr',  salary:2000},
                {id:103, firstname:'Sid', lastname:'Loco',  salary:2500},
-               {id:104, firstname:'John', lastname:'Dingo',  salary:5000},
+               {id:109, firstname:'John', lastname:'Dingo',  salary:5000},
                {id:105, firstname:'Alice', lastname:'Kim',  salary:4000}],           
            Docs:[{name: 'Document 1', completed:false},
                 {name: 'Document 2', completed:false},
                 {name: 'Document 3', completed:false},
                 {name: 'Document 4', completed:false},
                 {name: 'Document 5', completed:false}]           
-        }       
+        } 
+        
+        this.onSort = this.onSort.bind(this)
     }
 
     delEmp = (index) => {
@@ -49,6 +52,20 @@ class Document extends Component{
             Docs:Docs
         })
     }
+
+    onSort(event, sortKey){
+        /*
+        assuming your data is something like
+        [
+          {accountname:'foo', negotiatedcontractvalue:'bar'},
+          {accountname:'monkey', negotiatedcontractvalue:'spank'},
+          {accountname:'chicken', negotiatedcontractvalue:'dance'},
+        ]
+        */
+        const Docs = this.state.Docs;
+        //Docs.sort((a,b) => a[sortKey].localeCompare(b[sortKey]))
+        this.setState({Docs})
+      }
     
     render(){      
         return(
@@ -63,11 +80,32 @@ class Document extends Component{
                         <table className="table table-spriped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Salary</th>
-                                    <th>Action</th>
+                                    <th>ID 
+                                        <button type="button" className="btn btn-default btn-sm"
+                                         onClick={emp => this.onSort(emp, 'id')}>
+                                            <FaAngleDown/>
+                                        </button>
+                                    </th>
+                                    <th>First Name
+                                        <button type="button" className="btn btn-default btn-sm">
+                                            <FaAngleDown/>
+                                        </button>
+                                    </th>
+                                    <th>Last Name
+                                        <button type="button" className="btn btn-default btn-sm">
+                                            <FaAngleDown/>
+                                        </button>
+                                    </th>
+                                    <th>Salary
+                                        <button type="button" className="btn btn-default btn-sm">
+                                            <FaAngleDown/>
+                                        </button>
+                                    </th>
+                                    <th>Action
+                                        <button type="button" className="btn btn-default btn-sm">
+                                            <FaAngleDown/>
+                                        </button>
+                                    </th>
                                 </tr>                            
                             </thead>
                             <tbody>

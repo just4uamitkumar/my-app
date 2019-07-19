@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 
 //const {A, B, C, D, E } = 0;
 
@@ -20,52 +20,25 @@ class CashDispatch extends Component{
      this.setState({amount: e.target.value})
    }
 
-    disPatchCash() {
-        //const {amount } = this.state
+   disPatchCash(){
+       const {A, B, C, D, amount, total} = this.state;
+       const x = amount;
 
-        //var x = amount;
-        //var abc = x;
-        
-        // this.setState({
-        //     A : Math.trunc(x/2000),
-        //     x : x - (Math.trunc(x/2000) * 2000),
+      
+       while(x > 0){
+           if(x >= 2000){
+            this.setState({
+                A: Math.trunc(amount/2000)               
+            });
+           }
+       }
+       
+        //amount : amount - (Math.trunc(amount/2000) *2000);
+        console.log(amount)
+   }
+   
 
-        //     B : Math.trunc(x/500),
-        //     x : x - (Math.trunc(x/500) * 500),
-
-        //     C : Math.trunc(x/200),
-        //     x : x - (Math.trunc(x/200) * 200),
-
-        //     D : Math.trunc(x/100),
-        //     x : x - (Math.trunc(x/100) * 100),
-
-        //     E : Math.trunc(x/50),
-        //     x : x - (Math.trunc(x/50) * 50),
-
-        //     F : Math.trunc(x/20),
-        //     x : x - (Math.trunc(x/20) * 20),
-
-        //     G : Math.trunc(x/10),
-        //     x : x - (Math.trunc(x/10) * 10),
-
-        //     H : Math.trunc(x/5),
-        //     x : x - (Math.trunc(x/5) * 5),
-
-        //     I : Math.trunc(x/2),
-        //     x : x - (Math.trunc(x/2) * 2),
-
-        //     J : Math.trunc(x/1),
-        //     x : x - (Math.trunc(x/1) * 1)            
-            
-        // });
-
-        ReactDOM.findDOMNode(this.refs.myText).focus(); 
-        
-        
-    }
-
-    render(){
-        //const {amount} = this.state
+    render(){      
 
         return(
             <div className="content">
@@ -79,7 +52,7 @@ class CashDispatch extends Component{
                         <div className="form-group">
                             <label>Enter the Amount</label>
                             <input type="number" className="form-control" 
-                            value={this.state.amount}  onChange={this.updateState.bind(this)} ref='myText' />
+                            value={this.state.amount}  onChange={this.updateState.bind(this)} />
                             <button type="button" className="btn btn-primary btnBlock" 
                              disabled={!this.state.amount}
                             onClick={this.disPatchCash}>Get Money</button>
