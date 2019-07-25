@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {FaAngleDown, FaAngleUp, FaAngleLeft, FaAngleRight } from 'react-icons/fa';
-import UseArray from './subComp/UseArray';
+//import UseArray from './subComp/UseArray';
 
 class UIFuncA extends Component{ 
     constructor(){
@@ -25,26 +25,31 @@ class UIFuncA extends Component{
         this.moveRightB = this.moveRightB.bind(this)     
     }
 
-    stateUp(){     
-       this.setState(prevState => {
-           return{
-            count:prevState.count + 1
-           }           
-       })
+    stateUp(){
+        const {techs, count} = this.state;
+        const len = techs.length;       
+        if (count < len-1) {
+            this.setState(prevState => {
+                return{
+                 count:prevState.count + 1
+                }           
+            })
+        }       
     }
 
     stateDown(){
-        this.setState(prevState => {
-            return{
-                count:prevState.count - 1
-            }
-        })
-     }     
+        const { count} = this.state;
+        if (count > 0) {
+	    	
+	    	this.setState(prevState => {
+                return{
+                    count:prevState.count - 1
+                }
+            })
+	  	}
+     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});        
-    }
-
+     
     moveRightA(){
         this.state.posXA === 360 ? alert('You have moved enough to right') :
         this.setState(prevState => {
@@ -114,9 +119,9 @@ componentDidMount() {
                                         <FaAngleDown/>
                                     </button>
                                 </div>
-                                <input type="text" className="form-control" 
-                                    onChange={this.handleChange}
-                                    value={this.state.techs[count]} placeholder="Username" />
+                                <div className="techCount">
+                                 {count + 1 } : {this.state.techs[count]}
+                                </div>                               
                                 <div className="input-group-append">
                                     <button className="btn btn-primary" onClick={this.stateUp}>
                                         <FaAngleUp/>

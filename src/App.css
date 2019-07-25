@@ -283,6 +283,8 @@ padding: 0.5rem 0.85rem; font-size: 16px; cursor: pointer;}
 .movingPoint.first{ background: #9e1b1b;}
 .movingPoint.second{ background: #697505;}
 .spaceAround{display: flex; justify-content: space-around;}
+.techCount{font-size: 18px; padding: 6px 10px; width: calc(100% - 140px); border: 1px solid #ddd;
+  text-align: center; font-weight: 700;}
 
 /*--------| Tooltip  |-------*/
 .tipDiv{display: flex; align-items: center; justify-content: center; padding: 50px 0;}

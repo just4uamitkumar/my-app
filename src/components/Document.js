@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Emp from './subComp/emp';
-import { FaAngleDown, FaAngleUP } from 'react-icons/fa';
+import { FaAngleDown } from 'react-icons/fa';
 
 class DocsList extends Component{
     render(){        
@@ -40,11 +40,9 @@ class Document extends Component{
         const copyemps = this.state.emps.filter(emp => emp.id !== index );        
         this.setState({emps:copyemps});
         console.log(copyemps)
-    }
-    
+    }    
 
-    changeStatus(index){       
-        //console.log(this.state.Docs[index]);
+    changeStatus(index){ 
         var Docs = this.state.Docs;
         var Doc = Docs[index];
         Doc.completed = !Doc.completed;
@@ -53,19 +51,11 @@ class Document extends Component{
         })
     }
 
-    onSort(event, sortKey){
-        /*
-        assuming your data is something like
-        [
-          {accountname:'foo', negotiatedcontractvalue:'bar'},
-          {accountname:'monkey', negotiatedcontractvalue:'spank'},
-          {accountname:'chicken', negotiatedcontractvalue:'dance'},
-        ]
-        */
-        const Docs = this.state.Docs;
-        //Docs.sort((a,b) => a[sortKey].localeCompare(b[sortKey]))
-        this.setState({Docs})
-      }
+    onSort() {
+        const reEmps = this.state.emps.map(e => e.firstname);        
+        reEmps.sort();
+        console.log(reEmps);        
+    }
     
     render(){      
         return(
@@ -81,13 +71,13 @@ class Document extends Component{
                             <thead>
                                 <tr>
                                     <th>ID 
-                                        <button type="button" className="btn btn-default btn-sm"
-                                         onClick={emp => this.onSort(emp, 'id')}>
+                                        <button type="button" className="btn btn-default btn-sm">
                                             <FaAngleDown/>
                                         </button>
                                     </th>
                                     <th>First Name
-                                        <button type="button" className="btn btn-default btn-sm">
+                                        <button type="button" className="btn btn-default btn-sm"
+                                         onClick={emp => this.onSort(emp, 'firstname')}>
                                             <FaAngleDown/>
                                         </button>
                                     </th>
