@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { FaAngleDown } from 'react-icons/fa';
 
 class AxiosCallA extends Component{ 
     constructor(props){
@@ -9,7 +10,12 @@ class AxiosCallA extends Component{
             persons:[],
             name:'',
             id:''
-        }       
+        } 
+
+        this.onSortB = this.onSortB.bind(this);
+        this.onSortC = this.onSortC.bind(this);
+        this.onSortD = this.onSortD.bind(this);
+        this.onSortE = this.onSortE.bind(this);
     }   
 
     componentDidMount() {
@@ -45,6 +51,30 @@ class AxiosCallA extends Component{
             console.log(res.data);
         })
     }
+
+    onSortB() {
+        const reEmps = this.state.persons.map(e => e.name);        
+        reEmps.sort();
+        console.log(reEmps);        
+    }
+
+    onSortC() {
+        const reEmps = this.state.persons.map(e => e.username);        
+        reEmps.sort();
+        console.log(reEmps);        
+    }
+
+    onSortD() {
+        const reEmps = this.state.persons.map(e => e.email);        
+        reEmps.sort();
+        console.log(reEmps);        
+    }
+
+    onSortE() {
+        const reEmps = this.state.persons.map(e => e.address);        
+        reEmps.sort();
+        console.log(reEmps);        
+    }
     
     render(){       
         return(
@@ -61,10 +91,26 @@ class AxiosCallA extends Component{
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>User name</th>
-                                        <th>Email</th>
-                                        <th>Adress</th>
+                                        <th>Name
+                                        <button type="button" className="btn btn-default btn-sm"
+                                            onClick={this.onSortB}><FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>User name
+                                            <button type="button" className="btn btn-default btn-sm"
+                                            onClick={this.onSortC}><FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>Email
+                                        <button type="button" className="btn btn-default btn-sm"
+                                            onClick={this.onSortD}><FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>Adress
+                                        <button type="button" className="btn btn-default btn-sm"
+                                            onClick={this.onSortE}><FaAngleDown/>
+                                            </button>
+                                        </th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
