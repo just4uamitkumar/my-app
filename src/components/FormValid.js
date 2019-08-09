@@ -64,8 +64,7 @@ class FormValid extends Component{
         if(!fields['design']){
             formIsValid = false;
             errors['design'] = 'Please Enter designation'
-        }
-      
+        }      
 
         this.setState({errors: errors});
         return formIsValid;        

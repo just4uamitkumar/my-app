@@ -13,7 +13,7 @@ class TodoItem extends Component {
             <ul className="DocsListA">
                 {
                     this.props.todos.map((todo, index) => {
-                        return <li key={index}>{todo}</li>
+                        return <li key={index}>{index + 1 } -:- {todo}</li>
                     })
                 }
             </ul>
@@ -27,7 +27,7 @@ class AjaxCall extends Component{
         this.state = {        
             title : 'Ajax Call Using JQuery',
             users:[],
-            todos:['I am Learning ReactJS', 'I am Learning Rails']
+            todos:['I am Learning ReactJS', 'I am Learning Rails', 'I am Learning JavaScript']
         }
     }   
 
@@ -43,9 +43,7 @@ class AjaxCall extends Component{
     deleteRow(index) {
         const filtered = this.state.users.filter(user => user.id !== index )
         this.setState({users:filtered})       
-    }
-    
-    
+    }    
     
     render(){
         const { users, todos } = this.state;    
@@ -80,7 +78,10 @@ class AjaxCall extends Component{
                                             <td>{user.username}</td>
                                             <td>{user.email}</td>
                                             <td>{user.address.street}, {user.address.city}</td>
-                                            <td><button className="btn btn-sm btn-danger" onClick={this.deleteRow.bind(this, user.id)}>Delete</button></td>                                        
+                                            <td>
+                                                <button className="btn btn-sm btn-danger"
+                                                onClick={this.deleteRow.bind(this, user.id)}>Delete</button>
+                                             </td>                                        
                                         </tr>
                                     )}                                    
                                     </tbody>
@@ -93,10 +94,10 @@ class AjaxCall extends Component{
                         <div className="contentBlock">
                             <h2>Component Will Mount </h2>
                             <form onSubmit ={(e) => {
-                                todos.push(this.refs.addTodo.value);
+                              this.refs.addTodo.value.length > 0 ?  todos.push(this.refs.addTodo.value) : alert('Enter the Value ');
                                 e.preventDefault();
-                                this.setState({ todos })
-                                this.refs.addTodo.value = "";                               
+                                this.setState({ todos });
+                                this.refs.addTodo.value = ""                         
                             }}>
                                 <input type="text" className="form-control" ref="addTodo"/>
                                 <button type="submit" className="btn btn-warning btn-sm">Add Todo</button>
@@ -105,8 +106,6 @@ class AjaxCall extends Component{
                         </div>
                     </div>
                 </div>
-
-                
             </div>            
         );
     }

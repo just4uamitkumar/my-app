@@ -251,12 +251,10 @@ padding: 0.5rem 0.85rem; font-size: 16px; cursor: pointer;}
 .tab-list-active {background: #FFF; border: solid #ccc; border-width: 1px 1px 0 1px;}
 .tab-content{padding: 10px 0;}
 
-
 /*------| ATM APP |-----*/
 .btnBlock{margin:10px 0;}
 .cashResult ul{font-size: 0; border-top:1px solid #ddd; margin: 10px 0;}
 .cashResult ul li{display: inline-block; width: 45%; padding: 7px 5px; font-size: 15px;border-bottom: 1px solid #ddd;}
-
 
 /*------| ATM APP |-----*/
 .Jokes, .product{padding: 10px 0; margin: 0 0 15px; border-bottom: 1px solid #ddd;}
@@ -312,4 +310,11 @@ left: calc(50% - 8px); position: absolute; width: 0}
   .calculatorBody button {width: calc(23% - 10px); height: 40px;
   font-size: 20px;  margin: 8px;  background: #269e4b;   border: 2px solid #0e6f2b;
     box-shadow: 4px 4px 10px rgba(255,255,255,0.3) inset; }
+
+/*--------| Camera Tip  |-------*/
+.CameraItem{margin: 0 0 18px; padding: 10px 0px 0; background: #c1c0c0;
+  box-shadow: 0 6px 10px #5a5959; color: #000;}
+.CameraItem h3{padding:0 10px;}
+.CameraItem h3 p{font-weight: 400;}
+.CameraItem .bottom{padding:5px 10px 10px;}
 

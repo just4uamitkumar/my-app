@@ -57,7 +57,6 @@ class Home extends React.Component {
         }
         return true;
     }
-
     
 	render() {
 		return (
@@ -81,8 +80,7 @@ class Home extends React.Component {
                             <ul className="HomeLink">{
                                 this.state.HomeLinksB.map((Homelink, index) => {
                                     return <HomelistB key={Homelink.city}  index={index}
-                                        id={Homelink.index}
-                                        city={Homelink.city} stateName={Homelink.stateName}                                        
+                                    id={Homelink.index} city={Homelink.city} stateName={Homelink.stateName}                                        
                                     />
                                 })
                             }                            
@@ -93,22 +91,22 @@ class Home extends React.Component {
 
                 <div className="clearfix col-3">
                     <div className="contentBlock">
-                            <h2>Using Forms</h2>
-                            <div className="form-group">
-                                <input className="form-control" type="text" value={this.state.data}
-                                onChange={this.updateState.bind(this)} ref='myText'/>
-                                <button className="btn btn-primary btn-sm" onClick={this.clearInput}>
-                                    Clear
-                                </button>
-                                <p>{this.state.data}</p>
-                            </div>
+                        <h2>Using Forms</h2>
+                        <div className="form-group">
                             <input className="form-control" type="text" value={this.state.data}
-                            readOnly/>                       
-                            <p>{this.state.data.split('')}</p>
-                            <input className="form-control" type="text" value={this.state.data.split('').reverse()}
-                            readOnly/>
-                            <p>{this.state.data.split('').reverse()}</p>                            
+                            onChange={this.updateState.bind(this)} ref='myText'/>
+                            <button className="btn btn-primary btn-sm" onClick={this.clearInput}>
+                                Clear
+                            </button>
+                            <p>{this.state.data}</p>
                         </div>
+                        <input className="form-control" type="text" value={this.state.data}
+                        readOnly />
+                        <p>{this.state.data.split('')}</p>
+                        <input className="form-control" type="text" value={this.state.data.split('').reverse()}
+                        readOnly />
+                        <p>{this.state.data.split('').reverse()}</p>                            
+                    </div>
                 </div>
 
                 <div className="col-3">

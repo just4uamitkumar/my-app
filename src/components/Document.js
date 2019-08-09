@@ -24,7 +24,7 @@ class Document extends Component{
            emps:[{id:101, firstname:'Paul', lastname:'Singh', salary:5000},
                {id:102, firstname:'Sam', lastname:'Kr',  salary:2000},
                {id:103, firstname:'Sid', lastname:'Loco',  salary:2500},
-               {id:109, firstname:'John', lastname:'Dingo',  salary:5000},
+               {id:104, firstname:'John', lastname:'Dingo',  salary:5000},
                {id:105, firstname:'Alice', lastname:'Kim',  salary:4000}],           
            Docs:[{name: 'Document 1', completed:false},
                 {name: 'Document 2', completed:false},
@@ -39,7 +39,6 @@ class Document extends Component{
     delEmp = (index) => {
         const copyemps = this.state.emps.filter(emp => emp.id !== index );        
         this.setState({emps:copyemps});
-        console.log(copyemps)
     }    
 
     changeStatus(index){ 
