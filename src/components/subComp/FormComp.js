@@ -69,7 +69,7 @@ function FormComp(props){
                                 </label>
                                 <label className="col-3">
                                     <input type="checkbox" name="isLactoseFree" onChange={props.handleChange}
-                                    checked={props.data.isLactoseFree} /> Lactose Free?
+                                    checked={props.data.isLactoseFree} /> Lactose Free ?
                                 </label>                     
                             </div>
                             
@@ -92,7 +92,7 @@ function FormComp(props){
                          <p>Name : {props.data.firstName} {props.data.lastName}</p>
                          <p>Age : {props.data.age}</p>
                          <p>Gender : {props.data.gender}</p>
-                         <p>Destination : {props.data.destination.option}</p>
+                         <p>Destination : {props.data.destination}</p>
                          <p>Your Dietry Restriction : 
                             {props.data.isVegan ? "Yes " : "No "} 
                             {props.data.isKosher ? "Yes " : "No "}

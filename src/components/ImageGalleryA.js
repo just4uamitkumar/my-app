@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AnimalCard from './subComp/AnimalCard';
 import NatureCard from './subComp/NatureCard';
+import CameraCard from './subComp/CameraCard';
+import axios from 'axios';
 
 class ImageGalleryA extends Component{
 
@@ -8,12 +10,23 @@ class ImageGalleryA extends Component{
         super(props )        
         this.state = {
            title : 'Image Gallery' ,
-           titleA : 'Animal Gallery',
-           titleB : 'Nature Gallery'
+           titleA : 'Animal',
+           titleB : 'Nature',
+           titleC : 'Camera',
+           cameras:[],
         }       
     }
 
+    componentDidMount() {
+        axios.get(`./gallery.json`)
+          .then(res => {
+            const cameras = res.data;
+            this.setState({ cameras });
+          });
+    }
+
     render(){
+        const { cameras } = this.state
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -57,6 +70,21 @@ class ImageGalleryA extends Component{
                         />
                     </div>
                 </div>
+
+                <div className="contentBlock clearfix">
+                    <h2>{this.state.titleC} </h2>
+                    <div className="gallery row">                    
+                       {
+                            cameras.map((e, index) => {
+                            return <CameraCard key={e.name} index={index}
+                                name={e.name} imgSrc={e.imgSrc} resolution={e.resolution}  
+                                displaySize={e.displaySize} price={e.price}                    
+                            />
+                            }) 
+                        }                     
+                    </div>
+                </div>
+
             </div>
         )
     }

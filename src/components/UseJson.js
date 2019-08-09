@@ -36,7 +36,7 @@ class UseJson extends Component{
                     <div className="contentBlock">
                         <h2>First Name</h2>                        
                         <ul className="DocsListA">
-                            { datas.map((e, index) => <li key={index + 1}> {(index) + 1} : {e.firstname}</li>)}
+                            { datas.map((e, index) => <li key={index + 1}> {(index) + 1} -:- {e.firstname}</li>)}
                         </ul>
                     </div>                                                                                                  
                 </div>

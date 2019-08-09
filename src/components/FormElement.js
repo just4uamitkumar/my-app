@@ -20,7 +20,7 @@ class FormElement extends Component{
     }
 
     handleChange(event){
-        const {name, value, type, checked }= event.target
+        const {name, value, type, checked } = event.target
         type === 'checkbox' ?
         this.setState({
             [name]: checked

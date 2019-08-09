@@ -1,0 +1,18 @@
+[
+    {"name":"Canon PowerShot SX430 IS", "resolution":"20", "price": 11499, 
+        "displaySize":"3", "imgSrc":"../images/camera/cannon1.jpg"},
+    {"name":"Sony CyberShot DSC-HX400V/CIN5", "resolution":"20.4", "price": 22999, 
+        "displaySize":"2.5", "imgSrc":"../images/camera/sony1.jpg"},
+    {"name":"Sony CyberShot DSC-W810/BC IN5", "resolution":"20.1", "price": 6199, 
+        "displaySize":"3.1", "imgSrc":"../images/camera/sony2.jpg"},
+    {"name":"Sony CyberShot DSC-W800/BC IN5", "resolution":"20.1", "price": 5699, 
+        "displaySize":"3", "imgSrc":"../images/camera/sony3.jpg"},
+    {"name":"Canon PowerShot SX540 HS", "resolution":"20.3", "price": 18450, 
+        "displaySize":"3", "imgSrc":"../images/camera/cannon2.jpg"},
+    {"name":"Nikon COOLPIX B500", "resolution":"16",  "price": 11499, 
+        "displaySize":"3", "imgSrc":"../images/camera/nikon.jpg"},   
+    {"name":"Olympus TG-5", "resolution":"12", "price": 25699, 
+        "displaySize":"3", "imgSrc":"../images/camera/olympus.jpg"},
+    {"name":"Panasonic Lumix DMC-FZ2500GA", "resolution":"20.1", "price": 59999, 
+        "displaySize":"3.2", "imgSrc":"../images/camera/panasonic.jpg"}
+]

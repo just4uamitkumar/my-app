@@ -23,10 +23,7 @@ class AxiosCallC extends Component{
         fetch('https://swapi.co/api/people/1')
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    loading:false,
-                    character:data
-                })
+                this.setState({ loading:false, character:data})
         })         
     }
 
@@ -38,6 +35,8 @@ class AxiosCallC extends Component{
 
     render(){
         const text = this.state.loading ? 'Loading...' : this.state.character.name;
+        const myDate = new Date(this.state.persons.dob);
+
         return(
             <div className="content">
                 <div className="pageHeader">
@@ -68,7 +67,7 @@ class AxiosCallC extends Component{
                                                 <td>{person.name}</td>
                                                 <td>{person.email}</td>
                                                 <td>{person.phone}</td>                                                
-                                                <td>{person.dob}</td>
+                                                <td>{myDate.getDate()+'-' + ("0" + (myDate.getMonth() + 1)).slice(-2) + '-'+ myDate.getFullYear()}</td>
                                                 <td>{person.designation}</td>                                               
                                                 <td>
                                                     <button type="button" className="btn btn-danger btn-sm" 
