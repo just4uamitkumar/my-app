@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Prompt} from 'react-router-dom';
+import uuid from 'uuid';
 
 class FormValid extends Component{ 
     constructor(){
@@ -9,7 +10,12 @@ class FormValid extends Component{
             isActive:false,
             fields: {},
             errors: {},
-            startDate: new Date()
+            startDate: new Date(),
+            members :[{id:uuid(), name:'David', phone:'9268488205', birthdate:'9-11-1984', design:'PHP Developer'},
+            {id:uuid(), name:'Bob Zirol', phone:'7485968747', birthdate:'12-21-1982', design:'Data Entry Operator'},
+            {id:uuid(), name:'Mark Litchen', phone:'943596742', birthdate:'4-15-1982', design:'HTML Developer'},
+            {id:uuid(), name:'Alley Camelot', phone:'528968747', birthdate:'3-08-1985', design:'PHP Developer'},
+            {id:uuid(), name:'Johnathan', phone:'9435848805', birthdate:'7-26-1984', design:'DotNet Developer'}]
         }       
     }
 
@@ -73,9 +79,18 @@ class FormValid extends Component{
     handleSubmit(e){
         e.preventDefault();
         if(this.handleValidation()){
-           // this.submitModal(); 
             alert("Form Filled successfully."); 
-            //alert(this.state.fields['birthdate'])         
+
+            const name = document.MyForm.name.value;
+            const phone = document.MyForm.phone.value;
+            const birthdate = document.MyForm.birthdate.value;
+            const design = document.MyForm.design.value;
+            if ( name || phone || birthdate || design) {
+                this.setState(state => ({
+                    members: [...state.members,
+                    { id: uuid(), name, phone, birthdate, design }]
+                }));
+            }                     
         }
         else{
            alert("Please fill the required fields.");          
@@ -92,6 +107,11 @@ class FormValid extends Component{
         fields[field] = e.target.value;
         this.setState({fields});       
     }
+
+    removeMember(index){
+        const filtered = this.state.members.filter(member => member.id !== index )
+        this.setState({members:filtered}) 
+    }
     
     render(){
       
@@ -101,63 +121,104 @@ class FormValid extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-4">
-                    <div className="contentBlock">
-                        <h2>Form Element</h2>
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <Prompt
-                                when={!!this.state.name}
-                                message="Are you sure you want to leave?"
-                            />
-                            <div className="form-group" >
-                                <label>Name</label>
-                                <input type="text" ref="name" 
-                                    placeholder="Enter Name" 
-                                    onChange={this.handleChange.bind(this, "name")}
-                                    value={this.state.fields["name"] || ''}
-                                    className="form-control" />
-                                <span style={{color: "red"}}>{this.state.errors["name"]}</span>
-                            </div>
-                            <div className="form-group" >
-                                <label>Phone</label>
-                                <input type="text" ref="phone" 
-                                    placeholder="Enter Contact No." 
-                                    onChange={this.handleChange.bind(this, "phone")}
-                                    value={this.state.fields["phone"] || ''}
-                                    className="form-control" />
-                                <span style={{color: "red"}}>{this.state.errors["phone"]}</span>
-                            </div>
+                <div className="row">
 
-                            <div className="form-group" >
-                                <label>Date Of Birth</label>
-                                <input type="text" ref="birthdate" 
-                                    placeholder="Enter Date of Birth" 
-                                    onChange={this.handleChange.bind(this, "birthdate")}
-                                    value={this.state.fields["birthdate"] || ''}
-                                    className="form-control"    />
-                                <span style={{color: "red"}}>{this.state.errors["birthdate"]}</span>
-                            </div>
-                            <div className="form-group" >
-                                <label>Designation</label>                                
-                                 <select onChange={this.handleChange.bind(this, 'design')}
-                                    value={this.state.fields['design'] || ''}
-                                    className="form-control">
-                                        <option value="-1">Select your Designation</option>
-                                        <option value="1">Data Entry Operator</option>
-                                        <option value="2">PHP Developer</option>
-                                        <option value="3">HTML Developer</option>
-                                        <option value="4">DotNet Developer</option>
-                                </select>                              
-                                <span style={{color: "red"}}>{this.state.errors["design"]}</span>
-                            </div>
-                            
-                            <div className="form-group text-right">
-                                <button type="reset" className="btn btn-warning"> Reset</button>
-                                <button type="submit" className="btn btn-primary">Submit</button>                               
-                            </div>
-                        </form>                        
+                    <div className="col-4">
+                        <div className="contentBlock">
+                            <h2>Form Element</h2>
+                            <form name="MyForm" onSubmit={this.handleSubmit.bind(this)}>
+                                <Prompt
+                                    when={!!this.state.name}
+                                    message="Are you sure you want to leave?"
+                                />
+                                <div className="form-group" >
+                                    <label>Name</label>
+                                    <input type="text"
+                                        placeholder="Enter Name" name="name"
+                                        onChange={this.handleChange.bind(this, "name")}
+                                        value={this.state.fields["name"] || ''}
+                                        className="form-control" />
+                                    <span style={{color: "red"}}>{this.state.errors["name"]}</span>
+                                </div>
+                                <div className="form-group" >
+                                    <label>Phone</label>
+                                    <input type="text" 
+                                        placeholder="Enter Contact No."  name="phone"
+                                        onChange={this.handleChange.bind(this, "phone")}
+                                        value={this.state.fields["phone"] || ''}
+                                        className="form-control" />
+                                    <span style={{color: "red"}}>{this.state.errors["phone"]}</span>
+                                </div>
+
+                                <div className="form-group" >
+                                    <label>Date Of Birth</label>
+                                    <input type="text"
+                                        placeholder="Enter Date of Birth"  name="birthdate"
+                                        onChange={this.handleChange.bind(this, "birthdate")}
+                                        value={this.state.fields["birthdate"] || ''}
+                                        className="form-control"    />
+                                    <span style={{color: "red"}}>{this.state.errors["birthdate"]}</span>
+                                </div>
+                                <div className="form-group" >
+                                    <label>Designation</label>                                
+                                    <select onChange={this.handleChange.bind(this, 'design')}
+                                        value={this.state.fields['design'] || ''}
+                                        className="form-control"  name="design">
+                                            <option value="Select your Designation">Select your Designation</option>
+                                            <option value="Data Entry Operator">Data Entry Operator</option>
+                                            <option value="PHP Developer">PHP Developer</option>
+                                            <option value="HTML Developer">HTML Developer</option>
+                                            <option value="DotNet Developer">DotNet Developer</option>
+                                    </select>                              
+                                    <span style={{color: "red"}}>{this.state.errors["design"]}</span>
+                                </div>
+                                
+                                <div className="form-group text-right">
+                                    <button type="reset" className="btn btn-warning"> Reset</button>
+                                    <button type="submit" className="btn btn-primary">Submit</button>                               
+                                </div>
+                            </form>                        
+                        </div>
                     </div>
-               </div>                                             
+
+                    <div className="col-8">
+                        <div className="contentBlock">
+                            <h2>Member List</h2>
+                            <div className="table-responsive">
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Phone No.</th>
+                                            <th>Date of Birth</th>
+                                            <th>Designation</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            {this.state.members.map((e) =>(
+                                                <tr key={e.id}>
+                                                    <td>{'#'}</td>
+                                                    <td>{e.name}</td>
+                                                    <td>{e.phone}</td>
+                                                    <td>{e.birthdate}</td>
+                                                    <td>{e.design}</td>
+                                                    <td><button className="btn btn-sm btn-danger"
+                                                     onClick={this.removeMember.bind(this, e.id)}
+                                                    >Delete</button></td>
+                                                </tr>
+                                            ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+                </div>
+
+                                                             
             </div>        
         );
     }
