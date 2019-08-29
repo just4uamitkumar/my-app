@@ -115,85 +115,89 @@ class FormValidation extends Component{
                         <h2>Form Element</h2>                       
                         <form name="contactform" onSubmit= {this.formFilled.bind(this)}>
                             
-                            <div className="form-group" >
-                                <div className="col-6">
-                                    <label>Name</label>
-                                    <input type="text" ref="name" 
-                                        placeholder="Enter Name" 
-                                        onChange={this.handleChange.bind(this, "name")}
-                                        value={this.state.fields["name"] || ''}
-                                        className="form-control"
-                                    />
-                                    <span style={{color: "red"}}>{this.state.errors["name"]}</span>
-                                </div>
+                            <div className="form-group">
+                                <div className="row">
+                                    <div className="col-6">
+                                        <label>Name</label>
+                                        <input type="text" ref="name" 
+                                            placeholder="Enter Name" 
+                                            onChange={this.handleChange.bind(this, "name")}
+                                            value={this.state.fields["name"] || ''}
+                                            className="form-control"
+                                        />
+                                        <span style={{color: "red"}}>{this.state.errors["name"]}</span>
+                                    </div>
 
-                                <div className="col-6">
-                                    <label>Email</label>
-                                    <input type="text" ref="mail" 
-                                        placeholder="Enter Email"
-                                        onChange={this.handleChange.bind(this, "email")}
-                                        value={this.state.fields["email"] || ''}
-                                        className="form-control"
-                                    />
-                                    <span style={{color: "red"}}>{this.state.errors["email"]}</span>
-                                </div>                                
+                                    <div className="col-6">
+                                        <label>Email</label>
+                                        <input type="text" ref="mail" 
+                                            placeholder="Enter Email"
+                                            onChange={this.handleChange.bind(this, "email")}
+                                            value={this.state.fields["email"] || ''}
+                                            className="form-control"
+                                        />
+                                        <span style={{color: "red"}}>{this.state.errors["email"]}</span>
+                                    </div>
+                                </div>                                                                
                             </div>
 
-                            <div className="form-group" >
-                                <div className="col-6">
-                                    <label>Phone</label>
-                                    <input type="text" ref="phone"
-                                        placeholder="Enter Phone"
-                                        onChange={this.handleChange.bind(this, 'phone')}
-                                        value={this.state.fields['phone'] || ''}
-                                        className="form-control"
-                                    />
-                                    <span style={{color: "red"}}>{this.state.errors["phone"]}</span>
-                                </div>
+                            <div className="form-group">
+                                <div className="row">
+                                    <div className="col-6">
+                                        <label>Phone</label>
+                                        <input type="text" ref="phone"
+                                            placeholder="Enter Phone"
+                                            onChange={this.handleChange.bind(this, 'phone')}
+                                            value={this.state.fields['phone'] || ''}
+                                            className="form-control"
+                                        />
+                                        <span style={{color: "red"}}>{this.state.errors["phone"]}</span>
+                                    </div>
 
-                                <div className="col-6">
-                                    <label>Date Of Birth</label>
-                                    <input type="text"
-                                        placeholder="Date of Birth"
-                                        onChange={this.handleChange.bind(this, 'dob')}
-                                        value={this.state.fields['dob'] || ''}
-                                        className="form-control"
-                                    />
-                                   
-                                    <span style={{color: "red"}}>{this.state.errors["dob"]}</span>
-                                </div>
+                                    <div className="col-6">
+                                        <label>Date Of Birth</label>
+                                        <input type="text"
+                                            placeholder="Date of Birth"
+                                            onChange={this.handleChange.bind(this, 'dob')}
+                                            value={this.state.fields['dob'] || ''}
+                                            className="form-control"
+                                        />                                   
+                                        <span style={{color: "red"}}>{this.state.errors["dob"]}</span>
+                                    </div>
+                                </div>                                
                             </div>
                             
 
-                            <div className="form-group" >
-                                <div className="col-6">
-                                    <label>Designation</label>
-                                    <input type="text" 
-                                        placeholder="Designation"
-                                        onChange={this.handleChange.bind(this, 'design')}
-                                        value={this.state.fields['design'] || ''}
-                                        className="form-control"
-                                    />
-                                    <span style={{color: "red"}}>{this.state.errors["design"]}</span>
-                                </div>
+                            <div className="form-group">
+                                <div className="row">
+                                    <div className="col-6">
+                                        <label>Designation</label>
+                                        <input type="text" 
+                                            placeholder="Designation"
+                                            onChange={this.handleChange.bind(this, 'design')}
+                                            value={this.state.fields['design'] || ''}
+                                            className="form-control"
+                                        />
+                                        <span style={{color: "red"}}>{this.state.errors["design"]}</span>
+                                    </div>
 
-                                <div className="col-6">
-                                    <label>City</label>                                    
-                                    <select onChange={this.handleChange.bind(this, 'city')}
-                                        value={this.state.fields['city'] || ''}
-                                        className="form-control"
-                                    >
-                                        <option value="-1">Select your city</option>
-                                        <option value="dl">Delhi</option>
-                                        <option value="jai">Jaipur</option>
-                                        <option value="mn">Manali</option>
-                                        <option value="mt">Mathura</option>
-                                    </select>
-                                    <span style={{color: "red"}}>{this.state.errors["city"]}</span>
-                                </div>                                 
+                                    <div className="col-6">
+                                        <label>City</label>                                    
+                                        <select onChange={this.handleChange.bind(this, 'city')}
+                                            value={this.state.fields['city'] || ''}
+                                            className="form-control"
+                                        >
+                                            <option value="-1">Select your city</option>
+                                            <option value="dl">Delhi</option>
+                                            <option value="jai">Jaipur</option>
+                                            <option value="mn">Manali</option>
+                                            <option value="mt">Mathura</option>
+                                        </select>
+                                        <span style={{color: "red"}}>{this.state.errors["city"]}</span>
+                                    </div>
+                                </div>                                                                 
                             </div>
-
-                            <div className="clearfix"></div>
+                           
 
                             <div className="form-group text-right">
                                 <div className="col-12">
@@ -206,11 +210,9 @@ class FormValidation extends Component{
                                 </div>                                                               
                             </div>
                         </form> 
-                        <p>{this.state.fields["name"]}</p> 
-                                                 
+                        <p>{this.state.fields["name"]}</p>
                     </div>
-               </div>
-                
+               </div>                
             </div>        
         );
     }

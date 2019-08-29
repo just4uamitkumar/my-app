@@ -45,40 +45,40 @@ class MemeGenerator extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-3">
-                    <div className="contentBlock clearfix">
-                        <h2>Meme Form</h2>
+                <div className="row">
+                    <div className="col-3">
+                        <div className="contentBlock clearfix">
+                            <h2>Meme Form</h2>
 
-                        <form className="meme-form" onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <input  type="text" name="topText" placeholder="Top Text"
-                                    value={this.state.topText} onChange={this.handleChange}
-                                    className="form-control" />
+                            <form className="meme-form" onSubmit={this.handleSubmit}>
+                                <div className="form-group">
+                                    <input  type="text" name="topText" placeholder="Top Text"
+                                        value={this.state.topText} onChange={this.handleChange}
+                                        className="form-control" />
+                                </div>
+                                <div className="form-group">
+                                    <input  type="text" name="bottomText" placeholder="Bottom Text"
+                                        value={this.state.bottomText} onChange={this.handleChange}
+                                        className="form-control" />
+                                </div>
+                                <div className="form-group">                        
+                                    <button className="btn btn-primary btnBlock">Gen</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div className="col-4">
+                        <div className="contentBlock clearfix">
+                            <div className="meme  text-center">
+                                <h2 className="top">{this.state.topText}</h2>
+                                <img src={this.state.randomImg} alt="" className="imgFull" />
+                                <h2 className="bottom">{this.state.bottomText}</h2>
                             </div>
-                            <div className="form-group">
-                                <input  type="text" name="bottomText" placeholder="Bottom Text"
-                                    value={this.state.bottomText} onChange={this.handleChange}
-                                    className="form-control" />
-                            </div>
-                            <div className="form-group">                        
-                                <button className="btn btn-primary btnBlock">Gen</button>
-                            </div>
-                        </form>
+                        </div>                    
                     </div>
                 </div>
-
-                 <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <div className="meme  text-center">
-                            <h2 className="top">{this.state.topText}</h2>
-                            <img src={this.state.randomImg} alt="" className="imgFull" />
-                            <h2 className="bottom">{this.state.bottomText}</h2>
-                        </div>
-                    </div>                    
-                </div>
             </div>
-
-                
         );
     }
 }

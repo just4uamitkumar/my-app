@@ -24,7 +24,6 @@ class ExternalContent extends Component{
            todos: todosData
         }
     }
-
     
     handleChange(id) {
         this.setState(prevState => {
@@ -47,26 +46,28 @@ class ExternalContent extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <h2>{this.state.titleA} </h2>
-                        {jokeComponents}
+                <div className="row">
+                    <div className="col-4">
+                        <div className="contentBlock clearfix">
+                            <h2>{this.state.titleA} </h2>
+                            {jokeComponents}
+                        </div>
                     </div>
-                </div>
 
-                <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <h2>{this.state.titleB} </h2>
-                        {productComponent}
+                    <div className="col-4">
+                        <div className="contentBlock clearfix">
+                            <h2>{this.state.titleB} </h2>
+                            {productComponent}
+                        </div>
                     </div>
-                </div>
 
-                <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <h2>{this.state.titleC} </h2>
-                        {todoItems}
+                    <div className="col-4">
+                        <div className="contentBlock clearfix">
+                            <h2>{this.state.titleC} </h2>
+                            {todoItems}
+                        </div>
                     </div>
-                </div>               
+                </div>        
             </div>
         )
     }

@@ -212,13 +212,9 @@ class FormValid extends Component{
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                        
-                    </div>
-                
-                </div>
-
-                                                             
+                        </div>                        
+                    </div>                
+                </div>                                      
             </div>        
         );
     }

@@ -62,74 +62,75 @@ class Document extends Component{
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
                 </div>
-                
-                <div className="col-4 clearfix">
-                    <div className="contentBlock">
-                        <h2>Import Data</h2>                    
-                        <table className="table table-spriped">
-                            <thead>
-                                <tr>
-                                    <th>ID 
-                                        <button type="button" className="btn btn-default btn-sm">
-                                            <FaAngleDown/>
-                                        </button>
-                                    </th>
-                                    <th>First Name
-                                        <button type="button" className="btn btn-default btn-sm"
-                                         onClick={emp => this.onSort(emp, 'firstname')}>
-                                            <FaAngleDown/>
-                                        </button>
-                                    </th>
-                                    <th>Last Name
-                                        <button type="button" className="btn btn-default btn-sm">
-                                            <FaAngleDown/>
-                                        </button>
-                                    </th>
-                                    <th>Salary
-                                        <button type="button" className="btn btn-default btn-sm">
-                                            <FaAngleDown/>
-                                        </button>
-                                    </th>
-                                    <th>Action
-                                        <button type="button" className="btn btn-default btn-sm">
-                                            <FaAngleDown/>
-                                        </button>
-                                    </th>
-                                </tr>                            
-                            </thead>
-                            <tbody>
+
+                <div className="row">
+                    <div className="col-4 clearfix">
+                        <div className="contentBlock">
+                            <h2>Import Data</h2>                    
+                            <table className="table table-spriped">
+                                <thead>
+                                    <tr>
+                                        <th>ID 
+                                            <button type="button" className="btn btn-default btn-sm">
+                                                <FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>First Name
+                                            <button type="button" className="btn btn-default btn-sm"
+                                            onClick={emp => this.onSort(emp, 'firstname')}>
+                                                <FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>Last Name
+                                            <button type="button" className="btn btn-default btn-sm">
+                                                <FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>Salary
+                                            <button type="button" className="btn btn-default btn-sm">
+                                                <FaAngleDown/>
+                                            </button>
+                                        </th>
+                                        <th>Action
+                                            <button type="button" className="btn btn-default btn-sm">
+                                                <FaAngleDown/>
+                                            </button>
+                                        </th>
+                                    </tr>                            
+                                </thead>
+                                <tbody>
+                                    {
+                                        this.state.emps.map((emp) => {
+                                            return (
+                                            <Emp key={emp.id}
+                                                id={emp.id}
+                                                salary={emp.salary}
+                                                firstname={emp.firstname}
+                                                lastname={emp.lastname}
+                                                deleteEvent={this.delEmp.bind(this, emp.id)}
+                                            >
+                                            </Emp>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div className="col-3 clearfix">
+                        <div className="contentBlock">
+                            <ul className="DocsList">
                                 {
-                                    this.state.emps.map((emp) => {
-                                        return (
-                                        <Emp key={emp.id}
-                                            id={emp.id}
-                                            salary={emp.salary}
-                                            firstname={emp.firstname}
-                                            lastname={emp.lastname}
-                                            deleteEvent={this.delEmp.bind(this, emp.id)}
-                                        >
-                                        </Emp>
-                                        )
+                                    this.state.Docs.map((Doc, index) => {
+                                        return <DocsList details={Doc} key={Doc.name}
+                                        clickHandler={this.changeStatus} index={index} />
                                     })
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div className="col-3 clearfix">
-                    <div className="contentBlock">
-                        <ul className="DocsList">
-                            {
-                                this.state.Docs.map((Doc, index) => {
-                                    return <DocsList details={Doc} key={Doc.name}
-                                    clickHandler={this.changeStatus} index={index} />
-                                })
-                            }                            
-                        </ul>  
-                    </div>
-                </div>
-                
+                                }                            
+                            </ul>  
+                        </div>
+                    </div>                
+                </div>                
             </div>            
         );
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import logo from './../../logo.svg';
 import { FaBars, FaPowerOff } from 'react-icons/fa';
-import './../../App.css';
+import './../../App.scss';
 
 class Header extends React.Component {
 	constructor(props) {

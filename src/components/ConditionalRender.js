@@ -29,24 +29,25 @@ class ConditionalRender extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <h2>{this.state.titleA} </h2>
-                        <div>
-                            <Conditional isLoading={this.state.isLoading} />
+                <div className="row">
+                    <div className="col-4">
+                        <div className="contentBlock clearfix">
+                            <h2>{this.state.titleA} </h2>
+                            <div>
+                                <Conditional isLoading={this.state.isLoading} />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="col-4">
-                    <div className="contentBlock clearfix">
-                        <h2>{this.state.titleB} </h2>
-                        <div>
-                            {this.state.isLoading ? <h1>Loading...</h1> :  <ConditionalB />}                           
+                    <div className="col-4">
+                        <div className="contentBlock clearfix">
+                            <h2>{this.state.titleB} </h2>
+                            <div>
+                                {this.state.isLoading ? <h1>Loading...</h1> :  <ConditionalB />}                           
+                            </div>
                         </div>
                     </div>
-                </div>
-               
+                </div>               
             </div>
         )
     }
