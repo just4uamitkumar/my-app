@@ -8,13 +8,7 @@ class ToolTip extends Component{
         }
         //this.stateUp = this.stateUp.bind(this)          
     }
-
-    showTip() {
-       alert('')
-    }
-
     
-
     render(){        
       
         return(
@@ -43,11 +37,6 @@ class ToolTip extends Component{
                         </div>
                     </div>
                 </div>
-
-                   
-
-                    
-
 
             </div>
                 

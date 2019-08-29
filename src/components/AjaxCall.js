@@ -99,8 +99,10 @@ class AjaxCall extends Component{
                                 this.setState({ todos });
                                 this.refs.addTodo.value = ""                         
                             }}>
-                                <input type="text" className="form-control" ref="addTodo"/>
-                                <button type="submit" className="btn btn-warning btn-sm">Add Todo</button>
+                                <div className="form-group">
+                                    <input type="text" className="form-control" ref="addTodo"/>
+                                    <button type="submit" className="btn btn-warning btn-sm">Add Todo</button>
+                                </div>                                
                             </form>
                             <TodoItem todos={todos}/>
                         </div>

@@ -1,0 +1,41 @@
+
+.form-group{margin-bottom:10px;}
+.form-group label{font-weight: 700; padding: 0 0 6px; font-size: 15px; display:block}
+.control-label{ font-size: 1.1rem; display: block; padding: 0 0 5px;}
+.form-control {background-color: #fff; border: 1px solid #ddd; width:calc(100% - 16px);
+padding: 8px 10px; font-size: 1rem; margin:0 0 5px;}
+
+/*-----| Form |-----*/
+input.form-control, select.form-control{border:1px solid #ddd; padding: 5px 7px;}
+input.form-control + p{margin-top: 10px;}
+.input-group {position: relative; display: flex; flex-wrap: wrap; align-items: stretch;  width: 100%;}
+.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control,
+.input-group>.form-control-plaintext {position: relative; flex: 1 1 auto; width: 1%; margin-bottom: 0;}
+.input-group-append, .input-group-prepend {display: flex;}
+.input-group-append { margin-left: -1px;}
+.input-group-prepend {margin-right: -1px;}
+
+/*-----| Buttons |-----*/
+button:focus, a:focus{outline: 0;}
+.btn{ padding: 7px 20px; border-style:solid; color:$link-color;
+border-width: 0 0 2px; font-size:1rem; cursor: pointer; border-radius: 2px;}
+.btn + .btn{margin-left:10px; }
+.btn-block{width: 100%;}
+.btn:hover{box-shadow: 3px 3px 6px #000;}
+.btn-primary{border-color: #0e6b03;  background: #00901F;}
+.btn-primary:hover{background: #04A827;}
+.btn-warning{border-color: #CC9908;  background: #A97F05;}
+.btn-warning:hover{background: #837201;}
+.btn-danger{border-color: #B63B00;  background: #b52a00;}
+.btn-danger:hover{background: #BB4610;}
+.btn-default{background:none; border:0;}
+.btn-default:hover{box-shadow:none;}
+.btn.btn-sm{padding:4px 10px; font-size:0.8rem;}
+.btn.btn-xs{padding:3px 7px; font-size:0.6rem;}
+.btnBlock{width:100%;}
+.btn[disabled]{opacity: 0.7; pointer-events: none;}
+th .btn{display: inline-block; vertical-align: middle}
+
+
+::placeholder{font-size: 14px;}
+select option:first-child{color:#ddd;}

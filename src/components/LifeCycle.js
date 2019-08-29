@@ -54,39 +54,41 @@ class LifeCycle extends Component{
           <h1>{this.state.title} </h1>
         </div>
 
-        <div className="col-3">
-          <div className="contentBlock clearfix">        
-            <h2>Closure Example <button className="btn btn-sm btn-warning right" disabled>Clear All</button></h2>
+        <div className="row">
+          <div className="col-4">
+            <div className="contentBlock clearfix">        
+              <h2>Closure Example <button className="btn btn-sm btn-warning right" disabled>Clear All</button></h2>
 
-            <div className="colorTable clearfix">                        
-              <div className="table-responsive">
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Color</th>
-                      <th>Color Name</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      this.state.colorNames.map((colorName, index) => {
-                        return <tr key={colorName}>
-                          <td>
-                              <div className="color" data-color={this.state['colorvalue' + index]}></div>
-                              <button type="button" className="btn pickColorBtn"
-                               onClick={() => this.pickModal(index)}><FaEyeDropper/></button>                             
-                            </td>                      
-                            <td>{colorName}</td>
-                        </tr>;
-                      })
-                    }                  
-                  </tbody>
-                </table>
-              </div>
-              <button type="button" className="btn btn-primary right" disabled>
-                Finish
-              </button>
-            </div>  
+              <div className="colorTable clearfix">                        
+                <div className="table-responsive">
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Color</th>
+                        <th>Color Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        this.state.colorNames.map((colorName, index) => {
+                          return <tr key={colorName}>
+                            <td>
+                                <div className="color" data-color={this.state['colorvalue' + index]}></div>
+                                <button type="button" className="btn pickColorBtn"
+                                onClick={() => this.pickModal(index)}><FaEyeDropper/></button>                             
+                              </td>                      
+                              <td>{colorName}</td>
+                          </tr>;
+                        })
+                      }                  
+                    </tbody>
+                  </table>
+                </div>
+                <button type="button" className="btn btn-primary right" disabled>
+                  Finish
+                </button>
+              </div>  
+          </div>
         </div>
                                           
         </div>

@@ -1,0 +1,22 @@
+*{margin:0; padding: 0;}
+
+/*-----| Global Classes |-----*/
+.clearfix::after { content: ""; clear: both;  display: table;}
+button{box-shadow:none; cursor: pointer;}
+button:focus{outline: 0; box-shadow: none;}
+a:hover, a:focus, a{outline: 0; text-decoration: none;}
+li{list-style: none;}
+.relative{position: relative;}
+.text-center{text-align: center;}
+.text-right{text-align: right}
+.show{display: block !important;}
+.hide{display: none !important;}
+.left{float: left;}
+.right{float: right;}
+.clearfix::after {content: ""; clear: both; display: table;}
+.m-20{margin-top: 20px; margin-bottom: 20px;}
+.m-b-20{margin-bottom: 20px;}
+.form-control.w100px{width: 200px;}
+.imgFull{width:100%;}
+.text-White{color:#fff;}
+p{padding: 0 0 10px;}

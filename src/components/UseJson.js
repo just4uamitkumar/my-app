@@ -32,40 +32,42 @@ class UseJson extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>First Name</h2>                        
-                        <ul className="DocsListA">
-                            { datas.map((e, index) => <li key={index + 1}> {(index) + 1} -:- {e.firstname}</li>)}
-                        </ul>
-                    </div>                                                                                                  
-                </div>
-
-               <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Last Name</h2>                        
-                        <ul className="DocsListA">
-                            { datas.map((e, index) => <li key={index}>{e.lastname}</li>)}
-                        </ul>
-                    </div>                                                                                                  
-                </div>
+                <div className="row">
+                    <div className="col-3">
+                        <div className="contentBlock">
+                            <h2>First Name</h2>                        
+                            <ul className="DocsListA">
+                                { datas.map((e, index) => <li key={index + 1}> {(index) + 1} -:- {e.firstname}</li>)}
+                            </ul>
+                        </div>                                                                                                  
+                    </div>
 
                 <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Experience</h2>                        
-                        <ul className="DocsListA">
-                            { datas.map((e, index) => <li key={index}>{e.experience}</li>)}
-                        </ul>
-                    </div>                                                                                                  
-                </div>
+                        <div className="contentBlock">
+                            <h2>Last Name</h2>                        
+                            <ul className="DocsListA">
+                                { datas.map((e, index) => <li key={index}>{e.lastname}</li>)}
+                            </ul>
+                        </div>                                                                                                  
+                    </div>
 
-                <div className="col-3">
-                    <div className="contentBlock">
-                        <h2>Occupation</h2>                        
-                        <ul className="DocsListA">
-                            { datas.map((e, index) => <li key={index}>{e.occupatoin}</li>)}
-                        </ul>
-                    </div>                                                                                                  
+                    <div className="col-3">
+                        <div className="contentBlock">
+                            <h2>Experience</h2>                        
+                            <ul className="DocsListA">
+                                { datas.map((e, index) => <li key={index}>{e.experience}</li>)}
+                            </ul>
+                        </div>                                                                                                  
+                    </div>
+
+                    <div className="col-3">
+                        <div className="contentBlock">
+                            <h2>Occupation</h2>                        
+                            <ul className="DocsListA">
+                                { datas.map((e, index) => <li key={index}>{e.occupatoin}</li>)}
+                            </ul>
+                        </div>                                                                                                  
+                    </div>
                 </div>
             </div>            
         );

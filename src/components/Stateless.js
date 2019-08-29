@@ -63,26 +63,30 @@ class Stateless extends Component{
                     <h1>{this.state.title} </h1>
                 </div>
 
-                <div className="contentBlock">
-                    <h2>Use of Stateless Component</h2>
-                        <DocForm 
-                            currentTask={this.props.currentTask}
-                            updateTask={this.updateTask}
-                            addTask={this.addTask}
-                        />
+                <div className="row">
+                    <div className="col-4">
+                        <div className="contentBlock">
+                        <h2>Use of Stateless Component</h2>
+                            <DocForm 
+                                currentTask={this.props.currentTask}
+                                updateTask={this.updateTask}
+                                addTask={this.addTask}
+                            />
 
-                        <ul className="DocsList">{
-                            this.state.Docs.map((Doc, index) => {
-                                return <DocQue 
-                                details={Doc} 
-                                key={index}
-                                clickHandler={this.changeStatus} 
-                                index={index}
-                                deleteTask={this.deleteTask}
-                                editTask={this.editTask} />
-                            })
-                        }</ul>                          
-                </div>                
+                            <ul className="DocsList">{
+                                this.state.Docs.map((Doc, index) => {
+                                    return <DocQue 
+                                    details={Doc} 
+                                    key={index}
+                                    clickHandler={this.changeStatus} 
+                                    index={index}
+                                    deleteTask={this.deleteTask}
+                                    editTask={this.editTask} />
+                                })
+                            }</ul>                          
+                        </div>
+                    </div>
+                </div>        
             </div>            
         );
     }
