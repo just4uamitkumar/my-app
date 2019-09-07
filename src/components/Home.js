@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
 
-class HomeListA extends React.Component{
+class SoftApp extends React.Component{
     render(){        
         return (
-            <li><span>{this.props.index + 1} {this.props.detail}</span></li>
+            <li><span>{this.props.index + 1}-{this.props.detail}</span></li>
         )        
     }
 }
 
-class HomelistB extends React.Component{
+class CityApp extends React.Component{
     render(){
         return(
-            <li><span>{this.props.index + 1} : {this.props.city}  {this.props.stateName}</span></li>           
+            <li><span>{this.props.index + 1} : {this.props.city}-{this.props.stateName}</span></li>           
         )
     }
 }
@@ -25,9 +25,9 @@ class Home extends React.Component {
            title : 'Welcome to React Port',
            data : '',
            count:0,
-           HomeLinksA : ['Home List 1', 'Home List 2', 'Home List 3', 'Home List 4', 'Home List 5'],
-           HomeLinksB : [{city:'Ajmer', stateName:'Rajasthan'}, {city:'Dehradun', stateName:'Uttrakhand'},
-           {city:'Agra', stateName:'Uttar Pradesh'}, {city:'Mumbai', stateName:'Maharashtra'},]
+           softSkills : ['Photoshop', 'PageMaker', 'Illustrator', 'Indesign', 'Quark'],
+           CityList : [{city:'Ajmer', stateName:'Rajasthan'}, {city:'Dehradun', stateName:'Uttrakhand'},
+           {city:'Agra', stateName:'Uttar Pradesh'}, {city:'Mumbai', stateName:'Maharashtra'}]
            
         }        
         this.clearInput = this.clearInput.bind(this);       
@@ -44,9 +44,9 @@ class Home extends React.Component {
 
     incrementCount(){
         //this.setState({count: this.state.count + 1})
-        this.setState(preveState => {
+        this.setState(prevState => {
             return{
-                count:preveState.count + 1
+                count:prevState.count + 1
             }
         })
     }
@@ -65,7 +65,7 @@ class Home extends React.Component {
                     <h1>{this.state.title} </h1>
                     <div className="breadCrumb">
                         <ul>
-                            <li>Home</li>
+                            <li>{(window.location.href).replace('http://localhost:3000/', 'Home')}</li>
                         </ul>
                     </div>
                 </div>
@@ -77,17 +77,17 @@ class Home extends React.Component {
                             <p>We have an array values in a list.</p>
                             <div className="m-b-20">
                                 <ul className="HomeLink">{
-                                    this.state.HomeLinksA.map(function(HomeLink, index){
-                                        return <HomeListA detail={HomeLink} key={HomeLink} index={index} />
+                                    this.state.softSkills.map(function(skill, index){
+                                        return <SoftApp detail={skill} key={skill} index={index} />
                                     })
                                 }
                                 </ul>
                             </div>
                             <div>
                                 <ul className="HomeLink">{
-                                    this.state.HomeLinksB.map((Homelink, index) => {
-                                        return <HomelistB key={Homelink.city}  index={index}
-                                        id={Homelink.index} city={Homelink.city} stateName={Homelink.stateName}                                        
+                                    this.state.CityList.map((e, index) => {
+                                        return <CityApp key={e.city} index={index}
+                                        id={e.index} city={e.city} stateName={e.stateName}                                        
                                         />
                                     })
                                 }                            
@@ -107,22 +107,24 @@ class Home extends React.Component {
                                 </button>
                                 <p>{this.state.data}</p>
                             </div>
-                            <input className="form-control" type="text" value={this.state.data}
-                            readOnly />
-                            <p>{this.state.data.split('')}</p>
+                            <input className="form-control" type="text" value={this.state.data.split('')}
+                            readOnly />                           
                             <input className="form-control" type="text" value={this.state.data.split('').reverse()}
-                            readOnly />
-                            <p>{this.state.data.split('').reverse()}</p>                            
+                            readOnly />                                                      
                         </div>
                     </div>
 
                     <div className="col-3">
                         <div className="contentBlock clearfix">
                             <h2>Set State</h2>
-                            <p className="m-10">Value : {this.state.count}</p>
-                            <button className="btn-primary btn btn-sm" 
-                                onClick={this.incrementCount.bind(this)}>Count
-                            </button>
+                            <div className="form-group">
+                                <p className="m-10">Value : {this.state.count}</p>
+                                <button className="btn-primary btn btn-sm" 
+                                    onClick={this.incrementCount.bind(this)}>Count
+                                </button>
+                            </div>
+                            <p>Date validation in FormValid.js </p>
+                            <p>Recheck FormValidation and FormElement </p>
                         </div>
                     </div> 
                 </div>

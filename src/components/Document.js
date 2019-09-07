@@ -22,10 +22,10 @@ class Document extends Component{
         this.state = {    
            title : 'Our Documents',
            emps:[{id:101, firstname:'Paul', lastname:'Singh', salary:5000},
-               {id:102, firstname:'Sam', lastname:'Kr',  salary:2000},
-               {id:103, firstname:'Sid', lastname:'Loco',  salary:2500},
-               {id:104, firstname:'John', lastname:'Dingo',  salary:5000},
-               {id:105, firstname:'Alice', lastname:'Kim',  salary:4000}],           
+               {id:102, firstname:'Sam', lastname:'Kr', salary:2000},
+               {id:103, firstname:'Sid', lastname:'Loco', salary:2500},
+               {id:104, firstname:'John', lastname:'Dingo', salary:5000},
+               {id:105, firstname:'Alice', lastname:'Kim', salary:4000}],           
            Docs:[{name: 'Document 1', completed:false},
                 {name: 'Document 2', completed:false},
                 {name: 'Document 3', completed:false},
@@ -59,8 +59,14 @@ class Document extends Component{
     render(){      
         return(
             <div className="content">
+
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
+                    <div className="breadCrumb">
+                        <ul>
+                            <li>{(window.location.href).replace('http://localhost:3000/', '')}</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="row">

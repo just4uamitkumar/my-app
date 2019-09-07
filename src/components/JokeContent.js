@@ -8,7 +8,7 @@ class JokeContent extends Component{
         super(props )        
         this.state = {
            title : 'Joke Content' ,
-           titleA : 'Joke Contant without condition',
+           titleA : 'Joke Content without condition',
            titleB : 'Joke Content with condition'
         }
     }

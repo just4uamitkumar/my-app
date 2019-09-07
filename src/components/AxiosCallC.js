@@ -26,12 +26,11 @@ class AxiosCallC extends Component{
                 this.setState({ loading:false, character:data})
         })         
     }
+    
 
-    deleteEvent () {
-        
+    deleteEvent(){
+
     }
-
-   
 
     render(){
         const text = this.state.loading ? 'Loading...' : this.state.character.name;
@@ -41,10 +40,16 @@ class AxiosCallC extends Component{
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
+
+                    <div className="breadCrumb">
+                        <ul>
+                            <li>{(window.location.href).replace('http://localhost:3000/', '')}</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-8">
+                    <div className="col-6">
                         <div className="contentBlock">
                             <h2>Data</h2>
                             <div className="table-responsive">
@@ -85,7 +90,7 @@ class AxiosCallC extends Component{
                         </div>
                     </div>
                         
-                    <div className="col-4">
+                    <div className="col-3">
                         <div className="contentBlock">
                             <h2>Data</h2>
                             <div>{text}</div>

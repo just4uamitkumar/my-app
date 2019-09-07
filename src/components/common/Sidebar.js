@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaUmbrella, FaWpforms, FaBitcoin } from 'react-icons/fa';
+import {FaLeanpub, FaBullhorn, FaGlobe, FaGavel, FaUmbrella, FaWpforms, FaBitcoin, FaDelicious } from 'react-icons/fa';
 import { withRouter, Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
@@ -24,7 +24,8 @@ class Sidebar extends React.Component {
 			{path: '/MemeGenerator', label: 'MemeGenerator', icon:<FaBitcoin/>},
 			{path: '/UIFuncA', label: 'UIFuncA', icon:<FaBitcoin/>},
 			{path: '/ToolTip', label: 'ToolTip', icon:<FaBitcoin/>},
-			{path: '/Calculator', label: 'Calculator', icon:<FaBitcoin/>}			
+			{path: '/Calculator', label: 'Calculator', icon:<FaBitcoin/>},
+			{path: '/Game', label: 'Game', icon:<FaDelicious/>}
 		];
 		
 		return (
@@ -32,9 +33,7 @@ class Sidebar extends React.Component {
                <div className="sideNav">
 	                <ul>
 	                	{sidemenu.map(e => <li key={e.path}><Link to={e.path}>{e.icon} {e.label}</Link></li>)}
-	                </ul>
-
-									
+	                </ul>			
                </div>
             </div>
 		)

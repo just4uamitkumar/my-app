@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+//import empList from './empList.json'
 //https://stackoverflow.com/questions/41296668/reactjs-form-input-validation
 
 class FormValidation extends Component{ 
@@ -7,8 +9,17 @@ class FormValidation extends Component{
          this.state = {
           title:'Form Validation 2',
            fields: {},
-           errors: {}
+           errors: {},
+           employees:[]
        }
+    }
+
+    componentDidMount() {
+        axios.get(`./empList.json`)
+          .then(res => {
+            const employees = res.data;
+            this.setState({ employees });
+          });       
     }
           
     handleValidation(){
@@ -95,6 +106,8 @@ class FormValidation extends Component{
            alert("Please fill the required fields.")
         }
     }
+
+    
    
     handleChange(field, e){         
         let fields = this.state.fields;
@@ -210,9 +223,43 @@ class FormValidation extends Component{
                                 </div>                                                               
                             </div>
                         </form> 
-                        <p>{this.state.fields["name"]}</p>
                     </div>
-               </div>                
+               </div>
+
+             
+               <div className="contentBlock">
+               <div className="table-responsive">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Date of Birth</th>
+                                <th>Designation</th>
+                                <th>City</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.employees.map(emp =>
+                                <tr key={emp.id}>
+                                    <td>{emp.id}</td>
+                                    <td>{emp.name}</td>
+                                    <td>{emp.email}</td>
+                                    <td>{emp.phone}</td>
+                                    <td>{emp.dob}</td>
+                                    <td>{emp.designation}</td>
+                                    <td>{emp.city}</td>
+                                    <td></td>
+                                </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </div>
+               </div>
             </div>        
         );
     }
