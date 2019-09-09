@@ -90,13 +90,17 @@ class FormValid extends Component{
                     members: [...state.members,
                     { id: uuid(), name, phone, birthdate, design }]
                 }));
-            }                     
+            }
+            this.setState({
+                fields: {}
+            }); 
         }
         else{
            alert("Please fill the required fields.");          
         }
     }
 
+   
     componentWillUnmount() {
         alert('Do you want to change the page');
         console.log('Sayonara!');
@@ -152,8 +156,8 @@ class FormValid extends Component{
 
                                 <div className="form-group" >
                                     <label>Date Of Birth</label>
-                                    <input type="text"
-                                        placeholder="Enter Date of Birth"  name="birthdate"
+                                    <input type="date"
+                                        placeholder="Enter Date of Birth"  name="birthdate"                                        
                                         onChange={this.handleChange.bind(this, "birthdate")}
                                         value={this.state.fields["birthdate"] || ''}
                                         className="form-control"    />

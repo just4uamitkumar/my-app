@@ -17,7 +17,7 @@ class ExternalContent extends Component{
     constructor(props){
         super(props )        
         this.state = {
-           title : 'External Data' ,
+           title : 'External Data',
            titleA : 'Joke Contant from External File',
            titleB : 'Product Content from External File',
            titleC : 'ToDo Data from External File',

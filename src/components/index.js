@@ -21,3 +21,5 @@ export { default as MemeGenerator } from './MemeGenerator'
 export { default as UIFuncA } from './UIFuncA'
 export { default as ToolTip } from './ToolTip'
 export { default as Calculator } from './Calculator'
+export { default as Game } from './Game'
+

@@ -135,7 +135,7 @@ margin: 2px 0px 2px 18px; border-radius: 2px; box-shadow:0 1px 2px #4e4e4e;}
 
 /*-----| Table |-----*/
 .table-responsive{width: 100%; overflow-x: auto;}
-.table{width:100%; border-collapse: collapse; margin:0 0 10px;
+.table{width:100%; border-collapse: collapse; margin:0 0 10px; border-bottom: 2px solid #a7a7a7;
   thead{
     tr{
       th{text-align: left; background:#339c12; padding: 5px; color: #fff;}
@@ -287,3 +287,6 @@ left: calc(50% - 8px); position: absolute; width: 0}
 
 /*--------| Gallery  |-------*/
 .gallery{flex-wrap: wrap}
+
+/*--------| Game  |-------*/
+.square.btn{width: 50px; margin: 3px; min-height: 50px;}

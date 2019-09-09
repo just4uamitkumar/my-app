@@ -9,7 +9,7 @@ class ImageGalleryA extends Component{
     constructor(props){
         super(props )        
         this.state = {
-           title : 'Image Gallery' ,
+           title : 'Image Gallery',
            titleA : 'Animal',
            titleB : 'Nature',
            titleC : 'Camera',

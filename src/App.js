@@ -31,6 +31,7 @@ class App extends Component {
             <Route path="/UIFuncA" exact component={DefaultLayout} />
             <Route path="/ToolTip" exact component={DefaultLayout} />
             <Route path="/Calculator" exact component={DefaultLayout} />
+            <Route path="/Game" exact component={DefaultLayout} />            
             <Route path="/test/:id" exact component={DefaultLayout} />
           </Switch>
         </BrowserRouter>
