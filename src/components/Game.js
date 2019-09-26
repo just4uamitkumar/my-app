@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 function Square (props){   
     return(
         <button className="btn square btn-primary"
@@ -9,13 +10,10 @@ function Square (props){
     )   
 }
 
-class Board extends Component{    
-
+class Board extends Component{
     renderSquare(i){
         return( <Square value={this.props.squares[i]} 
-            onClick={ () => this.props.onClick(i) }
-        />
-        )
+            onClick={ () => this.props.onClick(i) }/>)
     }
 
     render(){
