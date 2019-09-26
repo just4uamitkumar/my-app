@@ -44,9 +44,9 @@ function FormComp(props){
                                 </div>
 
                                 <div className="form-group">                                                                  
-                                    <select value={props.data.destination} name="destinatioin"
+                                    <select value={props.data.destination} name="destination"
                                         onChange={props.handleChange} className="form-control">
-                                        <option value=""> Please Choose a destination </option>
+                                        <option value="-1"> Please Choose a destination </option>
                                         <option value="germany">Germany</option>
                                         <option value="norway">Norway</option>
                                         <option value="north pole">North Pole</option>
@@ -90,7 +90,7 @@ function FormComp(props){
                             <p>Name : {props.data.firstName} {props.data.lastName}</p>
                             <p>Age : {props.data.age}</p>
                             <p>Gender : {props.data.gender}</p>
-                            <p>Destination : {props.data.destination.value}</p>
+                            <p>Destination : {props.data.destination}</p>
                             <p>Your Dietry Restriction : 
                                 {props.data.isVegan ? "Yes " : "No "} 
                                 {props.data.isKosher ? "Yes " : "No "}
