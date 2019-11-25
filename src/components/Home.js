@@ -13,7 +13,7 @@ class SoftApp extends React.Component{
 class CityApp extends React.Component{
     render(){
         return(
-            <li><span>{this.props.index + 1} : {this.props.city}-{this.props.stateName}</span></li>           
+        <li><span>{this.props.index + 1} -:- {this.props.city}({this.props.stateName})</span></li>           
         )
     }
 }
@@ -27,9 +27,9 @@ class Home extends React.Component {
            count:0,
            softSkills : ['Photoshop', 'PageMaker', 'Illustrator', 'Indesign', 'Quark'],
            CityList : [{city:'Ajmer', stateName:'Rajasthan'}, {city:'Dehradun', stateName:'Uttrakhand'},
-           {city:'Agra', stateName:'Uttar Pradesh'}, {city:'Mumbai', stateName:'Maharashtra'}]
-           
-        }        
+           {city:'Agra', stateName:'Uttar Pradesh'}, {city:'Mumbai', stateName:'Maharashtra'}]           
+        }
+        
         this.clearInput = this.clearInput.bind(this);       
     }
 
@@ -71,7 +71,7 @@ class Home extends React.Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-8">
                         <div className="contentBlock clearfix">
                             <h2>Map Array </h2>
                             <p>We have an array values in a list.</p>
@@ -96,7 +96,7 @@ class Home extends React.Component {
                         </div>                                        
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-2">
                         <div className="contentBlock">
                             <h2>Using Forms</h2>
                             <div className="form-group clearfix">
@@ -114,7 +114,7 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-2">
                         <div className="contentBlock clearfix">
                             <h2>Set State</h2>
                             <div className="form-group">

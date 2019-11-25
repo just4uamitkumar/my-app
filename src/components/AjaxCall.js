@@ -99,7 +99,7 @@ class AjaxCall extends Component{
                     <div className="col-4">
                         <div className="contentBlock">
                             <h2>Component Will Mount </h2>
-                            <form onSubmit ={(e) => {
+                            <form onSubmit = {(e) => {
                               this.refs.addTodo.value.length > 0 ?  todos.push(this.refs.addTodo.value) : alert('Enter the Value ');
                                 e.preventDefault();
                                 this.setState({ todos });

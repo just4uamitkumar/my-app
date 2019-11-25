@@ -30,6 +30,12 @@ class UseJson extends Component{
             <div className="content">
                 <div className="pageHeader">
                     <h1>{this.state.title} </h1>
+
+                    <div className="breadCrumb">
+                        <ul>
+                            <li>{(window.location.href).replace('http://localhost:3000/', '')}</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="row">
