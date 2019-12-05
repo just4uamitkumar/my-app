@@ -45,7 +45,7 @@ class Stateless extends Component{
         console.log(index, newValue);
         var Docs = this.state.Docs;
         var Doc = Docs[index];
-        Doc['name']=newValue;
+        Doc['name'] = newValue;
         this.setState({ Docs})
     }
 
