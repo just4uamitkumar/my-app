@@ -15,17 +15,10 @@ class UIFuncA extends Component{
             count:0,
             posXA:0,
             posXB:660
-        }
-
-        this.stateUp = this.stateUp.bind(this)
-        this.stateDown = this.stateDown.bind(this)
-        this.moveLeftA = this.moveLeftA.bind(this)  
-        this.moveRightA = this.moveRightA.bind(this)
-        this.moveLeftB = this.moveLeftB.bind(this)  
-        this.moveRightB = this.moveRightB.bind(this)     
+        }    
     }
 
-    stateUp(){
+    stateUp = () => {
         const {techs, count} = this.state;
         const len = techs.length;       
         if (count < len-1) {
@@ -37,7 +30,7 @@ class UIFuncA extends Component{
         }       
     }
 
-    stateDown(){
+    stateDown = () => {
         const { count} = this.state;
         if (count > 0) {
 	    	
@@ -50,7 +43,7 @@ class UIFuncA extends Component{
      }
 
      
-    moveRightA(){
+    moveRightA = () => {
         this.state.posXA === 360 ? alert('You have moved enough to right') :
         this.setState(prevState => {
             return{
@@ -59,7 +52,7 @@ class UIFuncA extends Component{
         })
     }
 
-    moveLeftA(){
+    moveLeftA = () => {
         this.state.posXA === 0 ? alert('You have moved enough to left') :
         this.setState(prevState => {
             return{
@@ -68,7 +61,7 @@ class UIFuncA extends Component{
         })
     }
 
-    moveRightB(){
+    moveRightB = () => {
         this.state.posXB === 660 ? alert('You have moved enough to right') :
         this.setState(prevState => {
             return{
@@ -77,7 +70,7 @@ class UIFuncA extends Component{
         })
     }
 
-    moveLeftB(){
+    moveLeftB = () => {
         this.state.posXB === 330 ? alert('You have moved enough to left') :
         this.setState(prevState => {
             return{
@@ -93,7 +86,7 @@ componentDidMount() {
         return response.json();
       })
       .then(data => {
-        let teamsFromApi = data.map(team => { return {value: team.name, display: team.name} })
+        let teamsFromApi = data.map(e => { return {value: e.name, display: e.name} })
         this.setState({ teams: [{value: '', display: '(Select your favourite team)'}].concat(teamsFromApi) });
       }).catch(error => {
         console.log(error);
@@ -110,7 +103,7 @@ componentDidMount() {
                 </div>
 
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-4">
                         <div className="contentBlock clearfix">
                             <h2>Using Array</h2>                            
                             <div className="input-group">
@@ -131,7 +124,7 @@ componentDidMount() {
                         </div>
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-4">
                         <div className="contentBlock clearfix">
                             <h2>Using Array into Select Dropdown</h2>
                             <select className="form-control"
@@ -152,7 +145,7 @@ componentDidMount() {
                        
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-4">
                         <div className="contentBlock clearfix">
                             <h2>Using Array into Select Dropdown</h2>
                             <select className="form-control"
@@ -170,7 +163,7 @@ componentDidMount() {
                         </div>                      
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-9">
                         <div className="contentBlock clearfix">
                             <h2>Distance between two points :  {posXB - posXA}</h2>                           
                             <div className="rangeSlider">
